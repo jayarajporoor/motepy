@@ -266,52 +266,6 @@ function getRelExprAst(expr){
 	}
 }
 
-function getSyncExprAst(expr){
-	var ast = {src: src_info(expr)};
-	var sync = null;
-	
-	if(expr.AWAIT()){
-		sync = 'await';
-	}else
-	if(expr.SIGNAL()){
-		sync = 'signal';
-	}
-
-	var functionCall = expr.functionCall();
-
-	if(functionCall){
-		 ast = getFunctionCallAst(functionCall);
-		 ast.fcall.sync = sync;
-	}else {
-		ast.id = getId(expr);
-		ast.sync = sync;
-	}
-
-	return ast;
-
-}
-
-function getTupleExprAst(expr){
-	var ast = {src: src_info(expr)};
-	ast.texpr = getActualParams(expr.actualParams());
-	return ast;
-}
-
-function getToplevelExprAst(expr){
-	var ast;
-	var syncExpr = expr.syncExpr();
-	var tupleExpr = expr.tupleExpr();
-	var normalExpr = expr.expr();
-	if(syncExpr){
-		ast = getSyncExprAst(syncExpr);
-	}else if(tupleExpr){
-		ast = getTupleExprAst(tupleExpr);
-	}else
-	{
-		ast  = getExprAst(normalExpr);
-	}
-	return ast;
-}
 
 function getExprAst(expr){
 	var ast = {src: src_info(expr)};
@@ -341,10 +295,40 @@ function getExprAst(expr){
 }
 
 
-function astUsingSpec(usingSpec){
+function astPipelineBlock(pipelineBlock, ast){
+	var list = pipelineBlock.pipelineList().pipelineEntry();
+	for(var i=0;i<list.length;i++) {
+		var entry = list[i];
+		var entryQualId = entry.qualIdentifier();
+		var entryFcall = entry.functionCall();
+		var entryBlock = entry.pipelineBlock();
+		if(entryQualId) {
+			ast.push({qname: getIdList(entryQualId)});
+		}else
+		if(entryFcall) {
+			ast.push({qname: getIdList(entryFcall.qualIdentifier()), params: getActualParams(entryFcall.actualParams())});
+		}else 
+		if(entryBlock) {
+			var newBlock = [];
+			ast.push(newBlock);
+			astPipelineBlock(entryBlock, newBlock);
+		}
+	}
+
+	ast.src = src_info(pipelineBlock);
+}
+
+function astPipeline(pipelineDef, ast){
+	ast.src = src_info(pipelineDef);
+	ast.name = getId(pipelineDef);
+	ast.block = [];
+	astPipelineBlock(pipelineDef.pipelineBlock(), ast.block);
+}
+
+function astUseSpec(useSpec){
 	var uses = [];
-	for(var i=0;i<usingSpec.length;i++){
-		uses.push({name: getId(usingSpec[i])});
+	for(var i=0;i<useSpec.length;i++){
+		uses.push({name: getId(useSpec[i])});
 	}
 	return uses;
 }
@@ -382,48 +366,12 @@ function astPrimitiveType(ptype){
 	return {primitive: ptype.type.text,  src: src_info(ptype)};
 }
 
-function astTupleType(ttype){
-	var type_list = [];
-	var varTypes = ttype.varTypeList().varType();
-	for(var i=0;i < varTypes.length;i++){
-		type_list.push(astVarType(varTypes[i]));
-	}
-	return {
-		ttype : type_list
-	};
-}
-
-function astReturnType(returnType){
-	var varType = returnType.varType();
-	return astVarType(varType);
-}
-
-
-function astFutureType(futureType){
-	var ast = {};
-	ast.future_type = astVarType(futureType.varType());
-	return ast;
-}
-
-function astChanType(chanType){
-	var ast = {};
-	ast.chan_type = chanType.RCHAN() ? "rchan" : "chan"
-	ast.primitive = "int";
-	ast.id = getId(chanType);
-	return ast;
-}
-
 function astVarType(varType){
 	//(qualIdentifier | cppQualIdentifier | rangeType | builtinType)	
 	var qualIdentifier = varType.qualIdentifier();
 	var cppQualIdentifier = varType.cppQualIdentifier();
 	var rangeType = varType.rangeType();
 	var primitiveType = varType.primitiveType();
-	var futureType = varType.futureType();
-	var chanType = varType.chanType();
-	var refFlag = varType.BAND()
-	var tupleType = varType.tupleType();
-
 
 	var ast = {};
 
@@ -441,26 +389,11 @@ function astVarType(varType){
 	}else
 	if(primitiveType){
 		ast = astPrimitiveType(primitiveType);
-	}else
-	if(futureType){
-		ast = astFutureType(futureType);
-	}else
-	if(chanType){
-		ast = astChanType(chanType)
-	}else
-	if(tupleType){
-		ast = astTupleType(tupleType);
 	}
 
 	var dimensionSpec = varType.dimensionSpec();  
 	if(dimensionSpec){
 		ast.dim = getDimensionSpec(dimensionSpec);
-	}
-
-	if (refFlag){
-		ast.is_ref = true;
-	}else{
-		ast.is_ref = false;
 	}
 
 	ast.src = src_info(varType);
@@ -580,8 +513,6 @@ function astVarDef(def){
 
   ast.type.is_const = def.CONST() ? true : false;
 
-  ast.type.is_static = def.STATIC() ? true : false;
-
   for(var i=0;i<varIdDef.length;i++){
   	  var def = {id: getId(varIdDef[i])};
   	  var initValue = varIdDef[i].initValue();
@@ -625,21 +556,13 @@ function astFormalParam(param){
 
 function astAssignStmt(stmt){
 	//qualIdentifier dimensionSpec? ASSIGN expr
-	var qualId = stmt.qualIdentifier();
-	var tupleIds = stmt.tupleIds();
 	var ast = {
 		kind: 'assign',
-		expr: getToplevelExprAst(stmt.toplevelExpr()),
+		qid : getIdList(stmt.qualIdentifier()),
+		expr: getExprAst(stmt.expr()),
 		src: src_info(stmt)		
 	};
-	if(qualId){
-		ast.qid = getIdList(qualId);
-	}
-	if(tupleIds){
-		ast.tid = getIdList(tupleIds.identifierList());
-	}
-
-	if(ast.qid && ast.qid.length === 1){
+	if(ast.qid.length === 1){
 		ast.id = ast.qid[0];
 	}
 	var dimExpr = stmt.dimensionExpr();
@@ -696,33 +619,9 @@ function astReturnStmt(stmt){
 	//returnStmt: RETURN expr;
 	return {
 		kind: 'return',
-		expr: getToplevelExprAst(stmt.toplevelExpr()),
+		expr: getExprAst(stmt.expr()),
 		src: src_info(stmt)
 	};
-}
-
-function astAwaitStmt(stmt){
-	var ast = {
-		kind: 'await',
-		expr: {qid : getIdList(stmt.qualIdentifier())}
-	};
-
-	if(ast.expr.qid.length === 1){
-		ast.expr.id = ast.expr.qid[0];
-	}
-	return ast;
-}
-
-function astSignalStmt(stmt){
-	var ast = {
-		kind: 'signal',
-		expr: {qid : getIdList(stmt.qualIdentifier())}
-	};
-
-	if(ast.expr.qid.length === 1){
-		ast.expr.id = ast.expr.qid[0];
-	}
-	return ast;
 }
 
 function astStmt(stmt){
@@ -734,8 +633,6 @@ function astStmt(stmt){
 	var functionCall = stmt.functionCall();
 	var forStmt = stmt.forStmt();
 	var retStmt = stmt.returnStmt();
-	var awaitStmt = stmt.awaitStmt();
-	var signalStmt = stmt.signalStmt();
 
 	if(retStmt){
 		return astReturnStmt(retStmt);
@@ -759,12 +656,6 @@ function astStmt(stmt){
 	}else
 	if(forStmt){
 		return astForStmt(forStmt);
-	}else
-	if(awaitStmt){
-		return astAwaitStmt(awaitStmt);
-	}else
-	if(signalStmt){
-		return astSignalStmt(signalStmt);
 	}
 }
 
@@ -780,16 +671,19 @@ function astStmtBlock(block){
 function astFuncDef(fdef){
 	var ast = {};
 	ast.src = src_info(fdef);	
-	var returnType = fdef.returnType();
-//	var flowType = fdef.flowType();
+	var varType = fdef.varType();
+	var flowType = fdef.flowType();
 
-	if(returnType){
-		ast.type = astReturnType(returnType);
+	if(varType){
+		ast.type = astVarType(varType);
 	}
-	if(fdef.ASYNC()){
-		ast.is_async = true;
+	if(flowType){
+		if(flowType.DEFAULT()){
+			ast.flow = 'default';
+		}else{
+			ast.flow = 'normal';
+		}
 	}
-
 	ast.id = getId(fdef);
 	ast.params = [];
 
@@ -835,14 +729,122 @@ function src_info(node){
 }
 
 
-function astModule(moduleDef, ast) {
-	//ast.name = getId(moduleDef);
-	ast.src = src_info(moduleDef);
-	ast.asyncs = [];
-	var usingSpec = moduleDef.usingSpec();
+function astEffectTerm(term, params){
+//effectExpr: Identifier | exprConstant | StringLiteral | effectTerm ;
+//effectTerm: Identifier LP (effectExpr (COMMA effectExpr)*)? RP;
+	var termid = getId(term);
+	var expr = term.effectExpr();
+	var res = {id: termid, params:[]};
+	if(expr){
+		for(var i=0;i<expr.length;i++){
+			var paramid = getId(expr[i]);
+			paramidx = params[paramid];
+			if(typeof paramidx !== 'undefined'){
+				res.params.push({param: paramidx});
+			}else
+			if(paramid)
+			{
+				res.params.push({id: paramid});
+			}else{
+				var exprConstant = expr[i].exprConstant();
+				var c = getExprConstAst(exprConstant);
+				res.params.push(c);
+			}
+		}
+	}
+	return res;
+}
 
-	if(usingSpec){
-		ast.uses = astUsingSpec(usingSpec);
+function astEffectExpr(expr, params){
+	var ast = null;
+	var id = expr.Identifier();
+	var term = expr.effectTerm();
+	var exprConstant = expr.exprConstant();
+	if(id){
+		id = id.getText();
+		var idx = params[id];
+		if(typeof idx !== 'undefined'){
+			ast = {param: idx};
+		}else{
+			ast = {id: id};
+		}
+	}else
+	if(exprConstant){
+		ast = getExprConstAst(exprConstant);
+	}
+	if(term){
+		ast = astEffectTerm(term, params);
+	}
+	return ast;
+}
+
+function astEffectSpec(espec, params){
+	var effect = {kind: getId(espec), expr: astEffectExpr(espec.effectExpr(), params)};	
+	var opsList = espec.opsList();
+	if(opsList){
+		effect.ops = getIdList(opsList);
+	}	
+	return effect;
+}
+
+function astEffectStmt(estmt, effectsmap){
+	//effectStmt: effectTarget (COMMA effectCtx)* EASSIGN effectSpec (COMMA effectSpec)*;
+	//effectTarget: qualIdentifier LP effectParam (COMMA effectParam)* RP;
+	//effectParam: ADDRESSOF? Identifier;	
+
+	var effectTarget = estmt.effectTarget();
+	var effectCtx = estmt.effectCtx();
+	var effectSpec = estmt.effectSpec();
+	var effectParam = effectTarget.effectParam();
+
+	var qid = getIdList(effectTarget.qualIdentifier());
+
+	var qname;
+	if(qid.length > 1){
+		qid.shift();//remove the first element - this it the object id.
+		qname = qid.join("_");
+	}else{
+		qname = qid[0];
+	}
+
+	var params = {};
+	if(effectParam){
+		for(var i=0;i<effectParam.length;i++){
+			var param_name = getId(effectParam[i]);
+			params[param_name] = i;
+		}
+	}
+
+	var effects = effectsmap[qname];
+	if(!effects){
+		effectsmap[qname] = effects = [];
+	}
+
+	for(var i=0;i<effectSpec.length;i++){
+		var effect = astEffectSpec(effectSpec[i], params);
+		if(effect){
+			effects.push(effect);
+		}
+	}
+}
+
+function astEffectsDef(ast){
+	var effectsmap = {};
+	var estmts = ast.effectStmt();
+	for(var i=0;i<estmts.length;i++){
+		var estmt = estmts[i];
+		astEffectStmt(estmt, effectsmap);
+	}
+	return effectsmap;
+}
+
+function astModule(moduleDef, ast) {
+	ast.name = getId(moduleDef);
+	ast.src = src_info(moduleDef);
+	var useSpec = moduleDef.useSpec();
+
+	if(useSpec){
+		ast.uses = astUseSpec(useSpec);
 	}else{
 		ast.uses = [];
 	}
@@ -855,35 +857,30 @@ function astModule(moduleDef, ast) {
 			ast.vars.push(astVarDef(varDef[i]));
 		}
 	}
-/*	var pipeline = moduleDef.pipelineDef();
+	var pipeline = moduleDef.pipelineDef();
 	if(pipeline) {
 		ast.pipeline = {};
 		astPipeline(pipeline, ast.pipeline);
-	}*/
+	}
 	var funcDef = moduleDef.funcDef();
 	if(funcDef){
 		if(!ast.fdefs){
 			ast.fdefs = [];
 		}
 		for(var i=0;i<funcDef.length;i++){
-			var fdefAst = astFuncDef(funcDef[i]);
-			ast.fdefs.push(fdefAst);
-			if(fdefAst.is_async){
-				ast.asyncs.push(fdefAst.id);
-			}
+			ast.fdefs.push(astFuncDef(funcDef[i]));
 		}
 	}
-	/*var effectsDef = moduleDef.effectsDef();
+	var effectsDef = moduleDef.effectsDef();
 	if(effectsDef){
 		ast.effectsMap = astEffectsDef(effectsDef);
-	}*/
-	ctx.mod_ast = null;
+	}
 	return ast;
 }
 
-function buildAst(parseTree, mod_ast, symtbl) {
+function buildAst(tree, mod_ast, symtbl) {
 	ctx.symtbl = symtbl;
-	astModule(parseTree, mod_ast);
+	astModule(tree, mod_ast);
 	return mod_ast;
 }
 

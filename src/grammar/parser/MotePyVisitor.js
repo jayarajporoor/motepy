@@ -17,6 +17,51 @@ MotePyVisitor.prototype.visitModule = function(ctx) {
 };
 
 
+// Visit a parse tree produced by MotePy#effectsDef.
+MotePyVisitor.prototype.visitEffectsDef = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#effectStmt.
+MotePyVisitor.prototype.visitEffectStmt = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#effectTarget.
+MotePyVisitor.prototype.visitEffectTarget = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#effectParam.
+MotePyVisitor.prototype.visitEffectParam = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#effectCtx.
+MotePyVisitor.prototype.visitEffectCtx = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#effectSpec.
+MotePyVisitor.prototype.visitEffectSpec = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#opsList.
+MotePyVisitor.prototype.visitOpsList = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#effectExpr.
+MotePyVisitor.prototype.visitEffectExpr = function(ctx) {
+};
+
+
+// Visit a parse tree produced by MotePy#effectTerm.
+MotePyVisitor.prototype.visitEffectTerm = function(ctx) {
+};
+
+
 // Visit a parse tree produced by MotePy#pipelineDef.
 MotePyVisitor.prototype.visitPipelineDef = function(ctx) {
 };
@@ -37,8 +82,8 @@ MotePyVisitor.prototype.visitPipelineList = function(ctx) {
 };
 
 
-// Visit a parse tree produced by MotePy#usingSpec.
-MotePyVisitor.prototype.visitUsingSpec = function(ctx) {
+// Visit a parse tree produced by MotePy#useSpec.
+MotePyVisitor.prototype.visitUseSpec = function(ctx) {
 };
 
 
@@ -107,33 +152,13 @@ MotePyVisitor.prototype.visitPrimitiveType = function(ctx) {
 };
 
 
-// Visit a parse tree produced by MotePy#futureType.
-MotePyVisitor.prototype.visitFutureType = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#chanType.
-MotePyVisitor.prototype.visitChanType = function(ctx) {
-};
-
-
 // Visit a parse tree produced by MotePy#varType.
 MotePyVisitor.prototype.visitVarType = function(ctx) {
 };
 
 
-// Visit a parse tree produced by MotePy#varTypeList.
-MotePyVisitor.prototype.visitVarTypeList = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#tupleType.
-MotePyVisitor.prototype.visitTupleType = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#returnType.
-MotePyVisitor.prototype.visitReturnType = function(ctx) {
+// Visit a parse tree produced by MotePy#flowType.
+MotePyVisitor.prototype.visitFlowType = function(ctx) {
 };
 
 
@@ -182,16 +207,6 @@ MotePyVisitor.prototype.visitAssignStmt = function(ctx) {
 };
 
 
-// Visit a parse tree produced by MotePy#awaitStmt.
-MotePyVisitor.prototype.visitAwaitStmt = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#signalStmt.
-MotePyVisitor.prototype.visitSignalStmt = function(ctx) {
-};
-
-
 // Visit a parse tree produced by MotePy#returnStmt.
 MotePyVisitor.prototype.visitReturnStmt = function(ctx) {
 };
@@ -199,11 +214,6 @@ MotePyVisitor.prototype.visitReturnStmt = function(ctx) {
 
 // Visit a parse tree produced by MotePy#stmt.
 MotePyVisitor.prototype.visitStmt = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#tupleIds.
-MotePyVisitor.prototype.visitTupleIds = function(ctx) {
 };
 
 
@@ -269,21 +279,6 @@ MotePyVisitor.prototype.visitRelExpr = function(ctx) {
 
 // Visit a parse tree produced by MotePy#expr.
 MotePyVisitor.prototype.visitExpr = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#syncExpr.
-MotePyVisitor.prototype.visitSyncExpr = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#toplevelExpr.
-MotePyVisitor.prototype.visitToplevelExpr = function(ctx) {
-};
-
-
-// Visit a parse tree produced by MotePy#tupleExpr.
-MotePyVisitor.prototype.visitTupleExpr = function(ctx) {
 };
 
 

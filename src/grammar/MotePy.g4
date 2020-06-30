@@ -4,9 +4,28 @@ parser grammar MotePy;
 options {tokenVocab = MotePyLexer;}
 
 module
-    :   usingSpec* includeSpec* varDef*
-        funcDef*
+    :   MODULE Identifier SEMI
+        useSpec* includeSpec* varDef*
+        (funcDef* | pipelineDef | effectsDef)
     ;
+
+effectsDef: EFFECTS LB (effectStmt SEMI)* RB;
+
+effectStmt: effectTarget (COMMA effectCtx)* EASSIGN effectSpec (COMMA effectSpec)*;
+
+effectTarget: qualIdentifier LP (effectParam (COMMA effectParam)*)? RP;
+
+effectParam: BAND? Identifier;
+
+effectCtx: Identifier COLON Identifier;
+
+effectSpec: Identifier opsList? effectExpr;
+
+opsList: LS Identifier (COMMA Identifier)* RS;
+
+effectExpr: Identifier | exprConstant | StringLiteral | effectTerm ;
+
+effectTerm: Identifier LP (effectExpr (COMMA effectExpr)*)? RP;
 
 pipelineDef
     :  PIPELINE Identifier pipelineBlock SEMI?
@@ -23,8 +42,8 @@ pipelineList
     :   pipelineEntry (COMMA pipelineEntry)*  COMMA?
     ;
 
-usingSpec
-    :   USING Identifier SEMI
+useSpec
+    :   USE Identifier SEMI
     ;
 
 includeSpec
@@ -43,7 +62,7 @@ initValue: expr | StringLiteral | arrayLiteral;
 varIdDef: Identifier (ASSIGN initValue)?;
 
 varDef
-    :  CONST? STATIC? varType varIdDef (COMMA varIdDef)* SEMI
+    :  CONST? varType varIdDef (COMMA varIdDef)* SEMI
     ;
 
 dimValue: (IntegerConstant|Identifier);
@@ -68,21 +87,13 @@ primitiveType
     : type=(INT | FLOAT | BOOLEAN | VOID | I8 | U8 | I16 | U16 | I32 | U32)
     ;
 
-futureType: FUTURE LT varType GT;
-
-chanType : (RCHAN | CHAN) LT Identifier GT;
-
 varType
-    :   (qualIdentifier | cppQualIdentifier | rangeType | primitiveType | futureType | chanType | tupleType) dimensionSpec? BAND?
+    :   (qualIdentifier | cppQualIdentifier | rangeType | primitiveType) dimensionSpec?
     ;
 
-varTypeList
-    :  varType (COMMA varType)*
+flowType
+    :   DEFAULT? FLOW
     ;
-
-tupleType : LP varTypeList RP;
-
-returnType : varType;
 
 formalParam
     :   CONST? varType Identifier
@@ -118,24 +129,17 @@ whileStmt
     ;
 
 assignStmt
-    : ((qualIdentifier dimensionExpr?) | tupleIds) ASSIGN toplevelExpr
+    : qualIdentifier dimensionExpr? ASSIGN expr
     ;
 
-awaitStmt: AWAIT  qualIdentifier;
-
-signalStmt: SIGNAL  qualIdentifier;
-
-returnStmt: RETURN toplevelExpr;
+returnStmt: RETURN expr;
 
 stmt
-    :   stmtBlock | ifStmt | forStmt | whileStmt | assignStmt SEMI | functionCall SEMI | returnStmt SEMI | awaitStmt SEMI | signalStmt SEMI
+    :   stmtBlock | ifStmt | forStmt | whileStmt | assignStmt SEMI | functionCall SEMI | returnStmt SEMI
     ;
 
-tupleIds : LP identifierList RP;
-
-
 funcDef
-    :  ASYNC? returnType Identifier LP formalParams? RP
+    :  (varType | flowType)? Identifier LP formalParams? RP
         LB varDef* stmt* RB
     ;
 
@@ -167,7 +171,6 @@ dimensionExpr
 arrayExpr: Identifier dimensionExpr;
 
 addressExpr: BAND (arrayExpr | qualIdentifier);
-
 
 castExpr : castableType LP basicExpr RP;
 
@@ -202,13 +205,6 @@ expr
         expr op=(LOR|LAND) expr |
         LP expr RP
     ;
-
-
-syncExpr: (AWAIT | SIGNAL) (functionCall | Identifier);
-
-toplevelExpr: syncExpr | tupleExpr | expr;
-
-tupleExpr : LP actualParams RP;
 
 numConstant: IntegerConstant | FloatingConstant;
 

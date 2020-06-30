@@ -1,24 +1,8 @@
 lexer grammar MotePyLexer;
 
-
-ASYNC: 'async' ;
-
-AWAIT: 'await';
-
-SIGNAL : 'signal';
-
-FUTURE: 'future';
-
-USING: 'using' ;
-
-RCHAN: 'rchan';
-
-CHAN: 'chan';
-
 MODULE
     :   'module'
     ;
-
 PIPELINE
     :   'pipeline'
     ;
@@ -117,8 +101,6 @@ EASSIGN: ':=';
 INT: 'int';
 FLOAT: 'float';
 BOOLEAN: 'boolean';
-
-STATIC: 'static';
 
 I8: 'int8_t';
 U8: 'uint8_t';

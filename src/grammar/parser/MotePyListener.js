@@ -20,6 +20,87 @@ MotePyListener.prototype.exitModule = function(ctx) {
 };
 
 
+// Enter a parse tree produced by MotePy#effectsDef.
+MotePyListener.prototype.enterEffectsDef = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectsDef.
+MotePyListener.prototype.exitEffectsDef = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#effectStmt.
+MotePyListener.prototype.enterEffectStmt = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectStmt.
+MotePyListener.prototype.exitEffectStmt = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#effectTarget.
+MotePyListener.prototype.enterEffectTarget = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectTarget.
+MotePyListener.prototype.exitEffectTarget = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#effectParam.
+MotePyListener.prototype.enterEffectParam = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectParam.
+MotePyListener.prototype.exitEffectParam = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#effectCtx.
+MotePyListener.prototype.enterEffectCtx = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectCtx.
+MotePyListener.prototype.exitEffectCtx = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#effectSpec.
+MotePyListener.prototype.enterEffectSpec = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectSpec.
+MotePyListener.prototype.exitEffectSpec = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#opsList.
+MotePyListener.prototype.enterOpsList = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#opsList.
+MotePyListener.prototype.exitOpsList = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#effectExpr.
+MotePyListener.prototype.enterEffectExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectExpr.
+MotePyListener.prototype.exitEffectExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by MotePy#effectTerm.
+MotePyListener.prototype.enterEffectTerm = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#effectTerm.
+MotePyListener.prototype.exitEffectTerm = function(ctx) {
+};
+
+
 // Enter a parse tree produced by MotePy#pipelineDef.
 MotePyListener.prototype.enterPipelineDef = function(ctx) {
 };
@@ -56,12 +137,12 @@ MotePyListener.prototype.exitPipelineList = function(ctx) {
 };
 
 
-// Enter a parse tree produced by MotePy#usingSpec.
-MotePyListener.prototype.enterUsingSpec = function(ctx) {
+// Enter a parse tree produced by MotePy#useSpec.
+MotePyListener.prototype.enterUseSpec = function(ctx) {
 };
 
-// Exit a parse tree produced by MotePy#usingSpec.
-MotePyListener.prototype.exitUsingSpec = function(ctx) {
+// Exit a parse tree produced by MotePy#useSpec.
+MotePyListener.prototype.exitUseSpec = function(ctx) {
 };
 
 
@@ -182,24 +263,6 @@ MotePyListener.prototype.exitPrimitiveType = function(ctx) {
 };
 
 
-// Enter a parse tree produced by MotePy#futureType.
-MotePyListener.prototype.enterFutureType = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#futureType.
-MotePyListener.prototype.exitFutureType = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#chanType.
-MotePyListener.prototype.enterChanType = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#chanType.
-MotePyListener.prototype.exitChanType = function(ctx) {
-};
-
-
 // Enter a parse tree produced by MotePy#varType.
 MotePyListener.prototype.enterVarType = function(ctx) {
 };
@@ -209,30 +272,12 @@ MotePyListener.prototype.exitVarType = function(ctx) {
 };
 
 
-// Enter a parse tree produced by MotePy#varTypeList.
-MotePyListener.prototype.enterVarTypeList = function(ctx) {
+// Enter a parse tree produced by MotePy#flowType.
+MotePyListener.prototype.enterFlowType = function(ctx) {
 };
 
-// Exit a parse tree produced by MotePy#varTypeList.
-MotePyListener.prototype.exitVarTypeList = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#tupleType.
-MotePyListener.prototype.enterTupleType = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#tupleType.
-MotePyListener.prototype.exitTupleType = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#returnType.
-MotePyListener.prototype.enterReturnType = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#returnType.
-MotePyListener.prototype.exitReturnType = function(ctx) {
+// Exit a parse tree produced by MotePy#flowType.
+MotePyListener.prototype.exitFlowType = function(ctx) {
 };
 
 
@@ -317,24 +362,6 @@ MotePyListener.prototype.exitAssignStmt = function(ctx) {
 };
 
 
-// Enter a parse tree produced by MotePy#awaitStmt.
-MotePyListener.prototype.enterAwaitStmt = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#awaitStmt.
-MotePyListener.prototype.exitAwaitStmt = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#signalStmt.
-MotePyListener.prototype.enterSignalStmt = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#signalStmt.
-MotePyListener.prototype.exitSignalStmt = function(ctx) {
-};
-
-
 // Enter a parse tree produced by MotePy#returnStmt.
 MotePyListener.prototype.enterReturnStmt = function(ctx) {
 };
@@ -350,15 +377,6 @@ MotePyListener.prototype.enterStmt = function(ctx) {
 
 // Exit a parse tree produced by MotePy#stmt.
 MotePyListener.prototype.exitStmt = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#tupleIds.
-MotePyListener.prototype.enterTupleIds = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#tupleIds.
-MotePyListener.prototype.exitTupleIds = function(ctx) {
 };
 
 
@@ -476,33 +494,6 @@ MotePyListener.prototype.enterExpr = function(ctx) {
 
 // Exit a parse tree produced by MotePy#expr.
 MotePyListener.prototype.exitExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#syncExpr.
-MotePyListener.prototype.enterSyncExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#syncExpr.
-MotePyListener.prototype.exitSyncExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#toplevelExpr.
-MotePyListener.prototype.enterToplevelExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#toplevelExpr.
-MotePyListener.prototype.exitToplevelExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by MotePy#tupleExpr.
-MotePyListener.prototype.enterTupleExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#tupleExpr.
-MotePyListener.prototype.exitTupleExpr = function(ctx) {
 };
 
 

@@ -7,8 +7,6 @@ var MotePyParser = require(__dirname + '/grammar/parser/MotePy');
 var astBuilder = require("./astbuilder.js");
 var SymbolTable = require("./symtbl.js");
 
-const SRC_FILE_EXTENSION = '.py';
-
 var parseErrorListener = {};
 var errors=0;
 
@@ -72,7 +70,7 @@ function parse(srcpath, input) {
 }
 
 function loadInclude(name, basepath, symtbl){
-	var filepath = basepath + "/" + name + SRC_FILE_EXTENSION;
+	var filepath = basepath + "/" + name + ".vt";
 	var src;
 	try{
 		src = fs.readFileSync(filepath, 'utf8');
@@ -91,7 +89,7 @@ function loadModule(ast, name, basepath, symtbl){
 		return;//already loaded.
 	}
 
-	var filepath = basepath + "/" + name + SRC_FILE_EXTENSION;
+	var filepath = basepath + "/" + name + ".vt";
 	var src;
 	try{
 		src = fs.readFileSync(filepath, 'utf8');
@@ -117,10 +115,6 @@ function loadModule(ast, name, basepath, symtbl){
 	}
 
 	astBuilder.buildAst(tree, mod_ast, symtbl);
-	if(typeof mod_ast.name === 'undefined' ){
-		mod_ast.name = name;
-	}
-	mod_ast.name = name;
 	symtbl.exitNestedScope();
 	mod_ast.srcpath = filepath;
 	if(mod_ast.name !== name){
@@ -135,7 +129,7 @@ function loadModule(ast, name, basepath, symtbl){
 
 }
 
-/*function loadPipelineBlock(block, basepath, symtbl, ast){
+function loadPipelineBlock(block, basepath, symtbl, ast){
 	for(var i=0;i<block.length;i++){
 		var entry = block[i];
 		if(entry.qname){
@@ -155,7 +149,7 @@ function loadPipeline(ast, basepath, symtbl) {
 		return mpbuild.error("Pipeline definition not found.");
 	}
 	loadPipelineBlock(ast.pipeline.block, basepath, symtbl, ast);
-}*/
+}
 
 function print_object(obj, printJson, printColor){
 	if(printJson){
@@ -171,10 +165,9 @@ var printJson = false;
 
 function compile(argv)
 {
-	var srcpaths = [];
+	var srcpath;
 	var printAst = false;
 	var printSymtbl = false;
-	var entry = null;
 
 	var ast_transforms = [];
 	var code_path = null;
@@ -191,9 +184,8 @@ function compile(argv)
 		return mpbuild.error("Please provide the pipeline definition file name to be compiled.");
 	}
 
-	while(argv.length > 0 && !argv[0].startsWith("-")){
-		srcpaths.push(argv.shift());
-	}
+	srcpath = argv[0];
+	argv.shift();
 
 	try{
 		if(argv[0] !== "-bare"){
@@ -205,20 +197,8 @@ function compile(argv)
 		mpbuild.warning("Default parameter file ", paramspath , "not accessible or properly formed.");
 	}
 
-
-	if(srcpaths.length == 0){
-		return mpbuild.error("Please provide at least the source path of the main source file.");
-	}
-
-
 	for(var i=0;i<argv.length;i++){
 		switch(argv[i]){
-			case "-entry":
-				if(argv[i+1]){
-					entry = argv[i+1];
-					i++;
-				}
-			break;
 			case "-ast" :
 				printAst = true;
 			break;
@@ -276,37 +256,24 @@ function compile(argv)
 		}
 	}
 
-/*
 	var input;
 
 	try{
-		input  = fs.readFileSync(srcpaths[0], 'utf8');
+		input  = fs.readFileSync(srcpath, 'utf8');
 	}catch(e){
-		return mpbuild.error("Cannot access source file " + srcpaths[0]);
+		return mpbuild.error("Cannot access source file " + srcpath);
 	}
-	var tree = parse(srcpaths[0], input);*/
-
+	var tree = parse(srcpath, input);
 	var symtbl = new SymbolTable("<root>");
-	var ast = {modules:{}, module_names: []};
+	var ast = astBuilder.buildAst(tree, symtbl);
 
-	//var ast = astBuilder.buildAst(tree, symtbl);
-
-	var basepath = path.dirname(srcpaths[0]);
-
-	for(var i=0;i<srcpaths.length;i++){
-		var module_name = path.basename(srcpaths[i], SRC_FILE_EXTENSION);
-		loadModule(ast, module_name, basepath, symtbl);
-		ast.module_names.push(module_name);
+	if(ast.pipeline){
+		ast.pipeline.srcpath = srcpath;
 	}
 
+	ast.modules = {};
 
-
-/*	if(ast.pipeline){
-		ast.pipeline.srcpath = srcpath;
-	}*/
-
-
-//	loadPipeline(ast, path.dirname(srcpath), symtbl);
+	loadPipeline(ast, path.dirname(srcpath), symtbl);
 
 	var transform_ctx = {symtbl: symtbl, params: mod_params, resources: {}, config: {}};
 
@@ -314,8 +281,6 @@ function compile(argv)
 		var config = JSON.parse(fs.readFileSync(config_paths[i]));
 		transform_ctx.config = Object.assign(transform_ctx.config, config);
 	}
-
-	transform_ctx.config.entry = entry;
 
 	for(var i=0;i<ast_transforms.length;i++){
 		var xmod = require(ast_transforms[i]);

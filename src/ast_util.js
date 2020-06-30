@@ -60,7 +60,7 @@ function resolve_matrix_expr_by_sym(ast, sym){
 	}else{
 		resolv.dim = deep_copy(sym_dim);
 	}
-	resolv.id = sym.name;	//JAYARAJ: BUGFIX Jun 24 2019, previously: resolv.id = id (id not defined)
+	resolv.id = id;
 	resolv.sym = sym;
 	return resolv;
 }
