@@ -117,14 +117,9 @@ function loadModule(ast, name, basepath, symtbl){
 	astBuilder.buildAst(tree, mod_ast, symtbl);
 	symtbl.exitNestedScope();
 	mod_ast.srcpath = filepath;
-	if(mod_ast.name !== name){
-		mpbuild.set_path(filepath);
-		return mpbuild.error("Module name ", mod_ast.name, " does not match the file name for ", filepath);
-	}else{
-		ast.modules[name] = mod_ast;
-		for(var j=0;j<mod_ast.uses.length;j++){
-			loadModule(ast, mod_ast.uses[j].name, basepath, symtbl);
-		}
+	ast.modules[name] = mod_ast;
+	for(var j=0;j<mod_ast.uses.length;j++){
+		loadModule(ast, mod_ast.uses[j].name, basepath, symtbl);
 	}
 
 }

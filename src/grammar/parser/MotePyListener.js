@@ -326,6 +326,15 @@ MotePyListener.prototype.exitIfStmt = function(ctx) {
 };
 
 
+// Enter a parse tree produced by MotePy#elifStmt.
+MotePyListener.prototype.enterElifStmt = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#elifStmt.
+MotePyListener.prototype.exitElifStmt = function(ctx) {
+};
+
+
 // Enter a parse tree produced by MotePy#identifierList.
 MotePyListener.prototype.enterIdentifierList = function(ctx) {
 };

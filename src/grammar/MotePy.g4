@@ -7,7 +7,8 @@ options {tokenVocab = MotePyLexer;}
 
 module
     :   useSpec* includeSpec* varDef*
-        (funcDef* | pipelineDef | effectsDef)
+        NEWLINE*
+        (funcDef+ | pipelineDef | effectsDef)
     ;
 
 effectsDef: EFFECTS LB (effectStmt SEMI)* RB;
@@ -110,11 +111,15 @@ stmtBlock
     ;
 
 elseStmt
-    : ELSE (stmtBlock | ifStmt)
+    : ELSE COLON stmtBlock
     ;
 
 ifStmt
-    :   IF LP expr RP stmtBlock elseStmt?
+    :   IF expr COLON stmtBlock (elseStmt|elifStmt)?
+    ;
+
+elifStmt
+    :   ELIF expr COLON stmtBlock (elseStmt|elifStmt)?
     ;
 
 identifierList
@@ -140,7 +145,7 @@ stmt
     ;
 
 funcDef
-    :  (varType | flowType)? Identifier LP formalParams? RP
+    :  (varType | flowType)? Identifier LP formalParams? RP COLON
         NEWLINE INDENT varDef* stmt+ DEDENT
     ;
 

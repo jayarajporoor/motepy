@@ -500,7 +500,7 @@ function code_gen(ast,ctx){
 	var curr_idx = 0;
     while(current_pipeline_entry){
     	var qname = current_pipeline_entry.qname;
-   		var mod_ast = ast.modules[qname[0]];
+  		var mod_ast = ast.modules[qname[0]];
    		var flow_def = ast_util.find_flow(mod_ast, qname[1]);
 
     	if(qname.length === 1){

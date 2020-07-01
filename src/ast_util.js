@@ -10,7 +10,6 @@ function find_default_flow(mod_ast){
 }
 
 function find_flow(mod_ast, name){
-
 	if(!name){
 		return find_default_flow(mod_ast);
 	}

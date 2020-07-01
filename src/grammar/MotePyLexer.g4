@@ -98,9 +98,7 @@ EFFECTS: '@effects';
 
 EASSIGN: ':=';
 
-NEWLINE
- : ( '\r'? '\n' | '\r' | '\f' ) SPACES?
- ;
+ELIF : 'elif';
 
 INT: 'int';
 FLOAT: 'float';
@@ -363,3 +361,7 @@ fragment LINE_JOINING
 SKIP_
  : ( SPACES | COMMENT | LINE_JOINING ) -> skip
  ;
+
+ NEWLINE
+  : ( '\r'? '\n' | '\r' | '\f' ) SPACES?
+  ;

@@ -187,6 +187,11 @@ MotePyVisitor.prototype.visitIfStmt = function(ctx) {
 };
 
 
+// Visit a parse tree produced by MotePy#elifStmt.
+MotePyVisitor.prototype.visitElifStmt = function(ctx) {
+};
+
+
 // Visit a parse tree produced by MotePy#identifierList.
 MotePyVisitor.prototype.visitIdentifierList = function(ctx) {
 };
