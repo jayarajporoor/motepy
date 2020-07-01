@@ -98,6 +98,10 @@ EFFECTS: '@effects';
 
 EASSIGN: ':=';
 
+NEWLINE
+ : ( '\r'? '\n' | '\r' | '\f' ) SPACES?
+ ;
+
 INT: 'int';
 FLOAT: 'float';
 BOOLEAN: 'boolean';
@@ -344,24 +348,18 @@ SChar
     |   '\\\r\n' // Added line
     ;
 
-Whitespace
-    :   [ \t]+
-        -> skip
-    ;
+fragment SPACES
+ : [ \t]+
+ ;
 
-Newline
-    :   (   '\r' '\n'?
-        |   '\n'
-        )
-        -> skip
-    ;
+fragment COMMENT
+ : '#' ~[\r\n\f]*
+ ;
 
-BlockComment
-    :   '/*' .*? '*/'
-        -> skip
-    ;
+fragment LINE_JOINING
+ : '\\' SPACES? ( '\r'? '\n' | '\r' | '\f' )
+ ;
 
-LineComment
-    :   '//' ~[\r\n]*
-        -> skip
-    ;
+SKIP_
+ : ( SPACES | COMMENT | LINE_JOINING ) -> skip
+ ;

@@ -1,11 +1,12 @@
 
 parser grammar MotePy;
 
+tokens { INDENT, DEDENT }
+
 options {tokenVocab = MotePyLexer;}
 
 module
-    :   MODULE Identifier SEMI
-        useSpec* includeSpec* varDef*
+    :   useSpec* includeSpec* varDef*
         (funcDef* | pipelineDef | effectsDef)
     ;
 
@@ -28,18 +29,18 @@ effectExpr: Identifier | exprConstant | StringLiteral | effectTerm ;
 effectTerm: Identifier LP (effectExpr (COMMA effectExpr)*)? RP;
 
 pipelineDef
-    :  PIPELINE Identifier pipelineBlock SEMI?
+    :  pipelineBlock
     ;
 
 pipelineBlock
-    :  LB pipelineList RB
+    :  LS NEWLINE? pipelineList NEWLINE? RS NEWLINE
     ;
 
 pipelineEntry
     :  (qualIdentifier | functionCall | pipelineBlock);
 
 pipelineList
-    :   pipelineEntry (COMMA pipelineEntry)*  COMMA?
+    :   (pipelineEntry COMMA NEWLINE?)* pipelineEntry
     ;
 
 useSpec
@@ -62,7 +63,7 @@ initValue: expr | StringLiteral | arrayLiteral;
 varIdDef: Identifier (ASSIGN initValue)?;
 
 varDef
-    :  CONST? varType varIdDef (COMMA varIdDef)* SEMI
+    :  CONST? varType varIdDef (COMMA varIdDef)* NEWLINE
     ;
 
 dimValue: (IntegerConstant|Identifier);
@@ -105,7 +106,7 @@ formalParams
 
 stmtBlock
     :
-        LB stmt* RB
+        NEWLINE INDENT stmt+ DEDENT
     ;
 
 elseStmt
@@ -135,12 +136,12 @@ assignStmt
 returnStmt: RETURN expr;
 
 stmt
-    :   stmtBlock | ifStmt | forStmt | whileStmt | assignStmt SEMI | functionCall SEMI | returnStmt SEMI
+    :   stmtBlock | ifStmt | forStmt | whileStmt | assignStmt NEWLINE | functionCall NEWLINE | returnStmt NEWLINE
     ;
 
 funcDef
     :  (varType | flowType)? Identifier LP formalParams? RP
-        LB varDef* stmt* RB
+        NEWLINE INDENT varDef* stmt+ DEDENT
     ;
 
 qualIdentifier
