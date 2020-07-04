@@ -1,13 +1,11 @@
-scores : int32[10]
+scores : int32[10] = np.zeroes(10, dtype=int32)
 
 def predict(x: float[FEATURE_LENGTH]) -> void:
-    x_cap : float[ldDim]
-    y_cap : float[numLabels]
-    weight : float
-    maxScore :float
-    maxIndex :int
-    x_cap = np.zeroes(ldDim)
-    y_cap = np.zeroes(y_cap)
+    x_cap : float[ldDim] =  np.zeroes(ldDim, dtype=float32)
+    y_cap : float[numLabels] =  np.zeroes(ldDim, dtype=float32)
+    weight : float = 0
+    maxScore :float = 0
+    maxIndex :int  = 0
     #scores=0;
     y_cap=0.0
     # Project x onto ldDim dimension

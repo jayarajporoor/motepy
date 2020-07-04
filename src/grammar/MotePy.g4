@@ -59,12 +59,12 @@ arrayLiteral
     : LB (expr (COMMA expr)*)? RB
     ;
 
-initValue: expr | StringLiteral | arrayLiteral;
+initValue: expr | StringLiteral | functionCall;
 
-varIdDef: Identifier (ASSIGN initValue)?;
+varIdDef: Identifier COLON CONST? varType (ASSIGN initValue)?;
 
 varDef
-    :  varIdDef (SEMI varIdDef)* COLON CONST? varType NEWLINE
+    :  varIdDef NEWLINE
     ;
 
 dimValue: (IntegerConstant|Identifier);
@@ -216,4 +216,4 @@ exprConstant:
     |   booleanLiteral
     ;
 
-literal: exprConstant | arrayLiteral | StringLiteral;
+literal: exprConstant | functionCall | StringLiteral;

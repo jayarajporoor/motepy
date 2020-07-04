@@ -416,8 +416,8 @@ function astLiteral(literal){
 
     var exprConstant = literal.exprConstant ? literal.exprConstant() : null;//if astInitValue calls us we won't have exprConstant
     var stringLiteral = literal.StringLiteral();
-    var arrayLiteral = literal.arrayLiteral();
-
+//    var arrayLiteral = literal.arrayLiteral();
+    var funcCall = literal.functionCall();
     var ast = {};
     if(exprConstant){
     	ast = getExprConstAst(exprConstant);
@@ -425,8 +425,9 @@ function astLiteral(literal){
     if(stringLiteral){
     	ast.sconst = getStringLiteral(stringLiteral);
     }else
-    if(arrayLiteral){
-    	ast.aconst  = astArrayLiteral(arrayLiteral);
+    if(funcCall){
+    	ast.fconst  = astFunctionCall(funcCall);
+        //astArrayLiteral(arrayLiteral);
     }
 
     ast.src = src_info(literal);
@@ -439,7 +440,7 @@ function astInitValue(initValue){
 	//expr | StringLiteral | arrayLiteral;
 	var expr = initValue.expr();
 	var sliteral = initValue.StringLiteral();
-	var arrayLiteral = initValue.arrayLiteral();
+	//var arrayLiteral = initValue.arrayLiteral();
 	if(expr){
 		return getExprAst(expr);
 	}else{
@@ -503,36 +504,34 @@ function computeDimensions(ast, val, varid){//varid is only for debug purpose.
 
 function astVarDef(def){
   //varIdDef: Identifier (ASSIGN initValue)?;
-  var varType = def.varType();
-  var varIdDef  = def.varIdDef();
+  varIdDef = def.varIdDef();
+  var varType = varIdDef.varType();
   var ast = {
   	type : astVarType(varType),
   	defs : [],
 	src: src_info(def)
   };
 
-  ast.type.is_const = def.CONST() ? true : false;
+  ast.type.is_const = varIdDef.CONST() ? true : false;
 
-  for(var i=0;i<varIdDef.length;i++){
-  	  var def = {id: getId(varIdDef[i])};
-  	  var initValue = varIdDef[i].initValue();
-	  if(initValue){
-	  	def.init = astInitValue(initValue);
-	  }
-	  var syminfo = {type: ast.type, is_const: ast.is_const, src: ast.src, value: def.init};
-	  if(ast.type.dim){
-	  	var size = computeDimensions(ast, def.init, def.id);
-	  	if(size){
-	  		syminfo.size = size;
-	  	}
-	  }
-	  addSymbol(def.id, syminfo);
-	  if(ast.type.dim && ast.type.dim.is_ring){
-	  	var sym_ringpos = {type: {primitive: 'int'}, is_const: false, src: ast.src, value: {iconst: 0}};
-	  	addSymbol("__pos_" + def.id, sym_ringpos);
-	  }
-	  ast.defs.push(def);
+  var def = {id: getId(varIdDef)};
+  var initValue = varIdDef.initValue();
+  if(initValue){
+  	def.init = astInitValue(initValue);
   }
+  var syminfo = {type: ast.type, is_const: ast.is_const, src: ast.src, value: def.init};
+  if(ast.type.dim){
+  	var size = computeDimensions(ast, def.init, def.id);
+  	if(size){
+  		syminfo.size = size;
+  	}
+  }
+  addSymbol(def.id, syminfo);
+  if(ast.type.dim && ast.type.dim.is_ring){
+  	var sym_ringpos = {type: {primitive: 'int'}, is_const: false, src: ast.src, value: {iconst: 0}};
+  	addSymbol("__pos_" + def.id, sym_ringpos);
+  }
+  ast.defs.push(def);
   return ast;
 }
 
