@@ -147,6 +147,7 @@ WHILE: 'while';
 TRUE: 'true';
 FALSE: 'false';
 
+RANGE: 'range';
 
 RING: 'ring';
 

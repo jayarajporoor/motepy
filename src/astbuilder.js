@@ -359,7 +359,7 @@ function astNumVal(numVal){
 
 function astRangeType(rangeType){
 	var numVal = rangeType.numVal();
-	return {from: astNumVal(numVal[0]), to: astNumVal(numVal[1]), is_inclusive: rangeType.COLON()? true : false, src: src_info(rangeType)};
+	return {from: astNumVal(numVal[0]), to: astNumVal(numVal[1]), is_inclusive: false, src: src_info(rangeType)};
 }
 
 function astPrimitiveType(ptype){

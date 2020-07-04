@@ -78,7 +78,7 @@ intVal: Identifier|IntegerConstant;
 numVal: Identifier|numConstant;
 
 rangeType
-    : LS numVal (COMMA|COLON) numVal RS
+    : RANGE LP numVal COMMA numVal RP
     ;
 
 castableType
@@ -123,7 +123,7 @@ identifierList
     ;
 
 forStmt
-    :   FOR identifierList IN rangeType stmtBlock
+    :   FOR identifierList IN rangeType COLON stmtBlock
     ;
 
 whileStmt
