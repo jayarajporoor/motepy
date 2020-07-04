@@ -1,4 +1,9 @@
 int prevVoteResult=1
 
 default flow if_changed(int voteResult):
-    prevVoteResult = 1
+    if(voteResult == prevVoteResult):
+        prevVoteResult = voteResult
+        voteResult = 1
+    else:
+        prevVoteResult = voteResult
+        next(voteResult)
