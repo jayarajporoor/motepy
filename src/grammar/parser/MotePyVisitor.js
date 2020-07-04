@@ -157,11 +157,6 @@ MotePyVisitor.prototype.visitVarType = function(ctx) {
 };
 
 
-// Visit a parse tree produced by MotePy#flowType.
-MotePyVisitor.prototype.visitFlowType = function(ctx) {
-};
-
-
 // Visit a parse tree produced by MotePy#formalParam.
 MotePyVisitor.prototype.visitFormalParam = function(ctx) {
 };

@@ -70,7 +70,7 @@ function parse(srcpath, input) {
 }
 
 function loadInclude(name, basepath, symtbl){
-	var filepath = basepath + "/" + name + ".vt";
+	var filepath = basepath + "/" + name + ".py";
 	var src;
 	try{
 		src = fs.readFileSync(filepath, 'utf8');
@@ -89,7 +89,7 @@ function loadModule(ast, name, basepath, symtbl){
 		return;//already loaded.
 	}
 
-	var filepath = basepath + "/" + name + ".vt";
+	var filepath = basepath + "/" + name + ".py";
 	var src;
 	try{
 		src = fs.readFileSync(filepath, 'utf8');

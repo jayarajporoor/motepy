@@ -604,14 +604,12 @@ function astIfStmt(stmt){
 		src: src_info(stmt)
     };
     var elseStmt = stmt.elseStmt();
+    var elifStmt = stmt.elifStmt();
     if(elseStmt){
     	//ELSE (stmtBlock | ifStmt)
-    	if(elseStmt.ifStmt()){
-    		ast.else_body = astIfStmt(elseStmt.ifStmt());
-    	}else{
-    		ast.else_body = astStmtBlock(elseStmt.stmtBlock());
-    	}
+    	ast.else_body = astStmtBlock(elseStmt.stmtBlock());
     }
+    //TODO elifStmt
     return ast;
 }
 
@@ -672,18 +670,18 @@ function astFuncDef(fdef){
 	var ast = {};
 	ast.src = src_info(fdef);
 	var varType = fdef.varType();
-	var flowType = fdef.flowType();
+	//var flowType = fdef.flowType();
 
 	if(varType){
 		ast.type = astVarType(varType);
 	}
-	if(flowType){
+	/*if(flowType){
 		if(flowType.DEFAULT()){
 			ast.flow = 'default';
 		}else{
 			ast.flow = 'normal';
 		}
-	}
+	}*/
 	ast.id = getId(fdef);
 	ast.params = [];
 

@@ -272,15 +272,6 @@ MotePyListener.prototype.exitVarType = function(ctx) {
 };
 
 
-// Enter a parse tree produced by MotePy#flowType.
-MotePyListener.prototype.enterFlowType = function(ctx) {
-};
-
-// Exit a parse tree produced by MotePy#flowType.
-MotePyListener.prototype.exitFlowType = function(ctx) {
-};
-
-
 // Enter a parse tree produced by MotePy#formalParam.
 MotePyListener.prototype.enterFormalParam = function(ctx) {
 };

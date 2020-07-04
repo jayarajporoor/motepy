@@ -105,13 +105,8 @@ lexer grammar MotePyLexer;
 MODULE
     :   'module'
     ;
-PIPELINE
-    :   'pipeline'
-    ;
 
-FLOW
-    :   'flow'
-    ;
+ARROW : '->';
 
 USE
     :   'use'
@@ -121,9 +116,8 @@ CONFIG
     :   'config'
     ;
 
-DEFAULT
-    :   'default'
-    ;
+DEF : 'def';
+
 
 CONST
     :   'const'

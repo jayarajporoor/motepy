@@ -64,7 +64,7 @@ initValue: expr | StringLiteral | arrayLiteral;
 varIdDef: Identifier (ASSIGN initValue)?;
 
 varDef
-    :  CONST? varType varIdDef (COMMA varIdDef)* NEWLINE
+    :  varIdDef (SEMI varIdDef)* COLON CONST? varType NEWLINE
     ;
 
 dimValue: (IntegerConstant|Identifier);
@@ -93,12 +93,8 @@ varType
     :   (qualIdentifier | cppQualIdentifier | rangeType | primitiveType) dimensionSpec?
     ;
 
-flowType
-    :   DEFAULT? FLOW
-    ;
-
 formalParam
-    :   CONST? varType Identifier
+    :    Identifier COLON CONST? varType
     ;
 
 formalParams
@@ -145,7 +141,7 @@ stmt
     ;
 
 funcDef
-    :  (varType | flowType)? Identifier LP formalParams? RP COLON
+    :  DEF Identifier LP formalParams? RP ARROW varType COLON
         NEWLINE INDENT varDef* stmt+ DEDENT
     ;
 

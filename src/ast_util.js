@@ -1,7 +1,7 @@
 function find_default_flow(mod_ast){
 	var fdefs = mod_ast.fdefs;
 	for(var i=0;i<fdefs.length;i++){
-		if(fdefs[i].flow === 'default')
+		if(fdefs[i].id === 'run')
 		{
 			return fdefs[i];
 		}
@@ -16,7 +16,7 @@ function find_flow(mod_ast, name){
 
 	var fdefs = mod_ast.fdefs;
 	for(var i=0;i<fdefs.length;i++){
-		if(fdefs[i].flow  && fdefs[i].id === name)
+		if(fdefs[i].id === name)
 		{
 			return fdefs[i];
 		}
