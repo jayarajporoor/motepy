@@ -249,7 +249,7 @@ class DUSeq{
             this.pipeline_stack.unshift(this.pipeline_stack[0].next);
             //console.log("Save and exit scope ", saved_mod_scope_name, " and enter ", mod_name);
           }
-          //console.log("ENtering ", fdef_ast.id, " from dyn scope ", this.dynscope.current_scope.symtbl.name);
+          console.log("Entering ", fdef_ast.id, " from dyn scope ", this.dynscope.current_scope.symtbl.name);
           this.dynscope.enterFunctionCall(fdef_ast.id, ast.params);
 
           this.symtbl.enterNestedScope(fdef_ast.id);//of the calleee
@@ -386,6 +386,7 @@ class DUSeq{
   }
 
   build(ast, symtbl){
+     //ast_util.print_object(symtbl)
     this.root_ast = ast;
     symtbl.setRootScope();
     this.symtbl = symtbl;

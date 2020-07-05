@@ -6,6 +6,7 @@ var MotePyLexer = require(__dirname + '/grammar/parser/MotePyLexer');
 var MotePyParser = require(__dirname + '/grammar/parser/MotePy');
 var astBuilder = require("./astbuilder.js");
 var SymbolTable = require("./symtbl.js");
+var ast_util = require("./ast_util.js");
 
 var parseErrorListener = {};
 var errors=0;
@@ -80,7 +81,7 @@ function loadInclude(name, basepath, symtbl){
 	}
 	var tree = parse(filepath, src);
 	var mod_ast = {};
-	astBuilder.buildAst(tree, mod_ast, symtbl);
+	astBuilder.buildAst(tree, mod_ast, symtbl, name);
 	return mod_ast;
 }
 
@@ -114,7 +115,7 @@ function loadModule(ast, name, basepath, symtbl){
 		}
 	}
 
-	astBuilder.buildAst(tree, mod_ast, symtbl);
+	astBuilder.buildAst(tree, mod_ast, symtbl, name);
 	symtbl.exitNestedScope();
 	mod_ast.srcpath = filepath;
 	ast.modules[name] = mod_ast;
@@ -144,15 +145,6 @@ function loadPipeline(ast, basepath, symtbl) {
 		return mpbuild.error("Pipeline definition not found.");
 	}
 	loadPipelineBlock(ast.pipeline.block, basepath, symtbl, ast);
-}
-
-function print_object(obj, printJson, printColor){
-	if(printJson){
-		console.log(JSON.stringify(obj, null, 4));
-	}
-	else{
-		console.log(util.inspect(obj, false, 500, printColor));
-	}
 }
 
 var printColor = false;
@@ -288,7 +280,7 @@ function compile(argv)
 	}
 
 	if(printAst){
-		print_object(ast, printJson, printColor);
+		ast_util.print_object(ast, printJson, printColor);
 	}
 
 	if(printSymtbl){
@@ -310,9 +302,9 @@ function compile(argv)
 
 	if(ctx_attr !== null){
 		if(ctx_attr === ""){
-			print_object(transform_ctx, printJson, printColor);
+			ast_util.print_object(transform_ctx, printJson, printColor);
 		}else{
-			print_object(transform_ctx[ctx_attr], printJson, printColor);
+			ast_util.print_object(transform_ctx[ctx_attr], printJson, printColor);
 		}
 	}
 
@@ -326,8 +318,8 @@ if(require.main === module){
 	}catch(e){
 		if(mpbuild.errors.length > 0){
 			console.log("Compile has errors: ");
-			print_object(e, printJson, printColor);
-			print_object(mpbuild.errors, printJson, printColor);
+			ast_util.print_object(e, printJson, printColor);
+			ast_util.print_object(mpbuild.errors, printJson, printColor);
 		}else{
 			throw e;
 		}
@@ -335,7 +327,7 @@ if(require.main === module){
 
 	if(mpbuild.warnings.length > 0){
 		console.log("Warnings: ");
-		print_object(mpbuild.warnings, printJson, printColor);
+		ast_util.print_object(mpbuild.warnings, printJson, printColor);
 	}
 }else{
 	exports.compile = compile;

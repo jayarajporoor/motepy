@@ -8,9 +8,10 @@ class SymbolTable{
   	this.scopes = {};
   	this.current_scope = this;
   }
-  
+
 
   lookup(name, kind, non_scoped){//kind = 'vardef', 'fdef'
+      //console.log("DD", name, kind, non_scoped, this.current_scope)
   	var scope = non_scoped ? this : this.current_scope;
   	do{
   		var sym = scope.symbols[name];
@@ -20,12 +21,12 @@ class SymbolTable{
         {
           case 'vardef': if(!sym.info.is_formal_param && !sym.info.type.is_func) return sym; break;
           case 'fdef' : if(sym.info.type.is_func) return sym; break;
-          default: return sym; 
+          default: return sym;
         }
   		}
   		scope = scope.parent;
   	}while(scope);
-  	
+
   	return null;
   }
 

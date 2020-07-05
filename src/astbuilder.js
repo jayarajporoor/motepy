@@ -875,7 +875,8 @@ function astModule(moduleDef, ast) {
 	return ast;
 }
 
-function buildAst(tree, mod_ast, symtbl) {
+function buildAst(tree, mod_ast, symtbl, name) {
+    mod_ast.name = name
 	ctx.symtbl = symtbl;
 	astModule(tree, mod_ast);
 	return mod_ast;

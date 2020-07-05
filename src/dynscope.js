@@ -14,7 +14,7 @@ class DynScope{
     var child = new DynScope(this.symtbl.getNestedScope(name), this, "Flow " + name);
     this.current_scope = child;
   }
-  
+
   enterFunctionCall(name, actualParams){
   	var fsym = this.symtbl.lookup(name, 'fdef');
   	if(!fsym){
@@ -38,7 +38,7 @@ class DynScope{
       var alias_entry = {id: aliased_id};
       if(actual_param.iconst || actual_param.fconst){//track numeric values.
         alias_entry.value = actual_param.iconst || actual_param.fconst;
-      }      
+      }
   		child.aliases[formal_param.id] = alias_entry;
       //console.log("ADD alias for ", formal_param.id, " to ", alias_entry.id);
   	}
@@ -49,7 +49,7 @@ class DynScope{
   	this.current_scope = this.current_scope.parent;
   }
 
-  lookup_sym(name){  	
+  lookup_sym(name){
   	var curr_scope = this.current_scope;
   	var alias=null;
   	var dyn_scope = curr_scope;

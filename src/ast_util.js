@@ -1,3 +1,14 @@
+const util = require('util')
+
+function print_object(obj, printJson, printColor){
+	if(printJson){
+		console.log(JSON.stringify(obj, null, 4));
+	}
+	else{
+		console.log(util.inspect(obj, false, 500, printColor));
+	}
+}
+
 function find_default_flow(mod_ast){
 	var fdefs = mod_ast.fdefs;
 	for(var i=0;i<fdefs.length;i++){
@@ -127,6 +138,7 @@ function lookup_effect(root_ast, uses, qid, kind){
 
 var vector_ops = ['push'];
 
+exports.print_object = print_object
 exports.find_default_flow = find_default_flow;
 exports.find_fdef = find_fdef;
 exports.find_flow = find_flow;

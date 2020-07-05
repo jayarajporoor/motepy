@@ -158,7 +158,7 @@ functionCall
 	;
 
 actualParam
-    : (Identifier ASSIGN)? (expr | StringLiteral)
+    : (Identifier ASSIGN)? (expr | StringLiteral | primitiveType)
     ;
 
 actualParams

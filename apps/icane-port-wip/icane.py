@@ -1,4 +1,4 @@
 [
 init.init,
-protonn.predict
+init2.init2
 ]

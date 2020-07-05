@@ -7,7 +7,7 @@ var MotePyVisitor = require('./MotePyVisitor').MotePyVisitor;
 var grammarFileName = "MotePy.g4";
 
 var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
-    "\u0003M\u0260\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u0003M\u0261\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004",
     "\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0004",
     "\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010\t\u0010\u0004",
@@ -74,24 +74,24 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     ",\u0003,\u0007,\u01d3\n,\f,\u000e,\u01d6\u000b,\u0003-\u0003-\u0003",
     "-\u0006-\u01db\n-\r-\u000e-\u01dc\u0003.\u0003.\u0005.\u01e1\n.\u0003",
     ".\u0003.\u0005.\u01e5\n.\u0003.\u0003.\u0003/\u0003/\u0005/\u01eb\n",
-    "/\u0003/\u0003/\u0005/\u01ef\n/\u00030\u00030\u00030\u00070\u01f4\n",
-    "0\f0\u000e0\u01f7\u000b0\u00030\u00050\u01fa\n0\u00031\u00031\u0003",
-    "1\u00031\u00061\u0200\n1\r1\u000e1\u0201\u00032\u00032\u00032\u0003",
-    "3\u00033\u00033\u00053\u020a\n3\u00034\u00034\u00034\u00034\u00034\u0003",
+    "/\u0003/\u0003/\u0003/\u0005/\u01f0\n/\u00030\u00030\u00030\u00070\u01f5",
+    "\n0\f0\u000e0\u01f8\u000b0\u00030\u00050\u01fb\n0\u00031\u00031\u0003",
+    "1\u00031\u00061\u0201\n1\r1\u000e1\u0202\u00032\u00032\u00032\u0003",
+    "3\u00033\u00033\u00053\u020b\n3\u00034\u00034\u00034\u00034\u00034\u0003",
     "5\u00035\u00035\u00035\u00035\u00035\u00035\u00035\u00035\u00035\u0003",
-    "5\u00035\u00035\u00055\u021e\n5\u00035\u00035\u00035\u00035\u00035\u0003",
+    "5\u00035\u00035\u00055\u021f\n5\u00035\u00035\u00035\u00035\u00035\u0003",
     "5\u00035\u00035\u00035\u00035\u00035\u00035\u00035\u00035\u00035\u0003",
-    "5\u00035\u00035\u00075\u0232\n5\f5\u000e5\u0235\u000b5\u00036\u0003",
-    "6\u00036\u00036\u00036\u00036\u00036\u00036\u00056\u023f\n6\u00037\u0003",
-    "7\u00037\u00037\u00037\u00037\u00037\u00037\u00037\u00057\u024a\n7\u0003",
-    "7\u00037\u00037\u00077\u024f\n7\f7\u000e7\u0252\u000b7\u00038\u0003",
-    "8\u00039\u00039\u00039\u00059\u0259\n9\u0003:\u0003:\u0003:\u0005:\u025e",
+    "5\u00035\u00035\u00075\u0233\n5\f5\u000e5\u0236\u000b5\u00036\u0003",
+    "6\u00036\u00036\u00036\u00036\u00036\u00036\u00056\u0240\n6\u00037\u0003",
+    "7\u00037\u00037\u00037\u00037\u00037\u00037\u00037\u00057\u024b\n7\u0003",
+    "7\u00037\u00037\u00077\u0250\n7\f7\u000e7\u0253\u000b7\u00038\u0003",
+    "8\u00039\u00039\u00039\u00059\u025a\n9\u0003:\u0003:\u0003:\u0005:\u025f",
     "\n:\u0003:\u0002\u0004hl;\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012",
     "\u0014\u0016\u0018\u001a\u001c\u001e \"$&(*,.02468:<>@BDFHJLNPRTVXZ",
     "\\^`bdfhjlnpr\u0002\u000e\u0003\u0002\u0010\u0011\u0003\u0002DE\u0003",
     "\u0002:B\u0004\u0002\u000e\u000e:B\u0004\u0002  55\u0003\u000212\u0004",
     "\u00023466\u0004\u0002!#%%\u0003\u0002\u001f \u0003\u0002\',\u0003\u0002",
-    "./\u0003\u0002EF\u027f\u0002w\u0003\u0002\u0002\u0002\u0004\u0095\u0003",
+    "./\u0003\u0002EF\u0281\u0002w\u0003\u0002\u0002\u0002\u0004\u0095\u0003",
     "\u0002\u0002\u0002\u0006\u00a1\u0003\u0002\u0002\u0002\b\u00b2\u0003",
     "\u0002\u0002\u0002\n\u00c1\u0003\u0002\u0002\u0002\f\u00c5\u0003\u0002",
     "\u0002\u0002\u000e\u00c9\u0003\u0002\u0002\u0002\u0010\u00cf\u0003\u0002",
@@ -112,12 +112,12 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0002\u0002N\u019d\u0003\u0002\u0002\u0002P\u01a4\u0003\u0002\u0002",
     "\u0002R\u01b4\u0003\u0002\u0002\u0002T\u01b6\u0003\u0002\u0002\u0002",
     "V\u01cf\u0003\u0002\u0002\u0002X\u01d7\u0003\u0002\u0002\u0002Z\u01e0",
-    "\u0003\u0002\u0002\u0002\\\u01ea\u0003\u0002\u0002\u0002^\u01f0\u0003",
-    "\u0002\u0002\u0002`\u01ff\u0003\u0002\u0002\u0002b\u0203\u0003\u0002",
-    "\u0002\u0002d\u0206\u0003\u0002\u0002\u0002f\u020b\u0003\u0002\u0002",
-    "\u0002h\u021d\u0003\u0002\u0002\u0002j\u023e\u0003\u0002\u0002\u0002",
-    "l\u0249\u0003\u0002\u0002\u0002n\u0253\u0003\u0002\u0002\u0002p\u0258",
-    "\u0003\u0002\u0002\u0002r\u025d\u0003\u0002\u0002\u0002tv\u0005\u001e",
+    "\u0003\u0002\u0002\u0002\\\u01ea\u0003\u0002\u0002\u0002^\u01f1\u0003",
+    "\u0002\u0002\u0002`\u0200\u0003\u0002\u0002\u0002b\u0204\u0003\u0002",
+    "\u0002\u0002d\u0207\u0003\u0002\u0002\u0002f\u020c\u0003\u0002\u0002",
+    "\u0002h\u021e\u0003\u0002\u0002\u0002j\u023f\u0003\u0002\u0002\u0002",
+    "l\u024a\u0003\u0002\u0002\u0002n\u0254\u0003\u0002\u0002\u0002p\u0259",
+    "\u0003\u0002\u0002\u0002r\u025e\u0003\u0002\u0002\u0002tv\u0005\u001e",
     "\u0010\u0002ut\u0003\u0002\u0002\u0002vy\u0003\u0002\u0002\u0002wu\u0003",
     "\u0002\u0002\u0002wx\u0003\u0002\u0002\u0002x}\u0003\u0002\u0002\u0002",
     "yw\u0003\u0002\u0002\u0002z|\u0005 \u0011\u0002{z\u0003\u0002\u0002",
@@ -327,78 +327,79 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0002\u0002\u0002\u01e5\u01e6\u0003\u0002\u0002\u0002\u01e6\u01e7\u0007",
     "\u0016\u0002\u0002\u01e7[\u0003\u0002\u0002\u0002\u01e8\u01e9\u0007",
     "D\u0002\u0002\u01e9\u01eb\u0007-\u0002\u0002\u01ea\u01e8\u0003\u0002",
-    "\u0002\u0002\u01ea\u01eb\u0003\u0002\u0002\u0002\u01eb\u01ee\u0003\u0002",
-    "\u0002\u0002\u01ec\u01ef\u0005l7\u0002\u01ed\u01ef\u0007I\u0002\u0002",
-    "\u01ee\u01ec\u0003\u0002\u0002\u0002\u01ee\u01ed\u0003\u0002\u0002\u0002",
-    "\u01ef]\u0003\u0002\u0002\u0002\u01f0\u01f5\u0005\\/\u0002\u01f1\u01f2",
-    "\u0007\u001b\u0002\u0002\u01f2\u01f4\u0005\\/\u0002\u01f3\u01f1\u0003",
-    "\u0002\u0002\u0002\u01f4\u01f7\u0003\u0002\u0002\u0002\u01f5\u01f3\u0003",
-    "\u0002\u0002\u0002\u01f5\u01f6\u0003\u0002\u0002\u0002\u01f6\u01f9\u0003",
-    "\u0002\u0002\u0002\u01f7\u01f5\u0003\u0002\u0002\u0002\u01f8\u01fa\u0007",
-    "\u001b\u0002\u0002\u01f9\u01f8\u0003\u0002\u0002\u0002\u01f9\u01fa\u0003",
-    "\u0002\u0002\u0002\u01fa_\u0003\u0002\u0002\u0002\u01fb\u01fc\u0007",
-    "\u0019\u0002\u0002\u01fc\u01fd\u0005l7\u0002\u01fd\u01fe\u0007\u001a",
-    "\u0002\u0002\u01fe\u0200\u0003\u0002\u0002\u0002\u01ff\u01fb\u0003\u0002",
-    "\u0002\u0002\u0200\u0201\u0003\u0002\u0002\u0002\u0201\u01ff\u0003\u0002",
-    "\u0002\u0002\u0201\u0202\u0003\u0002\u0002\u0002\u0202a\u0003\u0002",
-    "\u0002\u0002\u0203\u0204\u0007D\u0002\u0002\u0204\u0205\u0005`1\u0002",
-    "\u0205c\u0003\u0002\u0002\u0002\u0206\u0209\u00073\u0002\u0002\u0207",
-    "\u020a\u0005b2\u0002\u0208\u020a\u0005V,\u0002\u0209\u0207\u0003\u0002",
-    "\u0002\u0002\u0209\u0208\u0003\u0002\u0002\u0002\u020ae\u0003\u0002",
-    "\u0002\u0002\u020b\u020c\u00056\u001c\u0002\u020c\u020d\u0007\u0015",
-    "\u0002\u0002\u020d\u020e\u0005h5\u0002\u020e\u020f\u0007\u0016\u0002",
-    "\u0002\u020fg\u0003\u0002\u0002\u0002\u0210\u0211\b5\u0001\u0002\u0211",
-    "\u0212\t\u0006\u0002\u0002\u0212\u021e\u0005h5\t\u0213\u021e\u0005f",
-    "4\u0002\u0214\u021e\u0005V,\u0002\u0215\u021e\u0005b2\u0002\u0216\u021e",
-    "\u0005d3\u0002\u0217\u021e\u0005Z.\u0002\u0218\u021e\u0005r:\u0002\u0219",
-    "\u021a\u0007\u0015\u0002\u0002\u021a\u021b\u0005h5\u0002\u021b\u021c",
-    "\u0007\u0016\u0002\u0002\u021c\u021e\u0003\u0002\u0002\u0002\u021d\u0210",
-    "\u0003\u0002\u0002\u0002\u021d\u0213\u0003\u0002\u0002\u0002\u021d\u0214",
-    "\u0003\u0002\u0002\u0002\u021d\u0215\u0003\u0002\u0002\u0002\u021d\u0216",
-    "\u0003\u0002\u0002\u0002\u021d\u0217\u0003\u0002\u0002\u0002\u021d\u0218",
-    "\u0003\u0002\u0002\u0002\u021d\u0219\u0003\u0002\u0002\u0002\u021e\u0233",
-    "\u0003\u0002\u0002\u0002\u021f\u0220\f\u0010\u0002\u0002\u0220\u0221",
-    "\u0007$\u0002\u0002\u0221\u0232\u0005h5\u0011\u0222\u0223\f\b\u0002",
-    "\u0002\u0223\u0224\t\u0007\u0002\u0002\u0224\u0232\u0005h5\t\u0225\u0226",
-    "\f\u0007\u0002\u0002\u0226\u0227\t\b\u0002\u0002\u0227\u0232\u0005h",
-    "5\b\u0228\u0229\f\u0006\u0002\u0002\u0229\u022a\u0007&\u0002\u0002\u022a",
-    "\u0232\u0005h5\u0007\u022b\u022c\f\u0005\u0002\u0002\u022c\u022d\t\t",
-    "\u0002\u0002\u022d\u0232\u0005h5\u0006\u022e\u022f\f\u0004\u0002\u0002",
-    "\u022f\u0230\t\n\u0002\u0002\u0230\u0232\u0005h5\u0005\u0231\u021f\u0003",
-    "\u0002\u0002\u0002\u0231\u0222\u0003\u0002\u0002\u0002\u0231\u0225\u0003",
-    "\u0002\u0002\u0002\u0231\u0228\u0003\u0002\u0002\u0002\u0231\u022b\u0003",
-    "\u0002\u0002\u0002\u0231\u022e\u0003\u0002\u0002\u0002\u0232\u0235\u0003",
-    "\u0002\u0002\u0002\u0233\u0231\u0003\u0002\u0002\u0002\u0233\u0234\u0003",
-    "\u0002\u0002\u0002\u0234i\u0003\u0002\u0002\u0002\u0235\u0233\u0003",
-    "\u0002\u0002\u0002\u0236\u0237\u0005h5\u0002\u0237\u0238\t\u000b\u0002",
-    "\u0002\u0238\u0239\u0005h5\u0002\u0239\u023f\u0003\u0002\u0002\u0002",
-    "\u023a\u023b\u0007\u0015\u0002\u0002\u023b\u023c\u0005j6\u0002\u023c",
-    "\u023d\u0007\u0016\u0002\u0002\u023d\u023f\u0003\u0002\u0002\u0002\u023e",
-    "\u0236\u0003\u0002\u0002\u0002\u023e\u023a\u0003\u0002\u0002\u0002\u023f",
-    "k\u0003\u0002\u0002\u0002\u0240\u0241\b7\u0001\u0002\u0241\u0242\u0007",
-    "0\u0002\u0002\u0242\u024a\u0005l7\u0007\u0243\u024a\u0005h5\u0002\u0244",
-    "\u024a\u0005j6\u0002\u0245\u0246\u0007\u0015\u0002\u0002\u0246\u0247",
-    "\u0005l7\u0002\u0247\u0248\u0007\u0016\u0002\u0002\u0248\u024a\u0003",
-    "\u0002\u0002\u0002\u0249\u0240\u0003\u0002\u0002\u0002\u0249\u0243\u0003",
-    "\u0002\u0002\u0002\u0249\u0244\u0003\u0002\u0002\u0002\u0249\u0245\u0003",
-    "\u0002\u0002\u0002\u024a\u0250\u0003\u0002\u0002\u0002\u024b\u024c\f",
-    "\u0004\u0002\u0002\u024c\u024d\t\f\u0002\u0002\u024d\u024f\u0005l7\u0005",
-    "\u024e\u024b\u0003\u0002\u0002\u0002\u024f\u0252\u0003\u0002\u0002\u0002",
-    "\u0250\u024e\u0003\u0002\u0002\u0002\u0250\u0251\u0003\u0002\u0002\u0002",
-    "\u0251m\u0003\u0002\u0002\u0002\u0252\u0250\u0003\u0002\u0002\u0002",
-    "\u0253\u0254\t\r\u0002\u0002\u0254o\u0003\u0002\u0002\u0002\u0255\u0259",
-    "\u0005n8\u0002\u0256\u0259\u0007H\u0002\u0002\u0257\u0259\u0005\"\u0012",
-    "\u0002\u0258\u0255\u0003\u0002\u0002\u0002\u0258\u0256\u0003\u0002\u0002",
-    "\u0002\u0258\u0257\u0003\u0002\u0002\u0002\u0259q\u0003\u0002\u0002",
-    "\u0002\u025a\u025e\u0005p9\u0002\u025b\u025e\u0005Z.\u0002\u025c\u025e",
-    "\u0007I\u0002\u0002\u025d\u025a\u0003\u0002\u0002\u0002\u025d\u025b",
-    "\u0003\u0002\u0002\u0002\u025d\u025c\u0003\u0002\u0002\u0002\u025es",
+    "\u0002\u0002\u01ea\u01eb\u0003\u0002\u0002\u0002\u01eb\u01ef\u0003\u0002",
+    "\u0002\u0002\u01ec\u01f0\u0005l7\u0002\u01ed\u01f0\u0007I\u0002\u0002",
+    "\u01ee\u01f0\u00058\u001d\u0002\u01ef\u01ec\u0003\u0002\u0002\u0002",
+    "\u01ef\u01ed\u0003\u0002\u0002\u0002\u01ef\u01ee\u0003\u0002\u0002\u0002",
+    "\u01f0]\u0003\u0002\u0002\u0002\u01f1\u01f6\u0005\\/\u0002\u01f2\u01f3",
+    "\u0007\u001b\u0002\u0002\u01f3\u01f5\u0005\\/\u0002\u01f4\u01f2\u0003",
+    "\u0002\u0002\u0002\u01f5\u01f8\u0003\u0002\u0002\u0002\u01f6\u01f4\u0003",
+    "\u0002\u0002\u0002\u01f6\u01f7\u0003\u0002\u0002\u0002\u01f7\u01fa\u0003",
+    "\u0002\u0002\u0002\u01f8\u01f6\u0003\u0002\u0002\u0002\u01f9\u01fb\u0007",
+    "\u001b\u0002\u0002\u01fa\u01f9\u0003\u0002\u0002\u0002\u01fa\u01fb\u0003",
+    "\u0002\u0002\u0002\u01fb_\u0003\u0002\u0002\u0002\u01fc\u01fd\u0007",
+    "\u0019\u0002\u0002\u01fd\u01fe\u0005l7\u0002\u01fe\u01ff\u0007\u001a",
+    "\u0002\u0002\u01ff\u0201\u0003\u0002\u0002\u0002\u0200\u01fc\u0003\u0002",
+    "\u0002\u0002\u0201\u0202\u0003\u0002\u0002\u0002\u0202\u0200\u0003\u0002",
+    "\u0002\u0002\u0202\u0203\u0003\u0002\u0002\u0002\u0203a\u0003\u0002",
+    "\u0002\u0002\u0204\u0205\u0007D\u0002\u0002\u0205\u0206\u0005`1\u0002",
+    "\u0206c\u0003\u0002\u0002\u0002\u0207\u020a\u00073\u0002\u0002\u0208",
+    "\u020b\u0005b2\u0002\u0209\u020b\u0005V,\u0002\u020a\u0208\u0003\u0002",
+    "\u0002\u0002\u020a\u0209\u0003\u0002\u0002\u0002\u020be\u0003\u0002",
+    "\u0002\u0002\u020c\u020d\u00056\u001c\u0002\u020d\u020e\u0007\u0015",
+    "\u0002\u0002\u020e\u020f\u0005h5\u0002\u020f\u0210\u0007\u0016\u0002",
+    "\u0002\u0210g\u0003\u0002\u0002\u0002\u0211\u0212\b5\u0001\u0002\u0212",
+    "\u0213\t\u0006\u0002\u0002\u0213\u021f\u0005h5\t\u0214\u021f\u0005f",
+    "4\u0002\u0215\u021f\u0005V,\u0002\u0216\u021f\u0005b2\u0002\u0217\u021f",
+    "\u0005d3\u0002\u0218\u021f\u0005Z.\u0002\u0219\u021f\u0005r:\u0002\u021a",
+    "\u021b\u0007\u0015\u0002\u0002\u021b\u021c\u0005h5\u0002\u021c\u021d",
+    "\u0007\u0016\u0002\u0002\u021d\u021f\u0003\u0002\u0002\u0002\u021e\u0211",
+    "\u0003\u0002\u0002\u0002\u021e\u0214\u0003\u0002\u0002\u0002\u021e\u0215",
+    "\u0003\u0002\u0002\u0002\u021e\u0216\u0003\u0002\u0002\u0002\u021e\u0217",
+    "\u0003\u0002\u0002\u0002\u021e\u0218\u0003\u0002\u0002\u0002\u021e\u0219",
+    "\u0003\u0002\u0002\u0002\u021e\u021a\u0003\u0002\u0002\u0002\u021f\u0234",
+    "\u0003\u0002\u0002\u0002\u0220\u0221\f\u0010\u0002\u0002\u0221\u0222",
+    "\u0007$\u0002\u0002\u0222\u0233\u0005h5\u0011\u0223\u0224\f\b\u0002",
+    "\u0002\u0224\u0225\t\u0007\u0002\u0002\u0225\u0233\u0005h5\t\u0226\u0227",
+    "\f\u0007\u0002\u0002\u0227\u0228\t\b\u0002\u0002\u0228\u0233\u0005h",
+    "5\b\u0229\u022a\f\u0006\u0002\u0002\u022a\u022b\u0007&\u0002\u0002\u022b",
+    "\u0233\u0005h5\u0007\u022c\u022d\f\u0005\u0002\u0002\u022d\u022e\t\t",
+    "\u0002\u0002\u022e\u0233\u0005h5\u0006\u022f\u0230\f\u0004\u0002\u0002",
+    "\u0230\u0231\t\n\u0002\u0002\u0231\u0233\u0005h5\u0005\u0232\u0220\u0003",
+    "\u0002\u0002\u0002\u0232\u0223\u0003\u0002\u0002\u0002\u0232\u0226\u0003",
+    "\u0002\u0002\u0002\u0232\u0229\u0003\u0002\u0002\u0002\u0232\u022c\u0003",
+    "\u0002\u0002\u0002\u0232\u022f\u0003\u0002\u0002\u0002\u0233\u0236\u0003",
+    "\u0002\u0002\u0002\u0234\u0232\u0003\u0002\u0002\u0002\u0234\u0235\u0003",
+    "\u0002\u0002\u0002\u0235i\u0003\u0002\u0002\u0002\u0236\u0234\u0003",
+    "\u0002\u0002\u0002\u0237\u0238\u0005h5\u0002\u0238\u0239\t\u000b\u0002",
+    "\u0002\u0239\u023a\u0005h5\u0002\u023a\u0240\u0003\u0002\u0002\u0002",
+    "\u023b\u023c\u0007\u0015\u0002\u0002\u023c\u023d\u0005j6\u0002\u023d",
+    "\u023e\u0007\u0016\u0002\u0002\u023e\u0240\u0003\u0002\u0002\u0002\u023f",
+    "\u0237\u0003\u0002\u0002\u0002\u023f\u023b\u0003\u0002\u0002\u0002\u0240",
+    "k\u0003\u0002\u0002\u0002\u0241\u0242\b7\u0001\u0002\u0242\u0243\u0007",
+    "0\u0002\u0002\u0243\u024b\u0005l7\u0007\u0244\u024b\u0005h5\u0002\u0245",
+    "\u024b\u0005j6\u0002\u0246\u0247\u0007\u0015\u0002\u0002\u0247\u0248",
+    "\u0005l7\u0002\u0248\u0249\u0007\u0016\u0002\u0002\u0249\u024b\u0003",
+    "\u0002\u0002\u0002\u024a\u0241\u0003\u0002\u0002\u0002\u024a\u0244\u0003",
+    "\u0002\u0002\u0002\u024a\u0245\u0003\u0002\u0002\u0002\u024a\u0246\u0003",
+    "\u0002\u0002\u0002\u024b\u0251\u0003\u0002\u0002\u0002\u024c\u024d\f",
+    "\u0004\u0002\u0002\u024d\u024e\t\f\u0002\u0002\u024e\u0250\u0005l7\u0005",
+    "\u024f\u024c\u0003\u0002\u0002\u0002\u0250\u0253\u0003\u0002\u0002\u0002",
+    "\u0251\u024f\u0003\u0002\u0002\u0002\u0251\u0252\u0003\u0002\u0002\u0002",
+    "\u0252m\u0003\u0002\u0002\u0002\u0253\u0251\u0003\u0002\u0002\u0002",
+    "\u0254\u0255\t\r\u0002\u0002\u0255o\u0003\u0002\u0002\u0002\u0256\u025a",
+    "\u0005n8\u0002\u0257\u025a\u0007H\u0002\u0002\u0258\u025a\u0005\"\u0012",
+    "\u0002\u0259\u0256\u0003\u0002\u0002\u0002\u0259\u0257\u0003\u0002\u0002",
+    "\u0002\u0259\u0258\u0003\u0002\u0002\u0002\u025aq\u0003\u0002\u0002",
+    "\u0002\u025b\u025f\u0005p9\u0002\u025c\u025f\u0005Z.\u0002\u025d\u025f",
+    "\u0007I\u0002\u0002\u025e\u025b\u0003\u0002\u0002\u0002\u025e\u025c",
+    "\u0003\u0002\u0002\u0002\u025e\u025d\u0003\u0002\u0002\u0002\u025fs",
     "\u0003\u0002\u0002\u0002?w}\u0083\u0089\u008f\u0093\u009c\u00a6\u00af",
     "\u00b9\u00bc\u00c1\u00cb\u00d5\u00de\u00e7\u00ea\u00f2\u00f6\u00fe\u0103",
     "\u0107\u011c\u011f\u0126\u012b\u0130\u0138\u0140\u0146\u0157\u015a\u015f",
     "\u0168\u0170\u017e\u0186\u018d\u019f\u01b4\u01ba\u01c5\u01cb\u01d4\u01dc",
-    "\u01e0\u01e4\u01ea\u01ee\u01f5\u01f9\u0201\u0209\u021d\u0231\u0233\u023e",
-    "\u0249\u0250\u0258\u025d"].join("");
+    "\u01e0\u01e4\u01ea\u01ef\u01f6\u01fa\u0202\u020a\u021e\u0232\u0234\u023f",
+    "\u024a\u0251\u0259\u025e"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -5225,7 +5226,7 @@ MotePy.prototype.functionCall = function() {
         this.match(MotePy.LP);
         this.state = 482;
         _la = this._input.LA(1);
-        if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << MotePy.TRUE) | (1 << MotePy.FALSE) | (1 << MotePy.LP) | (1 << MotePy.MINUS))) !== 0) || ((((_la - 46)) & ~0x1f) == 0 && ((1 << (_la - 46)) & ((1 << (MotePy.LNOT - 46)) | (1 << (MotePy.BAND - 46)) | (1 << (MotePy.BNOT - 46)) | (1 << (MotePy.INT - 46)) | (1 << (MotePy.FLOAT - 46)) | (1 << (MotePy.BOOLEAN - 46)) | (1 << (MotePy.I8 - 46)) | (1 << (MotePy.U8 - 46)) | (1 << (MotePy.I16 - 46)) | (1 << (MotePy.U16 - 46)) | (1 << (MotePy.I32 - 46)) | (1 << (MotePy.U32 - 46)) | (1 << (MotePy.Identifier - 46)) | (1 << (MotePy.IntegerConstant - 46)) | (1 << (MotePy.FloatingConstant - 46)) | (1 << (MotePy.CharacterConstant - 46)) | (1 << (MotePy.StringLiteral - 46)))) !== 0)) {
+        if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << MotePy.VOID) | (1 << MotePy.TRUE) | (1 << MotePy.FALSE) | (1 << MotePy.LP) | (1 << MotePy.MINUS))) !== 0) || ((((_la - 46)) & ~0x1f) == 0 && ((1 << (_la - 46)) & ((1 << (MotePy.LNOT - 46)) | (1 << (MotePy.BAND - 46)) | (1 << (MotePy.BNOT - 46)) | (1 << (MotePy.INT - 46)) | (1 << (MotePy.FLOAT - 46)) | (1 << (MotePy.BOOLEAN - 46)) | (1 << (MotePy.I8 - 46)) | (1 << (MotePy.U8 - 46)) | (1 << (MotePy.I16 - 46)) | (1 << (MotePy.U16 - 46)) | (1 << (MotePy.I32 - 46)) | (1 << (MotePy.U32 - 46)) | (1 << (MotePy.Identifier - 46)) | (1 << (MotePy.IntegerConstant - 46)) | (1 << (MotePy.FloatingConstant - 46)) | (1 << (MotePy.CharacterConstant - 46)) | (1 << (MotePy.StringLiteral - 46)))) !== 0)) {
             this.state = 481;
             this.actualParams();
         }
@@ -5268,6 +5269,10 @@ ActualParamContext.prototype.expr = function() {
 
 ActualParamContext.prototype.StringLiteral = function() {
     return this.getToken(MotePy.StringLiteral, 0);
+};
+
+ActualParamContext.prototype.primitiveType = function() {
+    return this.getTypedRuleContext(PrimitiveTypeContext,0);
 };
 
 ActualParamContext.prototype.Identifier = function() {
@@ -5319,7 +5324,7 @@ MotePy.prototype.actualParam = function() {
             this.match(MotePy.ASSIGN);
 
         }
-        this.state = 492;
+        this.state = 493;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,48,this._ctx);
         switch(la_) {
@@ -5331,6 +5336,11 @@ MotePy.prototype.actualParam = function() {
         case 2:
             this.state = 491;
             this.match(MotePy.StringLiteral);
+            break;
+
+        case 3:
+            this.state = 492;
+            this.primitiveType();
             break;
 
         }
@@ -5419,27 +5429,27 @@ MotePy.prototype.actualParams = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 494;
+        this.state = 495;
         this.actualParam();
-        this.state = 499;
+        this.state = 500;
         this._errHandler.sync(this);
         var _alt = this._interp.adaptivePredict(this._input,49,this._ctx)
         while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
             if(_alt===1) {
-                this.state = 495;
-                this.match(MotePy.COMMA);
                 this.state = 496;
+                this.match(MotePy.COMMA);
+                this.state = 497;
                 this.actualParam(); 
             }
-            this.state = 501;
+            this.state = 502;
             this._errHandler.sync(this);
             _alt = this._interp.adaptivePredict(this._input,49,this._ctx);
         }
 
-        this.state = 503;
+        this.state = 504;
         _la = this._input.LA(1);
         if(_la===MotePy.COMMA) {
-            this.state = 502;
+            this.state = 503;
             this.match(MotePy.COMMA);
         }
 
@@ -5539,23 +5549,23 @@ MotePy.prototype.dimensionExpr = function() {
     this.enterRule(localctx, 94, MotePy.RULE_dimensionExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 509; 
+        this.state = 510; 
         this._errHandler.sync(this);
         var _alt = 1;
         do {
         	switch (_alt) {
         	case 1:
-        		this.state = 505;
-        		this.match(MotePy.LS);
         		this.state = 506;
-        		this.expr(0);
+        		this.match(MotePy.LS);
         		this.state = 507;
+        		this.expr(0);
+        		this.state = 508;
         		this.match(MotePy.RS);
         		break;
         	default:
         		throw new antlr4.error.NoViableAltException(this);
         	}
-        	this.state = 511; 
+        	this.state = 512; 
         	this._errHandler.sync(this);
         	_alt = this._interp.adaptivePredict(this._input,51, this._ctx);
         } while ( _alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER );
@@ -5628,9 +5638,9 @@ MotePy.prototype.arrayExpr = function() {
     this.enterRule(localctx, 96, MotePy.RULE_arrayExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 513;
-        this.match(MotePy.Identifier);
         this.state = 514;
+        this.match(MotePy.Identifier);
+        this.state = 515;
         this.dimensionExpr();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -5705,19 +5715,19 @@ MotePy.prototype.addressExpr = function() {
     this.enterRule(localctx, 98, MotePy.RULE_addressExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 516;
+        this.state = 517;
         this.match(MotePy.BAND);
-        this.state = 519;
+        this.state = 520;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,52,this._ctx);
         switch(la_) {
         case 1:
-            this.state = 517;
+            this.state = 518;
             this.arrayExpr();
             break;
 
         case 2:
-            this.state = 518;
+            this.state = 519;
             this.qualIdentifier();
             break;
 
@@ -5799,13 +5809,13 @@ MotePy.prototype.castExpr = function() {
     this.enterRule(localctx, 100, MotePy.RULE_castExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 521;
-        this.castableType();
         this.state = 522;
-        this.match(MotePy.LP);
+        this.castableType();
         this.state = 523;
-        this.basicExpr(0);
+        this.match(MotePy.LP);
         this.state = 524;
+        this.basicExpr(0);
+        this.state = 525;
         this.match(MotePy.RP);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -5973,12 +5983,12 @@ MotePy.prototype.basicExpr = function(_p) {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 539;
+        this.state = 540;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,53,this._ctx);
         switch(la_) {
         case 1:
-            this.state = 527;
+            this.state = 528;
             localctx.up = this._input.LT(1);
             _la = this._input.LA(1);
             if(!(_la===MotePy.MINUS || _la===MotePy.BNOT)) {
@@ -5987,52 +5997,52 @@ MotePy.prototype.basicExpr = function(_p) {
             else {
                 this.consume();
             }
-            this.state = 528;
+            this.state = 529;
             this.basicExpr(7);
             break;
 
         case 2:
-            this.state = 529;
+            this.state = 530;
             this.castExpr();
             break;
 
         case 3:
-            this.state = 530;
+            this.state = 531;
             this.qualIdentifier();
             break;
 
         case 4:
-            this.state = 531;
+            this.state = 532;
             this.arrayExpr();
             break;
 
         case 5:
-            this.state = 532;
+            this.state = 533;
             this.addressExpr();
             break;
 
         case 6:
-            this.state = 533;
+            this.state = 534;
             this.functionCall();
             break;
 
         case 7:
-            this.state = 534;
+            this.state = 535;
             this.literal();
             break;
 
         case 8:
-            this.state = 535;
-            this.match(MotePy.LP);
             this.state = 536;
-            this.basicExpr(0);
+            this.match(MotePy.LP);
             this.state = 537;
+            this.basicExpr(0);
+            this.state = 538;
             this.match(MotePy.RP);
             break;
 
         }
         this._ctx.stop = this._input.LT(-1);
-        this.state = 561;
+        this.state = 562;
         this._errHandler.sync(this);
         var _alt = this._interp.adaptivePredict(this._input,55,this._ctx)
         while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
@@ -6041,31 +6051,31 @@ MotePy.prototype.basicExpr = function(_p) {
                     this.triggerExitRuleEvent();
                 }
                 _prevctx = localctx;
-                this.state = 559;
+                this.state = 560;
                 this._errHandler.sync(this);
                 var la_ = this._interp.adaptivePredict(this._input,54,this._ctx);
                 switch(la_) {
                 case 1:
                     localctx = new BasicExprContext(this, _parentctx, _parentState);
                     this.pushNewRecursionContext(localctx, _startState, MotePy.RULE_basicExpr);
-                    this.state = 541;
+                    this.state = 542;
                     if (!( this.precpred(this._ctx, 14))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 14)");
                     }
-                    this.state = 542;
-                    localctx.op = this.match(MotePy.POW);
                     this.state = 543;
+                    localctx.op = this.match(MotePy.POW);
+                    this.state = 544;
                     this.basicExpr(15);
                     break;
 
                 case 2:
                     localctx = new BasicExprContext(this, _parentctx, _parentState);
                     this.pushNewRecursionContext(localctx, _startState, MotePy.RULE_basicExpr);
-                    this.state = 544;
+                    this.state = 545;
                     if (!( this.precpred(this._ctx, 6))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 6)");
                     }
-                    this.state = 545;
+                    this.state = 546;
                     localctx.op = this._input.LT(1);
                     _la = this._input.LA(1);
                     if(!(_la===MotePy.LSHIFT || _la===MotePy.RSHIFT)) {
@@ -6074,18 +6084,18 @@ MotePy.prototype.basicExpr = function(_p) {
                     else {
                         this.consume();
                     }
-                    this.state = 546;
+                    this.state = 547;
                     this.basicExpr(7);
                     break;
 
                 case 3:
                     localctx = new BasicExprContext(this, _parentctx, _parentState);
                     this.pushNewRecursionContext(localctx, _startState, MotePy.RULE_basicExpr);
-                    this.state = 547;
+                    this.state = 548;
                     if (!( this.precpred(this._ctx, 5))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 5)");
                     }
-                    this.state = 548;
+                    this.state = 549;
                     localctx.op = this._input.LT(1);
                     _la = this._input.LA(1);
                     if(!(((((_la - 49)) & ~0x1f) == 0 && ((1 << (_la - 49)) & ((1 << (MotePy.BAND - 49)) | (1 << (MotePy.BOR - 49)) | (1 << (MotePy.BXOR - 49)))) !== 0))) {
@@ -6094,31 +6104,31 @@ MotePy.prototype.basicExpr = function(_p) {
                     else {
                         this.consume();
                     }
-                    this.state = 549;
+                    this.state = 550;
                     this.basicExpr(6);
                     break;
 
                 case 4:
                     localctx = new BasicExprContext(this, _parentctx, _parentState);
                     this.pushNewRecursionContext(localctx, _startState, MotePy.RULE_basicExpr);
-                    this.state = 550;
+                    this.state = 551;
                     if (!( this.precpred(this._ctx, 4))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 4)");
                     }
-                    this.state = 551;
-                    localctx.op = this.match(MotePy.CAT);
                     this.state = 552;
+                    localctx.op = this.match(MotePy.CAT);
+                    this.state = 553;
                     this.basicExpr(5);
                     break;
 
                 case 5:
                     localctx = new BasicExprContext(this, _parentctx, _parentState);
                     this.pushNewRecursionContext(localctx, _startState, MotePy.RULE_basicExpr);
-                    this.state = 553;
+                    this.state = 554;
                     if (!( this.precpred(this._ctx, 3))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 3)");
                     }
-                    this.state = 554;
+                    this.state = 555;
                     localctx.op = this._input.LT(1);
                     _la = this._input.LA(1);
                     if(!(((((_la - 31)) & ~0x1f) == 0 && ((1 << (_la - 31)) & ((1 << (MotePy.MUL - 31)) | (1 << (MotePy.DIV - 31)) | (1 << (MotePy.MOD - 31)) | (1 << (MotePy.HPROD - 31)))) !== 0))) {
@@ -6127,18 +6137,18 @@ MotePy.prototype.basicExpr = function(_p) {
                     else {
                         this.consume();
                     }
-                    this.state = 555;
+                    this.state = 556;
                     this.basicExpr(4);
                     break;
 
                 case 6:
                     localctx = new BasicExprContext(this, _parentctx, _parentState);
                     this.pushNewRecursionContext(localctx, _startState, MotePy.RULE_basicExpr);
-                    this.state = 556;
+                    this.state = 557;
                     if (!( this.precpred(this._ctx, 2))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 2)");
                     }
-                    this.state = 557;
+                    this.state = 558;
                     localctx.op = this._input.LT(1);
                     _la = this._input.LA(1);
                     if(!(_la===MotePy.PLUS || _la===MotePy.MINUS)) {
@@ -6147,13 +6157,13 @@ MotePy.prototype.basicExpr = function(_p) {
                     else {
                         this.consume();
                     }
-                    this.state = 558;
+                    this.state = 559;
                     this.basicExpr(3);
                     break;
 
                 } 
             }
-            this.state = 563;
+            this.state = 564;
             this._errHandler.sync(this);
             _alt = this._interp.adaptivePredict(this._input,55,this._ctx);
         }
@@ -6267,15 +6277,15 @@ MotePy.prototype.relExpr = function() {
     this.enterRule(localctx, 104, MotePy.RULE_relExpr);
     var _la = 0; // Token type
     try {
-        this.state = 572;
+        this.state = 573;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,56,this._ctx);
         switch(la_) {
         case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 564;
-            this.basicExpr(0);
             this.state = 565;
+            this.basicExpr(0);
+            this.state = 566;
             localctx.op = this._input.LT(1);
             _la = this._input.LA(1);
             if(!(((((_la - 37)) & ~0x1f) == 0 && ((1 << (_la - 37)) & ((1 << (MotePy.LT - 37)) | (1 << (MotePy.GT - 37)) | (1 << (MotePy.LTE - 37)) | (1 << (MotePy.GTE - 37)) | (1 << (MotePy.EQ - 37)) | (1 << (MotePy.NEQ - 37)))) !== 0))) {
@@ -6284,17 +6294,17 @@ MotePy.prototype.relExpr = function() {
             else {
                 this.consume();
             }
-            this.state = 566;
+            this.state = 567;
             this.basicExpr(0);
             break;
 
         case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 568;
-            this.match(MotePy.LP);
             this.state = 569;
-            this.relExpr();
+            this.match(MotePy.LP);
             this.state = 570;
+            this.relExpr();
+            this.state = 571;
             this.match(MotePy.RP);
             break;
 
@@ -6404,39 +6414,39 @@ MotePy.prototype.expr = function(_p) {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 583;
+        this.state = 584;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,57,this._ctx);
         switch(la_) {
         case 1:
-            this.state = 575;
-            this.match(MotePy.LNOT);
             this.state = 576;
+            this.match(MotePy.LNOT);
+            this.state = 577;
             this.expr(5);
             break;
 
         case 2:
-            this.state = 577;
+            this.state = 578;
             this.basicExpr(0);
             break;
 
         case 3:
-            this.state = 578;
+            this.state = 579;
             this.relExpr();
             break;
 
         case 4:
-            this.state = 579;
-            this.match(MotePy.LP);
             this.state = 580;
-            this.expr(0);
+            this.match(MotePy.LP);
             this.state = 581;
+            this.expr(0);
+            this.state = 582;
             this.match(MotePy.RP);
             break;
 
         }
         this._ctx.stop = this._input.LT(-1);
-        this.state = 590;
+        this.state = 591;
         this._errHandler.sync(this);
         var _alt = this._interp.adaptivePredict(this._input,58,this._ctx)
         while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
@@ -6447,11 +6457,11 @@ MotePy.prototype.expr = function(_p) {
                 _prevctx = localctx;
                 localctx = new ExprContext(this, _parentctx, _parentState);
                 this.pushNewRecursionContext(localctx, _startState, MotePy.RULE_expr);
-                this.state = 585;
+                this.state = 586;
                 if (!( this.precpred(this._ctx, 2))) {
                     throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 2)");
                 }
-                this.state = 586;
+                this.state = 587;
                 localctx.op = this._input.LT(1);
                 _la = this._input.LA(1);
                 if(!(_la===MotePy.LAND || _la===MotePy.LOR)) {
@@ -6460,10 +6470,10 @@ MotePy.prototype.expr = function(_p) {
                 else {
                     this.consume();
                 }
-                this.state = 587;
+                this.state = 588;
                 this.expr(3); 
             }
-            this.state = 592;
+            this.state = 593;
             this._errHandler.sync(this);
             _alt = this._interp.adaptivePredict(this._input,58,this._ctx);
         }
@@ -6538,7 +6548,7 @@ MotePy.prototype.numConstant = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 593;
+        this.state = 594;
         _la = this._input.LA(1);
         if(!(_la===MotePy.IntegerConstant || _la===MotePy.FloatingConstant)) {
         this._errHandler.recoverInline(this);
@@ -6618,23 +6628,23 @@ MotePy.prototype.exprConstant = function() {
     var localctx = new ExprConstantContext(this, this._ctx, this.state);
     this.enterRule(localctx, 110, MotePy.RULE_exprConstant);
     try {
-        this.state = 598;
+        this.state = 599;
         switch(this._input.LA(1)) {
         case MotePy.IntegerConstant:
         case MotePy.FloatingConstant:
             this.enterOuterAlt(localctx, 1);
-            this.state = 595;
+            this.state = 596;
             this.numConstant();
             break;
         case MotePy.CharacterConstant:
             this.enterOuterAlt(localctx, 2);
-            this.state = 596;
+            this.state = 597;
             this.match(MotePy.CharacterConstant);
             break;
         case MotePy.TRUE:
         case MotePy.FALSE:
             this.enterOuterAlt(localctx, 3);
-            this.state = 597;
+            this.state = 598;
             this.booleanLiteral();
             break;
         default:
@@ -6712,7 +6722,7 @@ MotePy.prototype.literal = function() {
     var localctx = new LiteralContext(this, this._ctx, this.state);
     this.enterRule(localctx, 112, MotePy.RULE_literal);
     try {
-        this.state = 603;
+        this.state = 604;
         switch(this._input.LA(1)) {
         case MotePy.TRUE:
         case MotePy.FALSE:
@@ -6720,17 +6730,17 @@ MotePy.prototype.literal = function() {
         case MotePy.FloatingConstant:
         case MotePy.CharacterConstant:
             this.enterOuterAlt(localctx, 1);
-            this.state = 600;
+            this.state = 601;
             this.exprConstant();
             break;
         case MotePy.Identifier:
             this.enterOuterAlt(localctx, 2);
-            this.state = 601;
+            this.state = 602;
             this.functionCall();
             break;
         case MotePy.StringLiteral:
             this.enterOuterAlt(localctx, 3);
-            this.state = 602;
+            this.state = 603;
             this.match(MotePy.StringLiteral);
             break;
         default:
