@@ -95,6 +95,7 @@ function fcall(ast){
 	else
 	{
 		var scoped_name = symtbl.getScopeNames().join("_");
+        //console.log("PIPELINE ST", pipeline_states, "SCOPED NAME", scoped_name);
 		var next_state = pipeline_next_state[scoped_name];
 		next_state = pipeline_states[next_state];
 		var flow_params = next_state.flowdef.params;
