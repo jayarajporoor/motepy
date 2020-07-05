@@ -141,7 +141,7 @@ stmt
     ;
 
 funcDef
-    :  DEF Identifier LP formalParams? RP ARROW varType COLON
+    :  ASYNC? DEF Identifier LP formalParams? RP ARROW varType COLON
         NEWLINE INDENT varDef* stmt+ DEDENT
     ;
 

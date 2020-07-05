@@ -102,6 +102,10 @@ lexer grammar MotePyLexer;
   }
 }
 
+ASYNC: 'async';
+
+AWAIT: 'await';
+
 MODULE
     :   'module'
     ;

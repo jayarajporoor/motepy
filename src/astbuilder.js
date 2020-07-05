@@ -669,6 +669,7 @@ function astFuncDef(fdef){
 	var ast = {};
 	ast.src = src_info(fdef);
 	var varType = fdef.varType();
+    ast.is_async = fdef.ASYNC() ? true : false
 	//var flowType = fdef.flowType();
 
 	if(varType){
