@@ -346,17 +346,18 @@ exports.transform = function(ast, ctx){
 		return;
 	}
 
+    console.log("DUSEQ", ast_util.print_object(ctx.duseq))
 	compute_ltmap(ctx.duseq);
 
 	ctx.stdalloc = {full_ltmap: full_ltmap, ltmap: ltmap};
 
-//	console.log(full_ltmap);
-//	console.log(ltmap);
+	console.log("FULL LTMAP", full_ltmap);
+	console.log("LTMAP", ltmap);
 
 	var max_lifetime = init_regions();
 
 	//console.log(JSON.stringify(regions, null, 1));
-//	print_regions();
+	//print_regions();
 
 	optimize_regions(max_lifetime, default_merge_policy);
 
