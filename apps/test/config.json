@@ -1,0 +1,6 @@
+{
+	"codegen":{
+		"stdincludes" :["stdio.h", "stdint.h"],
+		"pathincludes" :[]
+	}
+}
