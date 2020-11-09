@@ -171,8 +171,8 @@ function merge_regions(target_region, candidate_region, run_start, adjacency, co
 				 				  lt_end: Math.max(tblock.lt_end,cblock.lt_end),
                         		  owners: tblock.owners.concat(cblock.owners)
                         		};
-			//print_block("Try cblock ", cblock);
-			//print_block("Try tblock ", tblock);
+			print_block("Try cblock ", cblock);
+			print_block("Try tblock ", tblock);
             if(tblock.size > cblock.size){
 				tblock.size = tblock.size - cblock.size;
 				merged_block.size = cblock.size;
@@ -190,12 +190,13 @@ function merge_regions(target_region, candidate_region, run_start, adjacency, co
             }
             if(merged_blocks){
 				merged_blocks.push(merged_block);
-			//	print_block("Merged block ", merged_block);
+				print_block("Merged block ", merged_block);
 			}
 
 			if(size_saving === 0) run_start = i;//we're just starting a merge-run.
 			last_was_matching = true;
-		}else{
+		}else
+        {
 			if(merged_blocks) merged_blocks = [];
 			size_saving = 0;
 			run_start++;//start the run from the next index in the target region.
@@ -211,7 +212,7 @@ function merge_regions(target_region, candidate_region, run_start, adjacency, co
 	if( (tblock || tidx < target.length ) &&
 		(cblock || cidx < candidate.length ) ){
 			last_was_matching = false;
-			//console.log("Last was not matching!");
+			console.log("Last was not matching!");
 	}
 	if(merged_blocks){
 		for(var i=0;i<saved_run_start;i++){
@@ -249,13 +250,15 @@ function optimize_regions(max_lifetime, merge_policy){
 		changed = false;
 		var adjacency = 1;
 		while(adjacency < max_lifetime) {
-
+            //console.log("ADJACENCY", adjacency);
 			for(var i=0;i<regions.length && !changed;i++){
 				for(var j=0;j<regions.length && !changed;j++){
 					if(i === j ) continue;
 					var target_region = regions[i];
 					var candidate_region = regions[j];
+                    //console.log("MERGE REGIONS", target_region, candidate_region);
 					var res = merge_regions(target_region, candidate_region, 0, adjacency, false);
+                    //console.log("RESULT", res);
 					if(res.match && merge_policy(res.size_saving, candidate_region, target_region)){
 						merge_regions(target_region, candidate_region, res.run_start, adjacency, true);
 						regions.splice(j, 1);
@@ -350,7 +353,8 @@ exports.transform = function(ast, ctx){
 		return;
 	}
 
-    console.log("DUSEQ", ast_util.print_object(ctx.duseq))
+    console.log("DUSEQ");
+    ast_util.print_object(ctx.duseq);
 	compute_ltmap(ctx.duseq);
 
 	ctx.stdalloc = {full_ltmap: full_ltmap, ltmap: ltmap};
@@ -361,12 +365,13 @@ exports.transform = function(ast, ctx){
 	var max_lifetime = init_regions();
 
 	//console.log(JSON.stringify(regions, null, 1));
-	//print_regions();
+    console.log("After init regions");
+	print_regions();
 
 	optimize_regions(max_lifetime, default_merge_policy);
 
-//	console.log("After optimize");
-//	print_regions();
+	console.log("After optimize");
+	print_regions();
 	//console.log(JSON.stringify(regions));
 
 	ctx.stdalloc.regions = regions;
