@@ -92,6 +92,11 @@ MotePyVisitor.prototype.visitIncludeSpec = function(ctx) {
 };
 
 
+// Visit a parse tree produced by MotePy#decoratorDef.
+MotePyVisitor.prototype.visitDecoratorDef = function(ctx) {
+};
+
+
 // Visit a parse tree produced by MotePy#booleanLiteral.
 MotePyVisitor.prototype.visitBooleanLiteral = function(ctx) {
 };

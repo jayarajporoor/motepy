@@ -106,6 +106,15 @@ ASYNC: 'async';
 
 AWAIT: 'await';
 
+AT: '@';
+
+DecoratorIdentifier
+    :   AT IdentifierNondigit
+        (   IdentifierNondigit
+        |   Digit
+        )*
+    ;
+
 MODULE
     :   'module'
     ;
@@ -115,6 +124,8 @@ ARROW : '->';
 USE
     :   'use'
     ;
+
+IMPORT: 'import';
 
 CONFIG
     :   'config'

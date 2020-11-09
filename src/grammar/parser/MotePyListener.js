@@ -155,6 +155,15 @@ MotePyListener.prototype.exitIncludeSpec = function(ctx) {
 };
 
 
+// Enter a parse tree produced by MotePy#decoratorDef.
+MotePyListener.prototype.enterDecoratorDef = function(ctx) {
+};
+
+// Exit a parse tree produced by MotePy#decoratorDef.
+MotePyListener.prototype.exitDecoratorDef = function(ctx) {
+};
+
+
 // Enter a parse tree produced by MotePy#booleanLiteral.
 MotePyListener.prototype.enterBooleanLiteral = function(ctx) {
 };

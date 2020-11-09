@@ -45,13 +45,14 @@ pipelineList
     ;
 
 useSpec
-    :   USE Identifier SEMI
+    :   IMPORT Identifier SEMI
     ;
 
 includeSpec
     :   INCLUDE Identifier SEMI
     ;
 
+decoratorDef: DecoratorIdentifier (LP literal RP)? NEWLINE;
 
 booleanLiteral: value=(TRUE | FALSE);
 
@@ -64,7 +65,7 @@ initValue: expr | StringLiteral | functionCall;
 varIdDef: Identifier COLON CONST? varType (ASSIGN initValue)?;
 
 varDef
-    :  varIdDef NEWLINE
+    :  decoratorDef? varIdDef NEWLINE
     ;
 
 dimValue: (IntegerConstant|Identifier);

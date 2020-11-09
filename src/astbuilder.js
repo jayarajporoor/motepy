@@ -504,13 +504,24 @@ function computeDimensions(ast, val, varid){//varid is only for debug purpose.
 
 function astVarDef(def){
   //varIdDef: Identifier (ASSIGN initValue)?;
-  varIdDef = def.varIdDef();
+  var varIdDef = def.varIdDef();
+  var decoratorDef = def.decoratorDef()
   var varType = varIdDef.varType();
   var ast = {
   	type : astVarType(varType),
   	defs : [],
 	src: src_info(def)
   };
+
+  if(decoratorDef != null){
+      var decoratorId = decoratorDef.DecoratorIdentifier().getText().substring(1);
+
+      ast.decorator = {
+            id: decoratorId,
+            value: astLiteral(decoratorDef.literal())
+        }
+      //console.log("DECORATOR", ast.decorator);
+  }
 
   ast.type.is_const = varIdDef.CONST() ? true : false;
 
