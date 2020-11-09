@@ -66,7 +66,7 @@ class DUSeq{
 
   vardef(vr, init_syms, noinit_syms){
 
-    if(!vr.type.dim){//if not array type, ignore.
+    if(!vr.type.dim || (vr.decorator && vr.decorator.id === "address") ){//if not array type, ignore.
       return;
     }
     for(var i=0;i<vr.defs.length;i++){

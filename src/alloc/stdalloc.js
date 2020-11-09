@@ -50,7 +50,9 @@ function compute_ltmap(duseq){
 				}else
 				if(!full_ltmap[scoped_name])
 				{
-					mpbuild.error("LT entry for variable definition not found before use ", m.name, " in scope: ", m.scope_names);
+                    if(!(m.info.decorator && m.info.decorator.id === "address")){
+                        mpbuild.error("LT entry for variable definition not found before use ", m.name, " in scope: ", m.scope_names);
+                    }
 				}
 			}
 		}
@@ -74,7 +76,9 @@ function compute_ltmap(duseq){
 				}else
 				if(!full_ltmap[scoped_name])
 				{
-					mpbuild.error("LT entry for variable definition not found before def ", m.name, " in scope: ", m.scope_names);
+                    if(!(m.info.decorator && m.info.decorator.id === "address")){
+                        mpbuild.error("LT entry for variable definition not found before def ", m.name, " in scope: ", m.scope_names);
+                    }
 				}
 			}
 		}

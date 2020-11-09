@@ -531,6 +531,9 @@ function astVarDef(def){
   	def.init = astInitValue(initValue);
   }
   var syminfo = {type: ast.type, is_const: ast.is_const, src: ast.src, value: def.init};
+  if(ast.decorator){
+      syminfo.decorator = ast.decorator;
+  }
   if(ast.type.dim){
   	var size = computeDimensions(ast, def.init, def.id);
   	if(size){

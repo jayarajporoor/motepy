@@ -308,6 +308,25 @@ function vardef(ast)
 				strglobals.push(str_ringpos);
 			}
 		}
+        if(ast.decorator && ast.decorator.id === "address"){
+            var address = ast.decorator.value.iconst;
+            for(var i in ast.defs){
+                var def = ast.defs[i];
+                var sym = symtbl.lookup(def.id);
+                var scoped_name = ast_util.get_scoped_name(sym, "_", PVAR);
+        		var scoped_name_p =  scoped_name + SPTR;
+        		var stype = stringify_type(sym.info.type);
+        		var def = 	  str_parray(stype.base, scoped_name_p, stype.dim)
+        					+ "= ("
+        					+ str_parray(stype.base, "", stype.dim)
+        					+ ") "
+        					+ "((void *) " +  address + ");"
+        					;
+        		strglobals.push(def);
+        		def = "#define " + scoped_name + " (*" + scoped_name_p +")";
+        		strglobals.push(def);
+            }
+        }
 		return null;
 	}
 	// console.log(ast.type.is_const);
