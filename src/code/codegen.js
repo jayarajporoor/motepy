@@ -385,7 +385,7 @@ function fdef(ast,strbuf){
 		hdr= hdr+"void ";
 	}
 	hdr = hdr + get_current_scoped_name("", PFUNC) + "(";//Note:we're already in function scope - so no need to add fname
-	if(ast.flow){
+	if(ast.decorator && ast.decorator.id === "flow"){
 		//for flow routines params are globally assigned.
 		for(var i=0;i<ast.params.length;i++){
 			var param = ast.params[i];

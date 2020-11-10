@@ -696,6 +696,9 @@ function astFuncDef(fdef){
         if(decoratorDef.literal()){
             ast.decorator.value = astLiteral(decoratorDef.literal())
         }
+        if(decoratorId === "flow"){
+            ast.flow = true;
+        }
         //console.log("DECORATOR", ast.decorator);
     }
 
