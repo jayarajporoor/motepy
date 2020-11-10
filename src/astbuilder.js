@@ -517,9 +517,11 @@ function astVarDef(def){
       var decoratorId = decoratorDef.DecoratorIdentifier().getText().substring(1);
 
       ast.decorator = {
-            id: decoratorId,
-            value: astLiteral(decoratorDef.literal())
+            id: decoratorId
         }
+      if(decoratorDef.literal()){
+          ast.decorator.value = astLiteral(decoratorDef.literal())
+      }
       //console.log("DECORATOR", ast.decorator);
   }
 
@@ -644,7 +646,11 @@ function astStmt(stmt){
 	var functionCall = stmt.functionCall();
 	var forStmt = stmt.forStmt();
 	var retStmt = stmt.returnStmt();
+    var passStmt = stmt.PASS();
 
+    if(passStmt){
+        return {kind: 'pass', src: src_info(stmt)}
+    }else
 	if(retStmt){
 		return astReturnStmt(retStmt);
 	}else
@@ -681,6 +687,18 @@ function astStmtBlock(block){
 
 function astFuncDef(fdef){
 	var ast = {};
+    var decoratorDef = fdef.decoratorDef()
+    if(decoratorDef != null){
+        var decoratorId = decoratorDef.DecoratorIdentifier().getText().substring(1);
+        ast.decorator = {
+              id: decoratorId
+        }
+        if(decoratorDef.literal()){
+            ast.decorator.value = astLiteral(decoratorDef.literal())
+        }
+        //console.log("DECORATOR", ast.decorator);
+    }
+
 	ast.src = src_info(fdef);
 	var varType = fdef.varType();
     ast.is_async = fdef.ASYNC() ? true : false

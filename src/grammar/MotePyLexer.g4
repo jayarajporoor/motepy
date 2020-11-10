@@ -178,6 +178,7 @@ DCOLON: '::';
 COLON: ':';
 PERIOD: '.';
 
+PASS: 'pass';
 PLUS : '+';
 MINUS: '-';
 MUL : '*';

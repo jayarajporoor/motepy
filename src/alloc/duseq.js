@@ -231,10 +231,11 @@ class DUSeq{
         var mod_name = null;
         if(mod_ast){
           mod_name = mod_ast.name;
+          console.log("MOD AST", mod_ast.name, "FNAME", fname, JSON.stringify(this.pipeline_stack))
           if(fname === 'next'){
-            fdef_ast = ast_util.find_flow(mod_ast, this.pipeline_stack[0].qname[1]);
+            fdef_ast = ast_util.find_flow(mod_ast, this.pipeline_stack[0].next.qname[1]);
           }else{
-            fdef_ast = ast_util.find_fdef(mod_ast, fname);
+              fdef_ast = ast_util.find_fdef(mod_ast, fname);
           }
         }
         if(fdef_ast){
@@ -266,6 +267,7 @@ class DUSeq{
           this.symtbl.enterNestedScope(saved_scope_name);//of the caller
           this.dynscope.exitFunctionCall();
         }else{
+          console.log("FDEF not found", ast.qid);
           qid_unresolved = ast.qid;
         }
       }

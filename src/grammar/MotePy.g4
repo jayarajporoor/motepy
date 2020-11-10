@@ -138,11 +138,12 @@ assignStmt
 returnStmt: RETURN expr;
 
 stmt
-    :   stmtBlock | ifStmt | forStmt | whileStmt | assignStmt NEWLINE | functionCall NEWLINE | returnStmt NEWLINE
+    :   stmtBlock | ifStmt | forStmt | whileStmt |
+        assignStmt NEWLINE | functionCall NEWLINE | returnStmt NEWLINE | PASS NEWLINE
     ;
 
 funcDef
-    :  ASYNC? DEF Identifier LP formalParams? RP ARROW varType COLON
+    :  decoratorDef? ASYNC? DEF Identifier LP formalParams? RP ARROW varType COLON
         NEWLINE INDENT varDef* stmt+ DEDENT
     ;
 

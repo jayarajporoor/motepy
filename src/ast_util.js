@@ -12,7 +12,7 @@ function print_object(obj, printJson, printColor){
 function find_default_flow(mod_ast){
 	var fdefs = mod_ast.fdefs;
 	for(var i=0;i<fdefs.length;i++){
-		if(fdefs[i].id === 'run')
+		if(fdefs[i].decorator && fdefs[i].decorator.id === "flow")
 		{
 			return fdefs[i];
 		}
@@ -24,12 +24,14 @@ function find_flow(mod_ast, name){
 	if(!name){
 		return find_default_flow(mod_ast);
 	}
-
+    is_next = name === "next";
 	var fdefs = mod_ast.fdefs;
 	for(var i=0;i<fdefs.length;i++){
-		if(fdefs[i].id === name)
+        fdef = fdefs[i];
+		if ( (is_next && fdef.decorator && fdef.decorator.id === "flow")
+            || (fdef.id === name) )
 		{
-			return fdefs[i];
+			return fdef;
 		}
 	}
 	return null;
