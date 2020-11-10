@@ -1,0 +1,4 @@
+[
+datasource.acquire,
+model.predict
+]

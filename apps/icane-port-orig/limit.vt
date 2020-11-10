@@ -1,3 +1,0 @@
-module limit;
-
-const float FLT_NMIN=-3.402823e+30;
