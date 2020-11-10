@@ -231,7 +231,7 @@ class DUSeq{
         var mod_name = null;
         if(mod_ast){
           mod_name = mod_ast.name;
-          console.log("MOD AST", mod_ast.name, "FNAME", fname, JSON.stringify(this.pipeline_stack))
+          //console.log("MOD AST", mod_ast.name, "FNAME", fname, JSON.stringify(this.pipeline_stack))
           if(fname === 'next'){
             fdef_ast = ast_util.find_flow(mod_ast, this.pipeline_stack[0].next.qname[1]);
           }else{
@@ -250,7 +250,7 @@ class DUSeq{
             this.pipeline_stack.unshift(this.pipeline_stack[0].next);
             //console.log("Save and exit scope ", saved_mod_scope_name, " and enter ", mod_name);
           }
-          console.log("Entering ", fdef_ast.id, " from dyn scope ", this.dynscope.current_scope.symtbl.name);
+          //console.log("Entering ", fdef_ast.id, " from dyn scope ", this.dynscope.current_scope.symtbl.name);
           this.dynscope.enterFunctionCall(fdef_ast.id, ast.params);
 
           this.symtbl.enterNestedScope(fdef_ast.id);//of the calleee
@@ -267,7 +267,7 @@ class DUSeq{
           this.symtbl.enterNestedScope(saved_scope_name);//of the caller
           this.dynscope.exitFunctionCall();
         }else{
-          console.log("FDEF not found", ast.qid);
+          //console.log("FDEF not found", ast.qid);
           qid_unresolved = ast.qid;
         }
       }

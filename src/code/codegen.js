@@ -235,7 +235,8 @@ function block(ast,str){
 function stmt(ast,strbuf){
 	switch(ast.kind){
 		case "assign":
-			strbuf.push(expr(ast) + "=" + expr(ast.expr) + ";");
+            var str_assign = expr(ast) + "=" + expr(ast.expr) + ";"
+			strbuf.push(str_assign);
 			break;
 		case "if":
 			// console.log(ast);

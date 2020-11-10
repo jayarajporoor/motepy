@@ -213,6 +213,7 @@ EASSIGN: ':=';
 
 ELIF : 'elif';
 
+LONG: 'long';
 INT: 'int';
 FLOAT: 'float';
 BOOLEAN: 'boolean';
@@ -223,6 +224,7 @@ I16: 'int16_t';
 U16: 'uint16_t';
 I32: 'int32_t';
 U32: 'uint32_t';
+U64: 'uint64_t';
 
 RETURN: 'return';
 

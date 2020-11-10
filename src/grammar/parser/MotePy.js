@@ -7,7 +7,7 @@ var MotePyVisitor = require('./MotePyVisitor').MotePyVisitor;
 var grammarFileName = "MotePy.g4";
 
 var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
-    "\u0003S\u0277\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u0003U\u0277\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004",
     "\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0004",
     "\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010\t\u0010\u0004",
@@ -91,9 +91,9 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     ":\u0270\n:\u0003;\u0003;\u0003;\u0005;\u0275\n;\u0003;\u0002\u0004j",
     "n<\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a",
     "\u001c\u001e \"$&(*,.02468:<>@BDFHJLNPRTVXZ\\^`bdfhjlnprt\u0002\u000e",
-    "\u0003\u0002\u0015\u0016\u0003\u0002JK\u0003\u0002@H\u0004\u0002\u0013",
-    "\u0013@H\u0004\u0002&&;;\u0003\u000278\u0004\u00029:<<\u0004\u0002\'",
-    ")++\u0003\u0002%&\u0003\u0002-2\u0003\u000245\u0003\u0002KL\u029b\u0002",
+    "\u0003\u0002\u0015\u0016\u0003\u0002LM\u0003\u0002@J\u0004\u0002\u0013",
+    "\u0013@J\u0004\u0002&&;;\u0003\u000278\u0004\u00029:<<\u0004\u0002\'",
+    ")++\u0003\u0002%&\u0003\u0002-2\u0003\u000245\u0003\u0002MN\u029b\u0002",
     "y\u0003\u0002\u0002\u0002\u0004\u0097\u0003\u0002\u0002\u0002\u0006",
     "\u00a3\u0003\u0002\u0002\u0002\b\u00b4\u0003\u0002\u0002\u0002\n\u00c3",
     "\u0003\u0002\u0002\u0002\f\u00c7\u0003\u0002\u0002\u0002\u000e\u00cb",
@@ -130,7 +130,7 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0017\u0002\u0083\u0082\u0003\u0002\u0002\u0002\u0084\u0087\u0003\u0002",
     "\u0002\u0002\u0085\u0083\u0003\u0002\u0002\u0002\u0085\u0086\u0003\u0002",
     "\u0002\u0002\u0086\u008b\u0003\u0002\u0002\u0002\u0087\u0085\u0003\u0002",
-    "\u0002\u0002\u0088\u008a\u0007Q\u0002\u0002\u0089\u0088\u0003\u0002",
+    "\u0002\u0002\u0088\u008a\u0007S\u0002\u0002\u0089\u0088\u0003\u0002",
     "\u0002\u0002\u008a\u008d\u0003\u0002\u0002\u0002\u008b\u0089\u0003\u0002",
     "\u0002\u0002\u008b\u008c\u0003\u0002\u0002\u0002\u008c\u0095\u0003\u0002",
     "\u0002\u0002\u008d\u008b\u0003\u0002\u0002\u0002\u008e\u0090\u0005V",
@@ -165,24 +165,24 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0003\u0002\u0002\u0002\u00c0\u00c1\u0007\u001b\u0002\u0002\u00c1\t",
     "\u0003\u0002\u0002\u0002\u00c2\u00c4\u00079\u0002\u0002\u00c3\u00c2",
     "\u0003\u0002\u0002\u0002\u00c3\u00c4\u0003\u0002\u0002\u0002\u00c4\u00c5",
-    "\u0003\u0002\u0002\u0002\u00c5\u00c6\u0007J\u0002\u0002\u00c6\u000b",
-    "\u0003\u0002\u0002\u0002\u00c7\u00c8\u0007J\u0002\u0002\u00c8\u00c9",
-    "\u0007\"\u0002\u0002\u00c9\u00ca\u0007J\u0002\u0002\u00ca\r\u0003\u0002",
-    "\u0002\u0002\u00cb\u00cd\u0007J\u0002\u0002\u00cc\u00ce\u0005\u0010",
+    "\u0003\u0002\u0002\u0002\u00c5\u00c6\u0007L\u0002\u0002\u00c6\u000b",
+    "\u0003\u0002\u0002\u0002\u00c7\u00c8\u0007L\u0002\u0002\u00c8\u00c9",
+    "\u0007\"\u0002\u0002\u00c9\u00ca\u0007L\u0002\u0002\u00ca\r\u0003\u0002",
+    "\u0002\u0002\u00cb\u00cd\u0007L\u0002\u0002\u00cc\u00ce\u0005\u0010",
     "\t\u0002\u00cd\u00cc\u0003\u0002\u0002\u0002\u00cd\u00ce\u0003\u0002",
     "\u0002\u0002\u00ce\u00cf\u0003\u0002\u0002\u0002\u00cf\u00d0\u0005\u0012",
     "\n\u0002\u00d0\u000f\u0003\u0002\u0002\u0002\u00d1\u00d2\u0007\u001e",
-    "\u0002\u0002\u00d2\u00d7\u0007J\u0002\u0002\u00d3\u00d4\u0007 \u0002",
-    "\u0002\u00d4\u00d6\u0007J\u0002\u0002\u00d5\u00d3\u0003\u0002\u0002",
+    "\u0002\u0002\u00d2\u00d7\u0007L\u0002\u0002\u00d3\u00d4\u0007 \u0002",
+    "\u0002\u00d4\u00d6\u0007L\u0002\u0002\u00d5\u00d3\u0003\u0002\u0002",
     "\u0002\u00d6\u00d9\u0003\u0002\u0002\u0002\u00d7\u00d5\u0003\u0002\u0002",
     "\u0002\u00d7\u00d8\u0003\u0002\u0002\u0002\u00d8\u00da\u0003\u0002\u0002",
     "\u0002\u00d9\u00d7\u0003\u0002\u0002\u0002\u00da\u00db\u0007\u001f\u0002",
-    "\u0002\u00db\u0011\u0003\u0002\u0002\u0002\u00dc\u00e1\u0007J\u0002",
-    "\u0002\u00dd\u00e1\u0005r:\u0002\u00de\u00e1\u0007O\u0002\u0002\u00df",
+    "\u0002\u00db\u0011\u0003\u0002\u0002\u0002\u00dc\u00e1\u0007L\u0002",
+    "\u0002\u00dd\u00e1\u0005r:\u0002\u00de\u00e1\u0007Q\u0002\u0002\u00df",
     "\u00e1\u0005\u0014\u000b\u0002\u00e0\u00dc\u0003\u0002\u0002\u0002\u00e0",
     "\u00dd\u0003\u0002\u0002\u0002\u00e0\u00de\u0003\u0002\u0002\u0002\u00e0",
     "\u00df\u0003\u0002\u0002\u0002\u00e1\u0013\u0003\u0002\u0002\u0002\u00e2",
-    "\u00e3\u0007J\u0002\u0002\u00e3\u00ec\u0007\u001a\u0002\u0002\u00e4",
+    "\u00e3\u0007L\u0002\u0002\u00e3\u00ec\u0007\u001a\u0002\u0002\u00e4",
     "\u00e9\u0005\u0012\n\u0002\u00e5\u00e6\u0007 \u0002\u0002\u00e6\u00e8",
     "\u0005\u0012\n\u0002\u00e7\u00e5\u0003\u0002\u0002\u0002\u00e8\u00eb",
     "\u0003\u0002\u0002\u0002\u00e9\u00e7\u0003\u0002\u0002\u0002\u00e9\u00ea",
@@ -191,31 +191,31 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0003\u0002\u0002\u0002\u00ed\u00ee\u0003\u0002\u0002\u0002\u00ee\u00ef",
     "\u0007\u001b\u0002\u0002\u00ef\u0015\u0003\u0002\u0002\u0002\u00f0\u00f1",
     "\u0005\u0018\r\u0002\u00f1\u0017\u0003\u0002\u0002\u0002\u00f2\u00f4",
-    "\u0007\u001e\u0002\u0002\u00f3\u00f5\u0007Q\u0002\u0002\u00f4\u00f3",
+    "\u0007\u001e\u0002\u0002\u00f3\u00f5\u0007S\u0002\u0002\u00f4\u00f3",
     "\u0003\u0002\u0002\u0002\u00f4\u00f5\u0003\u0002\u0002\u0002\u00f5\u00f6",
     "\u0003\u0002\u0002\u0002\u00f6\u00f8\u0005\u001c\u000f\u0002\u00f7\u00f9",
-    "\u0007Q\u0002\u0002\u00f8\u00f7\u0003\u0002\u0002\u0002\u00f8\u00f9",
+    "\u0007S\u0002\u0002\u00f8\u00f7\u0003\u0002\u0002\u0002\u00f8\u00f9",
     "\u0003\u0002\u0002\u0002\u00f9\u00fa\u0003\u0002\u0002\u0002\u00fa\u00fb",
-    "\u0007\u001f\u0002\u0002\u00fb\u00fc\u0007Q\u0002\u0002\u00fc\u0019",
+    "\u0007\u001f\u0002\u0002\u00fb\u00fc\u0007S\u0002\u0002\u00fc\u0019",
     "\u0003\u0002\u0002\u0002\u00fd\u0101\u0005X-\u0002\u00fe\u0101\u0005",
     "\\/\u0002\u00ff\u0101\u0005\u0018\r\u0002\u0100\u00fd\u0003\u0002\u0002",
     "\u0002\u0100\u00fe\u0003\u0002\u0002\u0002\u0100\u00ff\u0003\u0002\u0002",
     "\u0002\u0101\u001b\u0003\u0002\u0002\u0002\u0102\u0103\u0005\u001a\u000e",
-    "\u0002\u0103\u0105\u0007 \u0002\u0002\u0104\u0106\u0007Q\u0002\u0002",
+    "\u0002\u0103\u0105\u0007 \u0002\u0002\u0104\u0106\u0007S\u0002\u0002",
     "\u0105\u0104\u0003\u0002\u0002\u0002\u0105\u0106\u0003\u0002\u0002\u0002",
     "\u0106\u0108\u0003\u0002\u0002\u0002\u0107\u0102\u0003\u0002\u0002\u0002",
     "\u0108\u010b\u0003\u0002\u0002\u0002\u0109\u0107\u0003\u0002\u0002\u0002",
     "\u0109\u010a\u0003\u0002\u0002\u0002\u010a\u010c\u0003\u0002\u0002\u0002",
     "\u010b\u0109\u0003\u0002\u0002\u0002\u010c\u010d\u0005\u001a\u000e\u0002",
     "\u010d\u001d\u0003\u0002\u0002\u0002\u010e\u010f\u0007\n\u0002\u0002",
-    "\u010f\u0110\u0007J\u0002\u0002\u0110\u0111\u0007\u0019\u0002\u0002",
+    "\u010f\u0110\u0007L\u0002\u0002\u0110\u0111\u0007\u0019\u0002\u0002",
     "\u0111\u001f\u0003\u0002\u0002\u0002\u0112\u0113\u0007\u0012\u0002\u0002",
-    "\u0113\u0114\u0007J\u0002\u0002\u0114\u0115\u0007\u0019\u0002\u0002",
+    "\u0113\u0114\u0007L\u0002\u0002\u0114\u0115\u0007\u0019\u0002\u0002",
     "\u0115!\u0003\u0002\u0002\u0002\u0116\u011b\u0007\u0006\u0002\u0002",
     "\u0117\u0118\u0007\u001a\u0002\u0002\u0118\u0119\u0005t;\u0002\u0119",
     "\u011a\u0007\u001b\u0002\u0002\u011a\u011c\u0003\u0002\u0002\u0002\u011b",
     "\u0117\u0003\u0002\u0002\u0002\u011b\u011c\u0003\u0002\u0002\u0002\u011c",
-    "\u011d\u0003\u0002\u0002\u0002\u011d\u011e\u0007Q\u0002\u0002\u011e",
+    "\u011d\u0003\u0002\u0002\u0002\u011d\u011e\u0007S\u0002\u0002\u011e",
     "#\u0003\u0002\u0002\u0002\u011f\u0120\t\u0002\u0002\u0002\u0120%\u0003",
     "\u0002\u0002\u0002\u0121\u012a\u0007\u001c\u0002\u0002\u0122\u0127\u0005",
     "n8\u0002\u0123\u0124\u0007 \u0002\u0002\u0124\u0126\u0005n8\u0002\u0125",
@@ -225,9 +225,9 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0122\u0003\u0002\u0002\u0002\u012a\u012b\u0003\u0002\u0002\u0002\u012b",
     "\u012c\u0003\u0002\u0002\u0002\u012c\u012d\u0007\u001d\u0002\u0002\u012d",
     "\'\u0003\u0002\u0002\u0002\u012e\u0132\u0005n8\u0002\u012f\u0132\u0007",
-    "O\u0002\u0002\u0130\u0132\u0005\\/\u0002\u0131\u012e\u0003\u0002\u0002",
+    "Q\u0002\u0002\u0130\u0132\u0005\\/\u0002\u0131\u012e\u0003\u0002\u0002",
     "\u0002\u0131\u012f\u0003\u0002\u0002\u0002\u0131\u0130\u0003\u0002\u0002",
-    "\u0002\u0132)\u0003\u0002\u0002\u0002\u0133\u0134\u0007J\u0002\u0002",
+    "\u0002\u0132)\u0003\u0002\u0002\u0002\u0133\u0134\u0007L\u0002\u0002",
     "\u0134\u0136\u0007\"\u0002\u0002\u0135\u0137\u0007\r\u0002\u0002\u0136",
     "\u0135\u0003\u0002\u0002\u0002\u0136\u0137\u0003\u0002\u0002\u0002\u0137",
     "\u0138\u0003\u0002\u0002\u0002\u0138\u013b\u0005<\u001f\u0002\u0139",
@@ -236,7 +236,7 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0003\u0002\u0002\u0002\u013d\u013f\u0005\"\u0012\u0002\u013e\u013d",
     "\u0003\u0002\u0002\u0002\u013e\u013f\u0003\u0002\u0002\u0002\u013f\u0140",
     "\u0003\u0002\u0002\u0002\u0140\u0141\u0005*\u0016\u0002\u0141\u0142",
-    "\u0007Q\u0002\u0002\u0142-\u0003\u0002\u0002\u0002\u0143\u0144\t\u0003",
+    "\u0007S\u0002\u0002\u0142-\u0003\u0002\u0002\u0002\u0143\u0144\t\u0003",
     "\u0002\u0002\u0144/\u0003\u0002\u0002\u0002\u0145\u0147\u0007\u0018",
     "\u0002\u0002\u0146\u0145\u0003\u0002\u0002\u0002\u0146\u0147\u0003\u0002",
     "\u0002\u0002\u0147\u014c\u0003\u0002\u0002\u0002\u0148\u0149\u0007\u001e",
@@ -245,7 +245,7 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0002\u0002\u014d\u014e\u0003\u0002\u0002\u0002\u014e\u014c\u0003\u0002",
     "\u0002\u0002\u014e\u014f\u0003\u0002\u0002\u0002\u014f1\u0003\u0002",
     "\u0002\u0002\u0150\u0151\t\u0003\u0002\u0002\u01513\u0003\u0002\u0002",
-    "\u0002\u0152\u0155\u0007J\u0002\u0002\u0153\u0155\u0005p9\u0002\u0154",
+    "\u0002\u0152\u0155\u0007L\u0002\u0002\u0153\u0155\u0005p9\u0002\u0154",
     "\u0152\u0003\u0002\u0002\u0002\u0154\u0153\u0003\u0002\u0002\u0002\u0155",
     "5\u0003\u0002\u0002\u0002\u0156\u0157\u0007\u0017\u0002\u0002\u0157",
     "\u0158\u0007\u001a\u0002\u0002\u0158\u0159\u00054\u001b\u0002\u0159",
@@ -259,7 +259,7 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0003\u0002\u0002\u0002\u0166\u0168\u0003\u0002\u0002\u0002\u0167\u0169",
     "\u00050\u0019\u0002\u0168\u0167\u0003\u0002\u0002\u0002\u0168\u0169",
     "\u0003\u0002\u0002\u0002\u0169=\u0003\u0002\u0002\u0002\u016a\u016b",
-    "\u0007J\u0002\u0002\u016b\u016d\u0007\"\u0002\u0002\u016c\u016e\u0007",
+    "\u0007L\u0002\u0002\u016b\u016d\u0007\"\u0002\u0002\u016c\u016e\u0007",
     "\r\u0002\u0002\u016d\u016c\u0003\u0002\u0002\u0002\u016d\u016e\u0003",
     "\u0002\u0002\u0002\u016e\u016f\u0003\u0002\u0002\u0002\u016f\u0170\u0005",
     "<\u001f\u0002\u0170?\u0003\u0002\u0002\u0002\u0171\u0176\u0005> \u0002",
@@ -267,10 +267,10 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0003\u0002\u0002\u0002\u0175\u0178\u0003\u0002\u0002\u0002\u0176\u0174",
     "\u0003\u0002\u0002\u0002\u0176\u0177\u0003\u0002\u0002\u0002\u0177A",
     "\u0003\u0002\u0002\u0002\u0178\u0176\u0003\u0002\u0002\u0002\u0179\u017a",
-    "\u0007Q\u0002\u0002\u017a\u017c\u0007R\u0002\u0002\u017b\u017d\u0005",
+    "\u0007S\u0002\u0002\u017a\u017c\u0007T\u0002\u0002\u017b\u017d\u0005",
     "T+\u0002\u017c\u017b\u0003\u0002\u0002\u0002\u017d\u017e\u0003\u0002",
     "\u0002\u0002\u017e\u017c\u0003\u0002\u0002\u0002\u017e\u017f\u0003\u0002",
-    "\u0002\u0002\u017f\u0180\u0003\u0002\u0002\u0002\u0180\u0181\u0007S",
+    "\u0002\u0002\u017f\u0180\u0003\u0002\u0002\u0002\u0180\u0181\u0007U",
     "\u0002\u0002\u0181C\u0003\u0002\u0002\u0002\u0182\u0183\u0007\u000f",
     "\u0002\u0002\u0183\u0184\u0007\"\u0002\u0002\u0184\u0185\u0005B\"\u0002",
     "\u0185E\u0003\u0002\u0002\u0002\u0186\u0187\u0007\u000e\u0002\u0002",
@@ -282,8 +282,8 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0007\"\u0002\u0002\u0191\u0194\u0005B\"\u0002\u0192\u0195\u0005D#",
     "\u0002\u0193\u0195\u0005H%\u0002\u0194\u0192\u0003\u0002\u0002\u0002",
     "\u0194\u0193\u0003\u0002\u0002\u0002\u0194\u0195\u0003\u0002\u0002\u0002",
-    "\u0195I\u0003\u0002\u0002\u0002\u0196\u019b\u0007J\u0002\u0002\u0197",
-    "\u0198\u0007 \u0002\u0002\u0198\u019a\u0007J\u0002\u0002\u0199\u0197",
+    "\u0195I\u0003\u0002\u0002\u0002\u0196\u019b\u0007L\u0002\u0002\u0197",
+    "\u0198\u0007 \u0002\u0002\u0198\u019a\u0007L\u0002\u0002\u0199\u0197",
     "\u0003\u0002\u0002\u0002\u019a\u019d\u0003\u0002\u0002\u0002\u019b\u0199",
     "\u0003\u0002\u0002\u0002\u019b\u019c\u0003\u0002\u0002\u0002\u019cK",
     "\u0003\u0002\u0002\u0002\u019d\u019b\u0003\u0002\u0002\u0002\u019e\u019f",
@@ -296,14 +296,14 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "X-\u0002\u01ac\u01ae\u0005b2\u0002\u01ad\u01ac\u0003\u0002\u0002\u0002",
     "\u01ad\u01ae\u0003\u0002\u0002\u0002\u01ae\u01af\u0003\u0002\u0002\u0002",
     "\u01af\u01b0\u00073\u0002\u0002\u01b0\u01b1\u0005n8\u0002\u01b1Q\u0003",
-    "\u0002\u0002\u0002\u01b2\u01b3\u0007I\u0002\u0002\u01b3\u01b4\u0005",
+    "\u0002\u0002\u0002\u01b2\u01b3\u0007K\u0002\u0002\u01b3\u01b4\u0005",
     "n8\u0002\u01b4S\u0003\u0002\u0002\u0002\u01b5\u01c5\u0005B\"\u0002\u01b6",
     "\u01c5\u0005F$\u0002\u01b7\u01c5\u0005L\'\u0002\u01b8\u01c5\u0005N(",
-    "\u0002\u01b9\u01ba\u0005P)\u0002\u01ba\u01bb\u0007Q\u0002\u0002\u01bb",
+    "\u0002\u01b9\u01ba\u0005P)\u0002\u01ba\u01bb\u0007S\u0002\u0002\u01bb",
     "\u01c5\u0003\u0002\u0002\u0002\u01bc\u01bd\u0005\\/\u0002\u01bd\u01be",
-    "\u0007Q\u0002\u0002\u01be\u01c5\u0003\u0002\u0002\u0002\u01bf\u01c0",
-    "\u0005R*\u0002\u01c0\u01c1\u0007Q\u0002\u0002\u01c1\u01c5\u0003\u0002",
-    "\u0002\u0002\u01c2\u01c3\u0007$\u0002\u0002\u01c3\u01c5\u0007Q\u0002",
+    "\u0007S\u0002\u0002\u01be\u01c5\u0003\u0002\u0002\u0002\u01bf\u01c0",
+    "\u0005R*\u0002\u01c0\u01c1\u0007S\u0002\u0002\u01c1\u01c5\u0003\u0002",
+    "\u0002\u0002\u01c2\u01c3\u0007$\u0002\u0002\u01c3\u01c5\u0007S\u0002",
     "\u0002\u01c4\u01b5\u0003\u0002\u0002\u0002\u01c4\u01b6\u0003\u0002\u0002",
     "\u0002\u01c4\u01b7\u0003\u0002\u0002\u0002\u01c4\u01b8\u0003\u0002\u0002",
     "\u0002\u01c4\u01b9\u0003\u0002\u0002\u0002\u01c4\u01bc\u0003\u0002\u0002",
@@ -313,25 +313,25 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u01c8\u01ca\u0003\u0002\u0002\u0002\u01c9\u01cb\u0007\u0003\u0002\u0002",
     "\u01ca\u01c9\u0003\u0002\u0002\u0002\u01ca\u01cb\u0003\u0002\u0002\u0002",
     "\u01cb\u01cc\u0003\u0002\u0002\u0002\u01cc\u01cd\u0007\f\u0002\u0002",
-    "\u01cd\u01ce\u0007J\u0002\u0002\u01ce\u01d0\u0007\u001a\u0002\u0002",
+    "\u01cd\u01ce\u0007L\u0002\u0002\u01ce\u01d0\u0007\u001a\u0002\u0002",
     "\u01cf\u01d1\u0005@!\u0002\u01d0\u01cf\u0003\u0002\u0002\u0002\u01d0",
     "\u01d1\u0003\u0002\u0002\u0002\u01d1\u01d2\u0003\u0002\u0002\u0002\u01d2",
     "\u01d3\u0007\u001b\u0002\u0002\u01d3\u01d4\u0007\b\u0002\u0002\u01d4",
     "\u01d5\u0005<\u001f\u0002\u01d5\u01d6\u0007\"\u0002\u0002\u01d6\u01d7",
-    "\u0007Q\u0002\u0002\u01d7\u01db\u0007R\u0002\u0002\u01d8\u01da\u0005",
+    "\u0007S\u0002\u0002\u01d7\u01db\u0007T\u0002\u0002\u01d8\u01da\u0005",
     ",\u0017\u0002\u01d9\u01d8\u0003\u0002\u0002\u0002\u01da\u01dd\u0003",
     "\u0002\u0002\u0002\u01db\u01d9\u0003\u0002\u0002\u0002\u01db\u01dc\u0003",
     "\u0002\u0002\u0002\u01dc\u01df\u0003\u0002\u0002\u0002\u01dd\u01db\u0003",
     "\u0002\u0002\u0002\u01de\u01e0\u0005T+\u0002\u01df\u01de\u0003\u0002",
     "\u0002\u0002\u01e0\u01e1\u0003\u0002\u0002\u0002\u01e1\u01df\u0003\u0002",
     "\u0002\u0002\u01e1\u01e2\u0003\u0002\u0002\u0002\u01e2\u01e3\u0003\u0002",
-    "\u0002\u0002\u01e3\u01e4\u0007S\u0002\u0002\u01e4W\u0003\u0002\u0002",
-    "\u0002\u01e5\u01ea\u0007J\u0002\u0002\u01e6\u01e7\u0007#\u0002\u0002",
-    "\u01e7\u01e9\u0007J\u0002\u0002\u01e8\u01e6\u0003\u0002\u0002\u0002",
+    "\u0002\u0002\u01e3\u01e4\u0007U\u0002\u0002\u01e4W\u0003\u0002\u0002",
+    "\u0002\u01e5\u01ea\u0007L\u0002\u0002\u01e6\u01e7\u0007#\u0002\u0002",
+    "\u01e7\u01e9\u0007L\u0002\u0002\u01e8\u01e6\u0003\u0002\u0002\u0002",
     "\u01e9\u01ec\u0003\u0002\u0002\u0002\u01ea\u01e8\u0003\u0002\u0002\u0002",
     "\u01ea\u01eb\u0003\u0002\u0002\u0002\u01ebY\u0003\u0002\u0002\u0002",
-    "\u01ec\u01ea\u0003\u0002\u0002\u0002\u01ed\u01f0\u0007J\u0002\u0002",
-    "\u01ee\u01ef\u0007!\u0002\u0002\u01ef\u01f1\u0007J\u0002\u0002\u01f0",
+    "\u01ec\u01ea\u0003\u0002\u0002\u0002\u01ed\u01f0\u0007L\u0002\u0002",
+    "\u01ee\u01ef\u0007!\u0002\u0002\u01ef\u01f1\u0007L\u0002\u0002\u01f0",
     "\u01ee\u0003\u0002\u0002\u0002\u01f1\u01f2\u0003\u0002\u0002\u0002\u01f2",
     "\u01f0\u0003\u0002\u0002\u0002\u01f2\u01f3\u0003\u0002\u0002\u0002\u01f3",
     "[\u0003\u0002\u0002\u0002\u01f4\u01f7\u0005X-\u0002\u01f5\u01f7\u0005",
@@ -340,10 +340,10 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0002\u0002\u01f9\u01fb\u0005`1\u0002\u01fa\u01f9\u0003\u0002\u0002",
     "\u0002\u01fa\u01fb\u0003\u0002\u0002\u0002\u01fb\u01fc\u0003\u0002\u0002",
     "\u0002\u01fc\u01fd\u0007\u001b\u0002\u0002\u01fd]\u0003\u0002\u0002",
-    "\u0002\u01fe\u01ff\u0007J\u0002\u0002\u01ff\u0201\u00073\u0002\u0002",
+    "\u0002\u01fe\u01ff\u0007L\u0002\u0002\u01ff\u0201\u00073\u0002\u0002",
     "\u0200\u01fe\u0003\u0002\u0002\u0002\u0200\u0201\u0003\u0002\u0002\u0002",
     "\u0201\u0205\u0003\u0002\u0002\u0002\u0202\u0206\u0005n8\u0002\u0203",
-    "\u0206\u0007O\u0002\u0002\u0204\u0206\u0005:\u001e\u0002\u0205\u0202",
+    "\u0206\u0007Q\u0002\u0002\u0204\u0206\u0005:\u001e\u0002\u0205\u0202",
     "\u0003\u0002\u0002\u0002\u0205\u0203\u0003\u0002\u0002\u0002\u0205\u0204",
     "\u0003\u0002\u0002\u0002\u0206_\u0003\u0002\u0002\u0002\u0207\u020c",
     "\u0005^0\u0002\u0208\u0209\u0007 \u0002\u0002\u0209\u020b\u0005^0\u0002",
@@ -356,7 +356,7 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0215\u0007\u001f\u0002\u0002\u0215\u0217\u0003\u0002\u0002\u0002\u0216",
     "\u0212\u0003\u0002\u0002\u0002\u0217\u0218\u0003\u0002\u0002\u0002\u0218",
     "\u0216\u0003\u0002\u0002\u0002\u0218\u0219\u0003\u0002\u0002\u0002\u0219",
-    "c\u0003\u0002\u0002\u0002\u021a\u021b\u0007J\u0002\u0002\u021b\u021c",
+    "c\u0003\u0002\u0002\u0002\u021a\u021b\u0007L\u0002\u0002\u021b\u021c",
     "\u0005b2\u0002\u021ce\u0003\u0002\u0002\u0002\u021d\u0220\u00079\u0002",
     "\u0002\u021e\u0221\u0005d3\u0002\u021f\u0221\u0005X-\u0002\u0220\u021e",
     "\u0003\u0002\u0002\u0002\u0220\u021f\u0003\u0002\u0002\u0002\u0221g",
@@ -402,11 +402,11 @@ var serializedATN = ["\u0003\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0002\u0002\u0002\u0267\u0265\u0003\u0002\u0002\u0002\u0267\u0268\u0003",
     "\u0002\u0002\u0002\u0268o\u0003\u0002\u0002\u0002\u0269\u0267\u0003",
     "\u0002\u0002\u0002\u026a\u026b\t\r\u0002\u0002\u026bq\u0003\u0002\u0002",
-    "\u0002\u026c\u0270\u0005p9\u0002\u026d\u0270\u0007N\u0002\u0002\u026e",
+    "\u0002\u026c\u0270\u0005p9\u0002\u026d\u0270\u0007P\u0002\u0002\u026e",
     "\u0270\u0005$\u0013\u0002\u026f\u026c\u0003\u0002\u0002\u0002\u026f",
     "\u026d\u0003\u0002\u0002\u0002\u026f\u026e\u0003\u0002\u0002\u0002\u0270",
     "s\u0003\u0002\u0002\u0002\u0271\u0275\u0005r:\u0002\u0272\u0275\u0005",
-    "\\/\u0002\u0273\u0275\u0007O\u0002\u0002\u0274\u0271\u0003\u0002\u0002",
+    "\\/\u0002\u0273\u0275\u0007Q\u0002\u0002\u0274\u0271\u0003\u0002\u0002",
     "\u0002\u0274\u0272\u0003\u0002\u0002\u0002\u0274\u0273\u0003\u0002\u0002",
     "\u0002\u0275u\u0003\u0002\u0002\u0002Cy\u007f\u0085\u008b\u0091\u0095",
     "\u009e\u00a8\u00b1\u00bb\u00be\u00c3\u00cd\u00d7\u00e0\u00e9\u00ec\u00f4",
@@ -431,9 +431,10 @@ var literalNames = [ null, "'async'", "'await'", "'@'", null, "'module'",
                      "'/'", "'%'", "'**'", "'(*)'", "'(.)'", "'<'", "'>'", 
                      "'<='", "'>='", "'=='", "'!='", "'='", "'&&'", "'||'", 
                      "'!'", "'<<'", "'>>'", "'&'", "'|'", "'~'", "'^'", 
-                     "'@effects'", "':='", "'elif'", "'int'", "'float'", 
-                     "'boolean'", "'int8_t'", "'uint8_t'", "'int16_t'", 
-                     "'uint16_t'", "'int32_t'", "'uint32_t'", "'return'" ];
+                     "'@effects'", "':='", "'elif'", "'long'", "'int'", 
+                     "'float'", "'boolean'", "'int8_t'", "'uint8_t'", "'int16_t'", 
+                     "'uint16_t'", "'int32_t'", "'uint32_t'", "'uint64_t'", 
+                     "'return'" ];
 
 var symbolicNames = [ null, "ASYNC", "AWAIT", "AT", "DecoratorIdentifier", 
                       "MODULE", "ARROW", "USE", "IMPORT", "CONFIG", "DEF", 
@@ -444,11 +445,11 @@ var symbolicNames = [ null, "ASYNC", "AWAIT", "AT", "DecoratorIdentifier",
                       "DIV", "MOD", "POW", "HPROD", "CAT", "LT", "GT", "LTE", 
                       "GTE", "EQ", "NEQ", "ASSIGN", "LAND", "LOR", "LNOT", 
                       "LSHIFT", "RSHIFT", "BAND", "BOR", "BNOT", "BXOR", 
-                      "EFFECTS", "EASSIGN", "ELIF", "INT", "FLOAT", "BOOLEAN", 
-                      "I8", "U8", "I16", "U16", "I32", "U32", "RETURN", 
-                      "Identifier", "IntegerConstant", "FloatingConstant", 
-                      "DigitSequence", "CharacterConstant", "StringLiteral", 
-                      "SKIP_", "NEWLINE", "INDENT", "DEDENT" ];
+                      "EFFECTS", "EASSIGN", "ELIF", "LONG", "INT", "FLOAT", 
+                      "BOOLEAN", "I8", "U8", "I16", "U16", "I32", "U32", 
+                      "U64", "RETURN", "Identifier", "IntegerConstant", 
+                      "FloatingConstant", "DigitSequence", "CharacterConstant", 
+                      "StringLiteral", "SKIP_", "NEWLINE", "INDENT", "DEDENT" ];
 
 var ruleNames =  [ "module", "effectsDef", "effectStmt", "effectTarget", 
                    "effectParam", "effectCtx", "effectSpec", "opsList", 
@@ -545,26 +546,28 @@ MotePy.BXOR = 58;
 MotePy.EFFECTS = 59;
 MotePy.EASSIGN = 60;
 MotePy.ELIF = 61;
-MotePy.INT = 62;
-MotePy.FLOAT = 63;
-MotePy.BOOLEAN = 64;
-MotePy.I8 = 65;
-MotePy.U8 = 66;
-MotePy.I16 = 67;
-MotePy.U16 = 68;
-MotePy.I32 = 69;
-MotePy.U32 = 70;
-MotePy.RETURN = 71;
-MotePy.Identifier = 72;
-MotePy.IntegerConstant = 73;
-MotePy.FloatingConstant = 74;
-MotePy.DigitSequence = 75;
-MotePy.CharacterConstant = 76;
-MotePy.StringLiteral = 77;
-MotePy.SKIP_ = 78;
-MotePy.NEWLINE = 79;
-MotePy.INDENT = 80;
-MotePy.DEDENT = 81;
+MotePy.LONG = 62;
+MotePy.INT = 63;
+MotePy.FLOAT = 64;
+MotePy.BOOLEAN = 65;
+MotePy.I8 = 66;
+MotePy.U8 = 67;
+MotePy.I16 = 68;
+MotePy.U16 = 69;
+MotePy.I32 = 70;
+MotePy.U32 = 71;
+MotePy.U64 = 72;
+MotePy.RETURN = 73;
+MotePy.Identifier = 74;
+MotePy.IntegerConstant = 75;
+MotePy.FloatingConstant = 76;
+MotePy.DigitSequence = 77;
+MotePy.CharacterConstant = 78;
+MotePy.StringLiteral = 79;
+MotePy.SKIP_ = 80;
+MotePy.NEWLINE = 81;
+MotePy.INDENT = 82;
+MotePy.DEDENT = 83;
 
 MotePy.RULE_module = 0;
 MotePy.RULE_effectsDef = 1;
@@ -1745,7 +1748,7 @@ MotePy.prototype.effectTerm = function() {
         this.match(MotePy.LP);
         this.state = 234;
         _la = this._input.LA(1);
-        if(_la===MotePy.TRUE || _la===MotePy.FALSE || ((((_la - 72)) & ~0x1f) == 0 && ((1 << (_la - 72)) & ((1 << (MotePy.Identifier - 72)) | (1 << (MotePy.IntegerConstant - 72)) | (1 << (MotePy.FloatingConstant - 72)) | (1 << (MotePy.CharacterConstant - 72)) | (1 << (MotePy.StringLiteral - 72)))) !== 0)) {
+        if(_la===MotePy.TRUE || _la===MotePy.FALSE || ((((_la - 74)) & ~0x1f) == 0 && ((1 << (_la - 74)) & ((1 << (MotePy.Identifier - 74)) | (1 << (MotePy.IntegerConstant - 74)) | (1 << (MotePy.FloatingConstant - 74)) | (1 << (MotePy.CharacterConstant - 74)) | (1 << (MotePy.StringLiteral - 74)))) !== 0)) {
             this.state = 226;
             this.effectExpr();
             this.state = 231;
@@ -2585,7 +2588,7 @@ MotePy.prototype.arrayLiteral = function() {
         this.match(MotePy.LB);
         this.state = 296;
         _la = this._input.LA(1);
-        if(((((_la - 19)) & ~0x1f) == 0 && ((1 << (_la - 19)) & ((1 << (MotePy.TRUE - 19)) | (1 << (MotePy.FALSE - 19)) | (1 << (MotePy.LP - 19)) | (1 << (MotePy.MINUS - 19)))) !== 0) || ((((_la - 52)) & ~0x1f) == 0 && ((1 << (_la - 52)) & ((1 << (MotePy.LNOT - 52)) | (1 << (MotePy.BAND - 52)) | (1 << (MotePy.BNOT - 52)) | (1 << (MotePy.INT - 52)) | (1 << (MotePy.FLOAT - 52)) | (1 << (MotePy.BOOLEAN - 52)) | (1 << (MotePy.I8 - 52)) | (1 << (MotePy.U8 - 52)) | (1 << (MotePy.I16 - 52)) | (1 << (MotePy.U16 - 52)) | (1 << (MotePy.I32 - 52)) | (1 << (MotePy.U32 - 52)) | (1 << (MotePy.Identifier - 52)) | (1 << (MotePy.IntegerConstant - 52)) | (1 << (MotePy.FloatingConstant - 52)) | (1 << (MotePy.CharacterConstant - 52)) | (1 << (MotePy.StringLiteral - 52)))) !== 0)) {
+        if(((((_la - 19)) & ~0x1f) == 0 && ((1 << (_la - 19)) & ((1 << (MotePy.TRUE - 19)) | (1 << (MotePy.FALSE - 19)) | (1 << (MotePy.LP - 19)) | (1 << (MotePy.MINUS - 19)))) !== 0) || ((((_la - 52)) & ~0x1f) == 0 && ((1 << (_la - 52)) & ((1 << (MotePy.LNOT - 52)) | (1 << (MotePy.BAND - 52)) | (1 << (MotePy.BNOT - 52)) | (1 << (MotePy.LONG - 52)) | (1 << (MotePy.INT - 52)) | (1 << (MotePy.FLOAT - 52)) | (1 << (MotePy.BOOLEAN - 52)) | (1 << (MotePy.I8 - 52)) | (1 << (MotePy.U8 - 52)) | (1 << (MotePy.I16 - 52)) | (1 << (MotePy.U16 - 52)) | (1 << (MotePy.I32 - 52)) | (1 << (MotePy.U32 - 52)) | (1 << (MotePy.U64 - 52)) | (1 << (MotePy.Identifier - 52)) | (1 << (MotePy.IntegerConstant - 52)) | (1 << (MotePy.FloatingConstant - 52)) | (1 << (MotePy.CharacterConstant - 52)) | (1 << (MotePy.StringLiteral - 52)))) !== 0)) {
             this.state = 288;
             this.expr(0);
             this.state = 293;
@@ -3385,6 +3388,10 @@ function CastableTypeContext(parser, parent, invokingState) {
 CastableTypeContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 CastableTypeContext.prototype.constructor = CastableTypeContext;
 
+CastableTypeContext.prototype.LONG = function() {
+    return this.getToken(MotePy.LONG, 0);
+};
+
 CastableTypeContext.prototype.INT = function() {
     return this.getToken(MotePy.INT, 0);
 };
@@ -3419,6 +3426,10 @@ CastableTypeContext.prototype.I32 = function() {
 
 CastableTypeContext.prototype.U32 = function() {
     return this.getToken(MotePy.U32, 0);
+};
+
+CastableTypeContext.prototype.U64 = function() {
+    return this.getToken(MotePy.U64, 0);
 };
 
 CastableTypeContext.prototype.enterRule = function(listener) {
@@ -3456,7 +3467,7 @@ MotePy.prototype.castableType = function() {
         this.state = 347;
         localctx.type = this._input.LT(1);
         _la = this._input.LA(1);
-        if(!(((((_la - 62)) & ~0x1f) == 0 && ((1 << (_la - 62)) & ((1 << (MotePy.INT - 62)) | (1 << (MotePy.FLOAT - 62)) | (1 << (MotePy.BOOLEAN - 62)) | (1 << (MotePy.I8 - 62)) | (1 << (MotePy.U8 - 62)) | (1 << (MotePy.I16 - 62)) | (1 << (MotePy.U16 - 62)) | (1 << (MotePy.I32 - 62)) | (1 << (MotePy.U32 - 62)))) !== 0))) {
+        if(!(((((_la - 62)) & ~0x1f) == 0 && ((1 << (_la - 62)) & ((1 << (MotePy.LONG - 62)) | (1 << (MotePy.INT - 62)) | (1 << (MotePy.FLOAT - 62)) | (1 << (MotePy.BOOLEAN - 62)) | (1 << (MotePy.I8 - 62)) | (1 << (MotePy.U8 - 62)) | (1 << (MotePy.I16 - 62)) | (1 << (MotePy.U16 - 62)) | (1 << (MotePy.I32 - 62)) | (1 << (MotePy.U32 - 62)) | (1 << (MotePy.U64 - 62)))) !== 0))) {
             localctx.type = this._errHandler.recoverInline(this);
         }
         else {
@@ -3492,6 +3503,10 @@ function PrimitiveTypeContext(parser, parent, invokingState) {
 
 PrimitiveTypeContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 PrimitiveTypeContext.prototype.constructor = PrimitiveTypeContext;
+
+PrimitiveTypeContext.prototype.LONG = function() {
+    return this.getToken(MotePy.LONG, 0);
+};
 
 PrimitiveTypeContext.prototype.INT = function() {
     return this.getToken(MotePy.INT, 0);
@@ -3533,6 +3548,10 @@ PrimitiveTypeContext.prototype.U32 = function() {
     return this.getToken(MotePy.U32, 0);
 };
 
+PrimitiveTypeContext.prototype.U64 = function() {
+    return this.getToken(MotePy.U64, 0);
+};
+
 PrimitiveTypeContext.prototype.enterRule = function(listener) {
     if(listener instanceof MotePyListener ) {
         listener.enterPrimitiveType(this);
@@ -3568,7 +3587,7 @@ MotePy.prototype.primitiveType = function() {
         this.state = 349;
         localctx.type = this._input.LT(1);
         _la = this._input.LA(1);
-        if(!(_la===MotePy.VOID || ((((_la - 62)) & ~0x1f) == 0 && ((1 << (_la - 62)) & ((1 << (MotePy.INT - 62)) | (1 << (MotePy.FLOAT - 62)) | (1 << (MotePy.BOOLEAN - 62)) | (1 << (MotePy.I8 - 62)) | (1 << (MotePy.U8 - 62)) | (1 << (MotePy.I16 - 62)) | (1 << (MotePy.U16 - 62)) | (1 << (MotePy.I32 - 62)) | (1 << (MotePy.U32 - 62)))) !== 0))) {
+        if(!(_la===MotePy.VOID || ((((_la - 62)) & ~0x1f) == 0 && ((1 << (_la - 62)) & ((1 << (MotePy.LONG - 62)) | (1 << (MotePy.INT - 62)) | (1 << (MotePy.FLOAT - 62)) | (1 << (MotePy.BOOLEAN - 62)) | (1 << (MotePy.I8 - 62)) | (1 << (MotePy.U8 - 62)) | (1 << (MotePy.I16 - 62)) | (1 << (MotePy.U16 - 62)) | (1 << (MotePy.I32 - 62)) | (1 << (MotePy.U32 - 62)) | (1 << (MotePy.U64 - 62)))) !== 0))) {
             localctx.type = this._errHandler.recoverInline(this);
         }
         else {
@@ -3976,7 +3995,7 @@ MotePy.prototype.stmtBlock = function() {
             this.state = 380; 
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-        } while(((((_la - 12)) & ~0x1f) == 0 && ((1 << (_la - 12)) & ((1 << (MotePy.IF - 12)) | (1 << (MotePy.FOR - 12)) | (1 << (MotePy.WHILE - 12)) | (1 << (MotePy.PASS - 12)))) !== 0) || ((((_la - 71)) & ~0x1f) == 0 && ((1 << (_la - 71)) & ((1 << (MotePy.RETURN - 71)) | (1 << (MotePy.Identifier - 71)) | (1 << (MotePy.NEWLINE - 71)))) !== 0));
+        } while(((((_la - 12)) & ~0x1f) == 0 && ((1 << (_la - 12)) & ((1 << (MotePy.IF - 12)) | (1 << (MotePy.FOR - 12)) | (1 << (MotePy.WHILE - 12)) | (1 << (MotePy.PASS - 12)))) !== 0) || ((((_la - 73)) & ~0x1f) == 0 && ((1 << (_la - 73)) & ((1 << (MotePy.RETURN - 73)) | (1 << (MotePy.Identifier - 73)) | (1 << (MotePy.NEWLINE - 73)))) !== 0));
         this.state = 382;
         this.match(MotePy.DEDENT);
     } catch (re) {
@@ -5094,7 +5113,7 @@ MotePy.prototype.funcDef = function() {
             this.state = 479; 
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-        } while(((((_la - 12)) & ~0x1f) == 0 && ((1 << (_la - 12)) & ((1 << (MotePy.IF - 12)) | (1 << (MotePy.FOR - 12)) | (1 << (MotePy.WHILE - 12)) | (1 << (MotePy.PASS - 12)))) !== 0) || ((((_la - 71)) & ~0x1f) == 0 && ((1 << (_la - 71)) & ((1 << (MotePy.RETURN - 71)) | (1 << (MotePy.Identifier - 71)) | (1 << (MotePy.NEWLINE - 71)))) !== 0));
+        } while(((((_la - 12)) & ~0x1f) == 0 && ((1 << (_la - 12)) & ((1 << (MotePy.IF - 12)) | (1 << (MotePy.FOR - 12)) | (1 << (MotePy.WHILE - 12)) | (1 << (MotePy.PASS - 12)))) !== 0) || ((((_la - 73)) & ~0x1f) == 0 && ((1 << (_la - 73)) & ((1 << (MotePy.RETURN - 73)) | (1 << (MotePy.Identifier - 73)) | (1 << (MotePy.NEWLINE - 73)))) !== 0));
         this.state = 481;
         this.match(MotePy.DEDENT);
     } catch (re) {
@@ -5400,7 +5419,7 @@ MotePy.prototype.functionCall = function() {
         this.match(MotePy.LP);
         this.state = 504;
         _la = this._input.LA(1);
-        if(((((_la - 17)) & ~0x1f) == 0 && ((1 << (_la - 17)) & ((1 << (MotePy.VOID - 17)) | (1 << (MotePy.TRUE - 17)) | (1 << (MotePy.FALSE - 17)) | (1 << (MotePy.LP - 17)) | (1 << (MotePy.MINUS - 17)))) !== 0) || ((((_la - 52)) & ~0x1f) == 0 && ((1 << (_la - 52)) & ((1 << (MotePy.LNOT - 52)) | (1 << (MotePy.BAND - 52)) | (1 << (MotePy.BNOT - 52)) | (1 << (MotePy.INT - 52)) | (1 << (MotePy.FLOAT - 52)) | (1 << (MotePy.BOOLEAN - 52)) | (1 << (MotePy.I8 - 52)) | (1 << (MotePy.U8 - 52)) | (1 << (MotePy.I16 - 52)) | (1 << (MotePy.U16 - 52)) | (1 << (MotePy.I32 - 52)) | (1 << (MotePy.U32 - 52)) | (1 << (MotePy.Identifier - 52)) | (1 << (MotePy.IntegerConstant - 52)) | (1 << (MotePy.FloatingConstant - 52)) | (1 << (MotePy.CharacterConstant - 52)) | (1 << (MotePy.StringLiteral - 52)))) !== 0)) {
+        if(((((_la - 17)) & ~0x1f) == 0 && ((1 << (_la - 17)) & ((1 << (MotePy.VOID - 17)) | (1 << (MotePy.TRUE - 17)) | (1 << (MotePy.FALSE - 17)) | (1 << (MotePy.LP - 17)) | (1 << (MotePy.MINUS - 17)))) !== 0) || ((((_la - 52)) & ~0x1f) == 0 && ((1 << (_la - 52)) & ((1 << (MotePy.LNOT - 52)) | (1 << (MotePy.BAND - 52)) | (1 << (MotePy.BNOT - 52)) | (1 << (MotePy.LONG - 52)) | (1 << (MotePy.INT - 52)) | (1 << (MotePy.FLOAT - 52)) | (1 << (MotePy.BOOLEAN - 52)) | (1 << (MotePy.I8 - 52)) | (1 << (MotePy.U8 - 52)) | (1 << (MotePy.I16 - 52)) | (1 << (MotePy.U16 - 52)) | (1 << (MotePy.I32 - 52)) | (1 << (MotePy.U32 - 52)) | (1 << (MotePy.U64 - 52)) | (1 << (MotePy.Identifier - 52)) | (1 << (MotePy.IntegerConstant - 52)) | (1 << (MotePy.FloatingConstant - 52)) | (1 << (MotePy.CharacterConstant - 52)) | (1 << (MotePy.StringLiteral - 52)))) !== 0)) {
             this.state = 503;
             this.actualParams();
         }

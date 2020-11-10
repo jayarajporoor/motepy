@@ -171,8 +171,8 @@ function merge_regions(target_region, candidate_region, run_start, adjacency, co
 				 				  lt_end: Math.max(tblock.lt_end,cblock.lt_end),
                         		  owners: tblock.owners.concat(cblock.owners)
                         		};
-			print_block("Try cblock ", cblock);
-			print_block("Try tblock ", tblock);
+			//print_block("Try cblock ", cblock);
+			//print_block("Try tblock ", tblock);
             if(tblock.size > cblock.size){
 				tblock.size = tblock.size - cblock.size;
 				merged_block.size = cblock.size;
@@ -190,7 +190,7 @@ function merge_regions(target_region, candidate_region, run_start, adjacency, co
             }
             if(merged_blocks){
 				merged_blocks.push(merged_block);
-				print_block("Merged block ", merged_block);
+				//print_block("Merged block ", merged_block);
 			}
 
 			if(size_saving === 0) run_start = i;//we're just starting a merge-run.
@@ -353,25 +353,25 @@ exports.transform = function(ast, ctx){
 		return;
 	}
 
-    console.log("DUSEQ");
-    ast_util.print_object(ctx.duseq);
+    //console.log("DUSEQ");
+    //ast_util.print_object(ctx.duseq);
 	compute_ltmap(ctx.duseq);
 
 	ctx.stdalloc = {full_ltmap: full_ltmap, ltmap: ltmap};
 
-	console.log("FULL LTMAP", full_ltmap);
-	console.log("LTMAP", ltmap);
+	//console.log("FULL LTMAP", full_ltmap);
+	//console.log("LTMAP", ltmap);
 
 	var max_lifetime = init_regions();
 
 	//console.log(JSON.stringify(regions, null, 1));
-    console.log("After init regions");
-	print_regions();
+    //console.log("After init regions");
+	//print_regions();
 
 	optimize_regions(max_lifetime, default_merge_policy);
 
-	console.log("After optimize");
-	print_regions();
+	//console.log("After optimize");
+	//print_regions();
 	//console.log(JSON.stringify(regions));
 
 	ctx.stdalloc.regions = regions;
@@ -384,8 +384,8 @@ exports.transform = function(ast, ctx){
 		console.log("Total alloc size ", mem.total_alloc_size, ", total size of objects ", mem.total_obj_size);
 		for(var i=0;i<mem.alloc.length;i++){
 			var alloc = mem.alloc[i];
-			console.log(ast_util.get_scoped_name(alloc.sym, "'s "), " at "
-					, alloc.loc, ", object size ", alloc.sym.info.size, ", life time: ", alloc.lifetime.start+ ".."+ alloc.lifetime.end);
+			//console.log(ast_util.get_scoped_name(alloc.sym, "'s "), " at "
+			//		, alloc.loc, ", object size ", alloc.sym.info.size, ", life time: ", alloc.lifetime.start+ ".."+ alloc.lifetime.end);
 		}
 	}
 };
