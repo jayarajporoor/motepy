@@ -1,5 +1,6 @@
 module.exports = [
 	  "-xast", __dirname + "/pseq.js"
+//	, "-xast", __dirname + "/typing/typechecker.js"      
 	, "-xast", __dirname + "/alloc/duseq.js"
 	, "-xast", __dirname + "/alloc/stdalloc.js"
 	, "-xast", __dirname + "/optimizers/simplify_matrix_expr.js"
