@@ -7,6 +7,9 @@ var ast_util = require("../ast_util.js");
 var DynScope = require("../dynscope.js");
 var ast_util = require("../ast_util.js");
 
+function typecheck_array_op(op, ltype_, rtype_){
+      mpbuild.error("Type mismatch at", expr.info.src);
+}
 
 class Typechecker{
   constructor(ctx) {
@@ -49,23 +52,40 @@ class Typechecker{
 
   expr(ast){
     var id = ast.qid ? ast.qid[0] : ast.id;
-
+    console.log("EXPR", ast)
     if(id){
       var sym = this.dynscope.lookup_sym(id);
+      //console.log("SYM", sym)
       //if(sym) console.log(id, " alias to ", sym.name, sym.scope_names); else console.log(id, " not found");
       if(sym){
+          return sym.info.type;
       }
     }else{
       if(ast.expr){
-        this.expr(ast.expr);
+        var type_ = this.expr(ast.expr);
+        return type_;
       }
+      var ltype_ = null, rtype=null;
       if(ast.lexpr){
-        this.expr(ast.lexpr);
+        ltype_ = this.expr(ast.lexpr);
       }
       if(ast.rexpr){
-        this.expr(ast.rexpr);
+        rtype_ = this.expr(ast.rexpr);
       }
-
+      if(!ltype_){
+          ltype_ = {primitive: 'unk'};
+      }
+      if(!rtype_){
+          rtype_ = {primitive: 'unk'}
+      }
+      //TODO: typecheck
+      if(ltype_.primitive !== rtype_.primitive){
+          mpbuild.error("Type mismatch at", expr.info.src);
+          return {primitive: 'unk'};
+      }
+      if(ltype_.dim || rtype_.dim){
+          return typecheck_array_op(ast.op, ltype_, rtype_);
+      }
       if(ast.fcall){
         this.fcall(ast.fcall);
       }
@@ -189,7 +209,7 @@ class Typechecker{
 
           this.symtbl.enterNestedScope(fdef_ast.id);//of the calleee
 
-          this.fdef(fdef_ast, seq);
+          this.fdef(fdef_ast);
           this.symtbl.exitNestedScope();//of the callee
 
           if(is_flow){
@@ -265,7 +285,6 @@ class Typechecker{
         }
       break;
     }
-    return aggr_seq;
   }
 
   fdef(ast){
