@@ -11,7 +11,7 @@ function typecheck_array_op(op, ltype_, rtype_, src){
     //console.log("OP", op, "L", JSON.stringify(ltype_), "R", JSON.stringify(rtype_))
     var match = true;
     var res_type = {"primitive": ltype_.primitive}
-    if (op === "+" || op === "-"){
+    if (op === "+" || op === "-" || op === "(*)"){
         if (ltype_.dim.dim.length == rtype_.dim.dim.length){
             match = true;
             for(var i=0;i<ltype_.dim.dim.length;i++){
