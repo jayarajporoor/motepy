@@ -13,16 +13,45 @@ var errors=0;
 
 global.mpbuild ={errors: [], warnings: [], msgs: [], current_path: null};
 
+function loc_message(src){
+    var text = "Source location: " + src.start.line + ":" + src.start.col +
+    " - " + src.end.line + ":" + src.end.col + " in " + src.mod_name;
+    return text;
+}
+
+function build_message(args){
+    var text = "";
+    for(var i=0;i < args.length;i++){
+        var arg = args[i];
+        if(!arg){
+            continue;
+        }
+        if(i > 0){
+            text = text + ", ";
+        }
+        if(typeof arg === "string"){
+            text = text + arg;
+        }else
+        if(arg.start){
+            text = text + loc_message(arg);
+        }else
+        {
+            text = text + JSON.stringify(arg)
+        }
+    }
+	var msg = {text: text};
+    return msg;
+}
 mpbuild.error = function(){
-	var str = Array.from(arguments).join(" ");
-	var msg = {text: str};
+    var args = Array.from(arguments);
+    var msg = build_message(args);
 	mpbuild.errors.push(msg);
 	throw msg;
 }
 
 mpbuild.warning = function(){
-	var str = Array.from(arguments).join(" ");
-	var msg = {text: str};
+    var args = Array.from(arguments);
+    var msg = build_message(args);
 	mpbuild.warnings.push(msg);
 }
 
@@ -318,8 +347,11 @@ if(require.main === module){
 	}catch(e){
 		if(mpbuild.errors.length > 0){
 			console.log("Compile has errors: ");
-			ast_util.print_object(e, printJson, printColor);
-			ast_util.print_object(mpbuild.errors, printJson, printColor);
+            for(var i=0;i<mpbuild.errors.length;i++){
+                console.log(mpbuild.errors[i].text);
+            }
+			//ast_util.print_object(e, printJson, printColor);
+			//ast_util.print_object(mpbuild.errors, printJson, printColor);
 		}else{
 			throw e;
 		}
@@ -327,7 +359,10 @@ if(require.main === module){
 
 	if(mpbuild.warnings.length > 0){
 		console.log("Warnings: ");
-		ast_util.print_object(mpbuild.warnings, printJson, printColor);
+        for(var i=0;i<mpbuild.warnings.length;i++){
+            console.log(mpbuild.warnings[i].text);
+        }
+		//ast_util.print_object(mpbuild.warnings, printJson, printColor);
 	}
 }else{
 	exports.compile = compile;

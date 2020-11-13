@@ -757,7 +757,8 @@ function src_info(node){
 	var src =
 	{
 		start: get_token_info(node.start),
-		end: get_token_info(node.stop)
+		end: get_token_info(node.stop),
+        mod_name: ctx.mod_name
 	};
 	return src;
 }
@@ -915,6 +916,7 @@ function astModule(moduleDef, ast) {
 function buildAst(tree, mod_ast, symtbl, name) {
     mod_ast.name = name
 	ctx.symtbl = symtbl;
+    ctx.mod_name = name;
 	astModule(tree, mod_ast);
 	return mod_ast;
 }
