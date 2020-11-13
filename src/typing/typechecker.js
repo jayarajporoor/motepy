@@ -7,8 +7,44 @@ var ast_util = require("../ast_util.js");
 var DynScope = require("../dynscope.js");
 var ast_util = require("../ast_util.js");
 
-function typecheck_array_op(op, ltype_, rtype_){
-      mpbuild.error("Type mismatch at", expr.info.src);
+function typecheck_array_op(op, ltype_, rtype_, src){
+    //console.log("OP", op, "L", JSON.stringify(ltype_), "R", JSON.stringify(rtype_))
+    var match = true;
+    var res_type = {"primitive": ltype_.primitive}
+    if (op === "+" || op === "-"){
+        if (ltype_.dim.dim.length == rtype_.dim.dim.length){
+            match = true;
+            for(var i=0;i<ltype_.dim.dim.length;i++){
+                if(ltype_.dim.dim[i].iconst !== rtype_.dim.dim[i].iconst){
+                    match = false;
+                }
+            }
+        }else{
+            match = false;
+        }
+        res_type = ltype_;
+    }else if(op === "*"){
+        if(ltype_.dim.dim[ltype_.dim.dim.length-1].iconst !==
+            rtype_.dim.dim[0].iconst){
+            match = false;
+        }
+        if(match){
+            var res_dim = []
+            for(var i=0;i<ltype_.dim.dim.length-1;i++){
+                res_dim.push(ltype_.dim.dim[i])
+            }
+            for(var i=1;i<rtype_.dim.dim.length;i++){
+                res_dim.push(rtype_.dim.dim[i])
+            }
+            if(res_dim.length > 0){
+                res_type.dim ={dim: res_dim, is_ring:false}
+            }
+        }
+    }
+    if(!match){
+       mpbuild.error("Array dimension mismatch for: " + op + " operation at", src);
+    }
+    return res_type;
 }
 
 class Typechecker{
@@ -52,7 +88,7 @@ class Typechecker{
 
   expr(ast){
     var id = ast.qid ? ast.qid[0] : ast.id;
-    console.log("EXPR", ast)
+    //console.log("EXPR", ast)
     if(id){
       var sym = this.dynscope.lookup_sym(id);
       //console.log("SYM", sym)
@@ -65,7 +101,7 @@ class Typechecker{
         var type_ = this.expr(ast.expr);
         return type_;
       }
-      var ltype_ = null, rtype=null;
+      var ltype_ = null, rtype_=null;
       if(ast.lexpr){
         ltype_ = this.expr(ast.lexpr);
       }
@@ -84,7 +120,7 @@ class Typechecker{
           return {primitive: 'unk'};
       }
       if(ltype_.dim || rtype_.dim){
-          return typecheck_array_op(ast.op, ltype_, rtype_);
+          return typecheck_array_op(ast.op, ltype_, rtype_, ast.src);
       }
       if(ast.fcall){
         this.fcall(ast.fcall);
