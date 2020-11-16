@@ -12,6 +12,8 @@
 
 node_modules/
 
+**/build
+
 # Package Files #
 *.jar
 *.war

@@ -15,5 +15,5 @@ def process() -> void:
     #vec1 = 0 #initialization
     vec1 = 1
     vec1 = vec1 *weights + vec1 *weights#some processing
-    printf("Address of vec1: %ld\n", uint64_t(vec1))
+    Serial.print("process 1\n")
     next()

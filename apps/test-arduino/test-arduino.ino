@@ -46,7 +46,7 @@ void _stage1_process()
             }
             stage1_vec1[__i]=(__t0+__t1);
         }
-        printf("Address of vec1: %ld\n", ( (uint64_t) (stage1_vec1)));
+        Serial.print("process 1\n");
         __state = __stage2_process;
     }
 }
@@ -62,14 +62,10 @@ void _stage2_process()
         {
             stage2_vec2[__i]=0;
             stage2_vec2[__i]=(stage2_vec2[__i]+stage2_vec2[__i]);
-        }
-        printf("Address of vec2: %ld\n", ( (uint64_t) (stage2_vec2)));
-        for(int __i=0; __i<60; __i++)
-        {
             stage2_vec3[__i]=0;
             stage2_vec3[__i]=(stage2_vec3[__i]+stage2_vec3[__i]);
         }
-        printf("Address of vec3: %ld\n", ( (uint64_t) (stage2_vec3)));
+        Serial.print("Process 2\n");
     }
 }
 void loop()
