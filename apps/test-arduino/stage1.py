@@ -1,3 +1,8 @@
+weights2: const float[3][3] = [
+[1,2,3],
+[4,5,6],
+[7,8,9]
+]
 weights: float[60][60]
 vec1: float[60]
 

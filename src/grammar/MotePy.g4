@@ -57,10 +57,10 @@ decoratorDef: DecoratorIdentifier (LP literal RP)? NEWLINE;
 booleanLiteral: value=(TRUE | FALSE);
 
 arrayLiteral
-    : LB (expr (COMMA expr)*)? RB
+    : LS NEWLINE? expr (COMMA NEWLINE? expr)* NEWLINE? RS
     ;
 
-initValue: expr | StringLiteral | functionCall;
+initValue: expr | StringLiteral | functionCall | arrayLiteral;
 
 varIdDef: Identifier COLON CONST? varType (ASSIGN initValue)?;
 
@@ -218,4 +218,4 @@ exprConstant:
     |   booleanLiteral
     ;
 
-literal: exprConstant | functionCall | StringLiteral;
+literal: exprConstant | functionCall | StringLiteral | arrayLiteral;

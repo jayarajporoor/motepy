@@ -417,7 +417,7 @@ function astLiteral(literal){
 
     var exprConstant = literal.exprConstant ? literal.exprConstant() : null;//if astInitValue calls us we won't have exprConstant
     var stringLiteral = literal.StringLiteral();
-//    var arrayLiteral = literal.arrayLiteral();
+    var arrayLiteral = literal.arrayLiteral();
     var funcCall = literal.functionCall();
     var ast = {};
     if(exprConstant){
@@ -428,7 +428,9 @@ function astLiteral(literal){
     }else
     if(funcCall){
     	ast.fconst  = astFunctionCall(funcCall);
-        //astArrayLiteral(arrayLiteral);
+    }else
+    if(arrayLiteral){
+        ast.aconst =  astArrayLiteral(arrayLiteral);
     }
 
     ast.src = src_info(literal);
