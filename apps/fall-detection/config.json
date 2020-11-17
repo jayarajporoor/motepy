@@ -1,0 +1,6 @@
+{
+	"codegen":{
+		"stdincludes" :["Adafruit_MPU6050.h", "Adafruit_Sensor.h", "Wire.h"],
+		"pathincludes" :[]
+	}
+}

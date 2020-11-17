@@ -116,7 +116,7 @@ class Typechecker{
       }
       //TODO: typecheck
       if(ltype_.primitive !== rtype_.primitive){
-          mpbuild.error("Type mismatch at", expr.info.src);
+          //TODO: mpbuild.error("Type mismatch at", ast.src);
           return {primitive: 'unk'};
       }
       if(ltype_.dim || rtype_.dim){
@@ -276,7 +276,7 @@ class Typechecker{
             var param = ast.params[k].expr;
             var sym = this.dynscope.lookup_sym(ast_util.get_var_id(param) );
             if(sym && sym.info.type.dim){
-              use_syms.push(sym);
+              //use_syms.push(sym);
             }
           }
         }
@@ -308,8 +308,7 @@ class Typechecker{
         if(ast.expr){
           this.expr(ast.expr);
         }
-        var stmt_seq = this.stmt(ast.body);
-        aggr_seq = loop_merge(expr_seq, stmt_seq);
+        this.stmt(ast.body);
       break;
       case 'assign':
         this.expr(ast.expr);

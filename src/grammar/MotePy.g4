@@ -8,7 +8,7 @@ options {tokenVocab = MotePyLexer;}
 module
     :   useSpec* includeSpec* varDef*
         NEWLINE*
-        (funcDef+ | pipelineDef | effectsDef)
+        (funcDef* | pipelineDef | effectsDef)
     ;
 
 effectsDef: EFFECTS LB (effectStmt SEMI)* RB;
@@ -45,11 +45,11 @@ pipelineList
     ;
 
 useSpec
-    :   IMPORT Identifier SEMI
+    :   IMPORT Identifier NEWLINE
     ;
 
 includeSpec
-    :   INCLUDE Identifier SEMI
+    :   INCLUDE Identifier NEWLINE
     ;
 
 decoratorDef: DecoratorIdentifier (LP literal RP)? NEWLINE;
