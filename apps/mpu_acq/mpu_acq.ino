@@ -6,7 +6,7 @@
 
 Adafruit_MPU6050 mpu;
 
-#define MAX_SAMPLES 400
+#define MAX_SAMPLES 200
 float accel_x[MAX_SAMPLES];
 float accel_y[MAX_SAMPLES];
 float accel_z[MAX_SAMPLES];
@@ -40,7 +40,6 @@ void acquire() {
     gyro_x[index] = g.gyro.x;
     gyro_y[index] = g.gyro.y;
     gyro_z[index] = g.gyro.z;
-    index++;
   }
   Serial.println("{");
   print_array("accel_x", accel_x);

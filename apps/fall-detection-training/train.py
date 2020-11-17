@@ -40,8 +40,8 @@ def take_derivative(data):
 
 def generate_samples(data, samples, value):
     for v in data:
-        for i in range(0, 400, STRIDE):
-            if i + FRAME_SIZE > 400:
+        for i in range(0, 200, STRIDE):
+            if i + FRAME_SIZE > 200:
                 break
             accel_x = v["accel_x"][i:i+FRAME_SIZE]
             take_derivative(accel_x)
