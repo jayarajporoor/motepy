@@ -4,3 +4,4 @@ def init() -> void:
 @flow
 def do() -> void:
     Serial.println("Fall detected!")
+    delay(1000)

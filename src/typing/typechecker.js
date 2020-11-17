@@ -119,7 +119,7 @@ class Typechecker{
           //TODO: mpbuild.error("Type mismatch at", ast.src);
           return {primitive: 'unk'};
       }
-      if(ltype_.dim || rtype_.dim){
+      if(ltype_.dim && rtype_.dim){
           return typecheck_array_op(ast.op, ltype_, rtype_, ast.src);
       }
       if(ast.fcall){

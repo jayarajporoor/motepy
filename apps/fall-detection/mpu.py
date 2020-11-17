@@ -13,4 +13,4 @@ def init() -> void:
 @flow
 def acquire() -> void:
     mpu.getEvent(&a, &g, &temp)
-    next(a.acceleration.x, a.acceleration.y, a.acceleration.z, a.gyro.x, a.gyro.y, a.gyro.z)
+    next(a.acceleration.x, a.acceleration.y, a.acceleration.z, g.gyro.x, g.gyro.y, g.gyro.z)
