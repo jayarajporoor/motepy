@@ -9,7 +9,7 @@ def featurize(ax: float[100], ay: float[100], az: float[100], gx: float[100], gy
     value: float
     idx: int
     features = 0.0
-    for i in range(0, FRAME_SIZE):
+    for i in range(0, 100):
         value = round(10 + ax[i]*10/8.0)
         idx = min(value, 19)
         idx = max(idx, 0)
