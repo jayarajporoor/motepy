@@ -1,4 +1,4 @@
-var SymbolTable = require("./symtbl.js");
+import SymbolTable from "./symtbl.js";
 
 var ctx = {};
 
@@ -116,7 +116,7 @@ function getActualParams(params) {
 	var param = params.actualParam();
 	var res =[];
 	for(var i=0;i < param.length;i++) {
-		v={};
+		var v={};
 		var expr = param[i].expr();
 		var strLiteral = param[i].StringLiteral();
 		var id = param[i].Identifier();
@@ -934,5 +934,4 @@ function getIncludes(moduleDef, symtbl) {
 }
 
 
-exports.buildAst = buildAst;
-exports.getIncludes = getIncludes;
+export default {buildAst, getIncludes};

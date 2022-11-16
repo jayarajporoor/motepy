@@ -91,4 +91,4 @@ class SymbolTable{
   }
 }
 
-module.exports = SymbolTable;
+export default SymbolTable;

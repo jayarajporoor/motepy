@@ -1,7 +1,7 @@
 'use strict';
 
-var DynScope = require("../dynscope.js");
-var ast_util = require("../ast_util.js");
+import DynScope from "../dynscope.js";
+import ast_util from "../ast_util.js";
 
 function array_push(target, obj){
   for(var i=0;i<obj.length;i++){
@@ -404,9 +404,7 @@ class DUSeq{
 
 }
 
-exports.DUSeq = DUSeq;
-
-exports.transform = function(ast, ctx){
+function transform(ast, ctx){
   var duseq = new DUSeq(ctx);
   ctx.duseq = duseq.build(ast, ctx.symtbl);
   if(ctx.params["-resources"]){
@@ -422,4 +420,4 @@ exports.transform = function(ast, ctx){
   }
 };
 
-exports.name = "duseq";
+export default {DUSeq, transform}

@@ -23,4 +23,7 @@ function codepp(ast,ctx){
 	}
 }
 
-exports.transform=codepp;
+
+var transform=codepp;
+
+export default {transform}

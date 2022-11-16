@@ -1,4 +1,4 @@
-const ast_util = require("../ast_util.js");
+import ast_util from "../ast_util.js";
 
 var symtbl;
 var pipeline_next_state = {};
@@ -612,13 +612,8 @@ function set_symtbl(symtbl){
 var cur_mod="";
 var states=[];
 // codeGen(ast,code);
-exports.transform=code_gen;
-exports.stmt=stmt;
-exports.fdef=fdef;
-exports.fparam=fparam;
-exports.vardef=vardef;
-exports.set_symtbl = set_symtbl;
-exports.strglobals = strglobals;
-exports.boiler_plate = boiler_plate;
-exports.includes = includes;
-exports.memdefs = memdefs;
+var transform = code_gen;
+
+export default {transform, stmt, fdef, fparam, vardef, 
+				set_symtbl, strglobals, boiler_plate, includes, memdefs};
+

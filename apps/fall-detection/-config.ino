@@ -227,7 +227,10 @@ void _model_predict()
         model_predict_res=(model_predict_res+model_fc3_bias);
         model_predict_res=(1/(1+exp((-model_predict_res))));
         model_predict_fall=round(model_predict_res);
-        __state = __action_do;
+        if((model_predict_fall==1))
+        {
+            __state = __action_do;
+        }
     }
 }
 void _action_init()

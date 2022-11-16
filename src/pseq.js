@@ -22,10 +22,10 @@ function pipeline_block(block){
 	}
 }
 
-exports.name = "pseq";
-
-exports.transform = function(ast, ctx){
+function transform(ast, ctx){
 	if(ast.pipeline){
 		pipeline_block(ast.pipeline.block);
 	}
 };
+
+export default {transform}

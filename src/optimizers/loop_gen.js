@@ -1,3 +1,5 @@
+import astlib from "./../ast_util.js";
+
 function loopGen(ast, ctx){
 	for(var i in ast.modules){
 		ctx.symtbl.enterNestedScope(i);
@@ -440,5 +442,7 @@ function addLoop(ast,ctx){
 	return checkIfLoopNeeded(ast,ctx);
 }
 
-var astlib=require("./../ast_util.js");
-exports.transform = loopGen;
+
+var transform = loopGen;
+
+export default {transform}

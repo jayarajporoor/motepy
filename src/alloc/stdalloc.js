@@ -1,5 +1,5 @@
-const assert = require('assert');
-const ast_util = require("../ast_util.js");
+import assert from 'assert';
+import ast_util from '../ast_util.js'
 
 const alignment = 4;
 
@@ -89,7 +89,7 @@ function compute_ltmap(duseq){
 
 function init_regions(){
 	var max_lifetime = 0;
-	for(id in ltmap){
+	for(var id in ltmap){
 		//initially create separate region for each object.
 		var ltentry = ltmap[id];
 		if(typeof ltentry.start !== 'undefined'){
@@ -200,8 +200,8 @@ function merge_regions(target_region, candidate_region, run_start, adjacency, co
 			if(merged_blocks) merged_blocks = [];
 			size_saving = 0;
 			run_start++;//start the run from the next index in the target region.
-			t = run_start;
-			c = 0;
+			//t = run_start;
+			//c = 0;
 			tblock = cblock = null;
 			last_was_matching = false;
 		}
@@ -347,7 +347,7 @@ function print_regions(){
 		}
 	}
 }
-exports.transform = function(ast, ctx){
+function transform(ast, ctx){
 	if(!ctx.duseq){
 		console.log("DUseq must be created prior to calling stdalloc.");
 		return;
@@ -390,4 +390,4 @@ exports.transform = function(ast, ctx){
 	}
 };
 
-exports.name = "stdalloc";
+export default {transform}

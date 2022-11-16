@@ -1,4 +1,4 @@
-const util = require('util')
+import util from 'util';
 
 function print_object(obj, printJson, printColor){
 	if(printJson){
@@ -24,10 +24,10 @@ function find_flow(mod_ast, name){
 	if(!name){
 		return find_default_flow(mod_ast);
 	}
-    is_next = name === "next";
+    var is_next = name === "next";
 	var fdefs = mod_ast.fdefs;
 	for(var i=0;i<fdefs.length;i++){
-        fdef = fdefs[i];
+        var fdef = fdefs[i];
 		if ( (is_next && fdef.decorator && fdef.decorator.id === "flow")
             || (fdef.id === name) )
 		{
@@ -53,6 +53,7 @@ function deep_copy(obj){
 }
 
 function resolve_matrix_expr_by_sym(ast, sym){
+	var id = ast.id
 	var resolv = {};
 	if(!sym){
 		return null;
@@ -140,15 +141,6 @@ function lookup_effect(root_ast, uses, qid, kind){
 
 var vector_ops = ['push'];
 
-exports.print_object = print_object
-exports.find_default_flow = find_default_flow;
-exports.find_fdef = find_fdef;
-exports.find_flow = find_flow;
-exports.vector_ops = vector_ops;
-exports.resolve_matrix_expr = resolve_matrix_expr;
-exports.deep_copy = deep_copy;
-exports.get_scoped_name = get_scoped_name;
-exports.get_var_id = get_var_id;
-exports.first_pipeline_entry = first_pipeline_entry;
-exports.lookup_effect = lookup_effect;
-exports.resolve_matrix_expr_by_sym=resolve_matrix_expr_by_sym;
+export default {print_object, find_default_flow, find_fdef, find_flow, 
+				vector_ops, resolve_matrix_expr, deep_copy, get_scoped_name, get_var_id,
+			     first_pipeline_entry, lookup_effect, resolve_matrix_expr_by_sym};

@@ -75,4 +75,4 @@ class DynScope{
 
 }
 
-module.exports = DynScope;
+export default DynScope;

@@ -1,22 +1,12 @@
 lexer grammar MotePyLexer;
 
+@lexer::header{
+import MotePy from './MotePy.js';
+}
 
 @lexer::members {
 
-  let CommonToken = require('antlr4/Token').CommonToken;
-  let MotePyParser = require('./MotePy').MotePy;
-
-  let old_lexer = MotePyLexer;
-  MotePyLexer = function() {
-    old_lexer.apply(this, arguments);
-    this.reset.call(this);
-  }
-
-  MotePyLexer.prototype = Object.create(old_lexer.prototype);
-  MotePyLexer.prototype.constructor = MotePyLexer;
-
-
-  MotePyLexer.prototype.reset = function() {
+  this.reset = function() {
     // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
     this.token_queue = [];
 
@@ -29,7 +19,9 @@ lexer grammar MotePyLexer;
     antlr4.Lexer.prototype.reset.call(this);
   };
 
-  MotePyLexer.prototype.emitToken = function(token) {
+  this.reset()
+
+  this.emitToken = function(token) {
     this._token = token;
     this.token_queue.push(token);
   };
@@ -41,17 +33,17 @@ lexer grammar MotePyLexer;
    * literal.
    *
    */
-  MotePyLexer.prototype.nextToken = function() {
+  this.nextToken = function() {
     // Check if the end-of-file is ahead and there are still some DEDENTS expected.
-    if (this._input.LA(1) === MotePyParser.EOF && this.indents.length) {
+    if (this._input.LA(1) === MotePy.EOF && this.indents.length) {
 
       // Remove any trailing EOF tokens from our buffer.
       this.token_queue = this.token_queue.filter(function(val) {
-        return val.type !== MotePyParser.EOF;
+        return val.type !== MotePy.EOF;
       });
 
       // First emit an extra line break that serves as the end of the statement.
-      this.emitToken(this.commonToken(MotePyParser.NEWLINE, "\n"));
+      this.emitToken(this.commonToken(MotePy.NEWLINE, "\n"));
 
       // Now emit as much DEDENT tokens as needed.
       while (this.indents.length) {
@@ -60,21 +52,21 @@ lexer grammar MotePyLexer;
       }
 
       // Put the EOF back on the token stream.
-      this.emitToken(this.commonToken(MotePyParser.EOF, "<EOF>"));
+      this.emitToken(this.commonToken(MotePy.EOF, "<EOF>"));
     }
 
     let next = antlr4.Lexer.prototype.nextToken.call(this);
     return this.token_queue.length ? this.token_queue.shift() : next;
   };
 
-  MotePyLexer.prototype.createDedent = function() {
-    return this.commonToken(MotePyParser.DEDENT, "");
+  this.createDedent = function() {
+    return this.commonToken(MotePy.DEDENT, "");
   }
 
-  MotePyLexer.prototype.commonToken = function(type, text) {
+  this.commonToken = function(type, text) {
     let stop = this.getCharIndex() - 1;
     let start = text.length ? stop - text.length + 1 : stop;
-    return new CommonToken(this._tokenFactorySourcePair, type, antlr4.Lexer.DEFAULT_TOKEN_CHANNEL, start, stop);
+    return new antlr4.CommonToken(this._tokenFactorySourcePair, type, antlr4.Lexer.DEFAULT_TOKEN_CHANNEL, start, stop);
   }
 
   // Calculates the indentation of the provided spaces, taking the
@@ -85,7 +77,7 @@ lexer grammar MotePyLexer;
   //  the replacement is a multiple of eight [...]"
   //
   //  -- https://docs.python.org/3.1/reference/lexical_analysis.html#indentation
-  MotePyLexer.prototype.getIndentationCount = function(whitespace) {
+  this.getIndentationCount = function(whitespace) {
     let count = 0;
     for (let i = 0; i < whitespace.length; i++) {
       if (whitespace[i] === '\t') {
@@ -97,7 +89,7 @@ lexer grammar MotePyLexer;
     return count;
   }
 
-  MotePyLexer.prototype.atStartOfInput = function() {
+  this.atStartOfInput = function() {
     return this.getCharIndex() === 0;
   }
 }
@@ -493,7 +485,7 @@ SKIP_
         // dedents and line breaks.
         this.skip();
       } else {
-        this.emitToken(this.commonToken(MotePyParser.NEWLINE, newLine));
+        this.emitToken(this.commonToken(MotePy.NEWLINE, newLine));
 
         let indent = this.getIndentationCount(spaces);
         let previous = this.indents.length ? this.indents[this.indents.length - 1] : 0;
@@ -503,7 +495,7 @@ SKIP_
           this.skip();
         } else if (indent > previous) {
           this.indents.push(indent);
-          this.emitToken(this.commonToken(MotePyParser.INDENT, spaces));
+          this.emitToken(this.commonToken(MotePy.INDENT, spaces));
         } else {
           // Possibly emit more than 1 DEDENT token.
           while (this.indents.length && this.indents[this.indents.length - 1] > indent) {

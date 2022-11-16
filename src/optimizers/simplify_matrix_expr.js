@@ -1,3 +1,5 @@
+import astlib from "./../ast_util.js";
+
 function transform(ast,ctx){
 	for(var i in ast.modules){
 		ctx.symtbl.enterNestedScope(i);
@@ -221,7 +223,7 @@ function expr(ast, ctx, isRoot){
 
 }
 
-var astlib=require("./../ast_util.js");
 var temp_ind=0;
 var block_stmts=[];
-exports.transform=transform;
+
+export default {transform}

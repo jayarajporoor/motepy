@@ -142,4 +142,8 @@ function isMergable(stmt1, stmt2){
 	}
 	return false;
 }
-exports.transform = loopFusion;
+
+
+var transform = loopFusion;
+
+export default {transform}

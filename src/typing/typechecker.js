@@ -1,11 +1,7 @@
 'use strict';
 
-var ast_util = require("../ast_util.js");
-
-'use strict';
-
-var DynScope = require("../dynscope.js");
-var ast_util = require("../ast_util.js");
+import DynScope from "../dynscope.js";
+import ast_util from "../ast_util.js";
 
 function typecheck_array_op(op, ltype_, rtype_, src){
     //console.log("OP", op, "L", JSON.stringify(ltype_), "R", JSON.stringify(rtype_))
@@ -375,9 +371,10 @@ class Typechecker{
 
 }
 
-exports.transform = function(ast, ctx){
+function transform(ast, ctx){
   var typechecker = new Typechecker(ctx);
   typechecker.verify(ast, ctx.symtbl);
 };
 
-exports.name = "typechecker";
+export default {transform}
+

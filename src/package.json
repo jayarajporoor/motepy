@@ -2,14 +2,14 @@
   "name": "src",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "ast_util.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "antlr4": "^4.8.0"
+    "antlr4": "^4.11.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

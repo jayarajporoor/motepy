@@ -1,11 +1,19 @@
-module.exports = [
-	  "-xast", __dirname + "/pseq.js"
-	, "-xast", __dirname + "/typing/typechecker.js"      
-	, "-xast", __dirname + "/alloc/duseq.js"
-	, "-xast", __dirname + "/alloc/stdalloc.js"
-	, "-xast", __dirname + "/optimizers/simplify_matrix_expr.js"
-	, "-xast", __dirname + "/optimizers/loop_gen.js"
-	, "-xast", __dirname + "/optimizers/loop_fusion.js"
-	, "-xast", __dirname + "/code/codegen.js"
-	, "-xast", __dirname + "/code/codepp.js"
+
+import path from 'path'
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+export default [
+	  "-xast", "pseq"
+	, "-xast", "typechecker"      
+	, "-xast", "duseq"
+	, "-xast", "stdalloc"
+	, "-xast", "simplify_matrix_expr"
+	, "-xast", "loop_gen"
+	, "-xast", "loop_fusion"
+	, "-xast", "codegen"
+	, "-xast", "codepp"
 ];

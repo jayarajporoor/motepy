@@ -1,12 +1,44 @@
-const util = require('util')
-var fs = require('fs');
-const path = require('path');
-var antlr4 = require('antlr4/index');
-var MotePyLexer = require(__dirname + '/grammar/parser/MotePyLexer');
-var MotePyParser = require(__dirname + '/grammar/parser/MotePy');
-var astBuilder = require("./astbuilder.js");
-var SymbolTable = require("./symtbl.js");
-var ast_util = require("./ast_util.js");
+import util from 'util'
+import fs from 'fs'
+import path from 'path'
+import antlr4 from 'antlr4'
+import { fileURLToPath } from 'url';
+import process from 'process';
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+//import antlr4 from 'antlr4';
+//let MotePyLexer = await import(__dirname + '/grammar/parser/MotePyLexer.js');
+import MotePyLexer from "./grammar/parser/MotePyLexer.js"
+//import * as MotePyLexer from __dirname + '/grammar/parser/MotePyLexer';
+//let MotePyParser = await import(__dirname + '/grammar/parser/MotePy.js');
+import MotePy from "./grammar/parser/MotePy.js"
+import astBuilder from "./astbuilder.js";
+import SymbolTable from "./symtbl.js";
+import ast_util from "./ast_util.js";
+
+import pseq from "./pseq.js";
+import typechecker from "./typing/typechecker.js"      
+import duseq from "./alloc/duseq.js"
+import stdalloc from "./alloc/stdalloc.js"
+import simplify_matrix_expr from "./optimizers/simplify_matrix_expr.js"
+import loop_gen from "./optimizers/loop_gen.js"
+import loop_fusion from "./optimizers/loop_fusion.js"
+import codegen from "./code/codegen.js"
+import codepp from  "./code/codepp.js"
+
+import mpparams from "./mpparams.js"
+var xast_modules = {
+	"pseq" :pseq,
+	"typechecker" : typechecker,
+	"duseq" : duseq,
+	"stdalloc" : stdalloc,
+	"simplify_matrix_expr": simplify_matrix_expr,
+	"loop_gen": loop_gen,
+	"loop_fusion": loop_fusion,
+	"codegen": codegen,
+	"codepp": codepp
+}
 
 var parseErrorListener = {};
 var errors=0;
@@ -84,10 +116,11 @@ parseErrorListener.reportContextSensitivity = function(offendingToken, line, col
 
 function parse(srcpath, input) {
 	console.log("Parsing " + srcpath);
+	//console.log(util.inspect(antlr4))
     var chars = new antlr4.InputStream(input);
-    var lexer = new MotePyLexer.MotePyLexer(chars);
+    var lexer = new MotePyLexer(chars);
     var tokens  = new antlr4.CommonTokenStream(lexer);
-    var parser = new MotePyParser.MotePy(tokens);
+    var parser = new MotePy(tokens);
     parser.buildParseTrees = true;
     parser.addErrorListener(parseErrorListener);
     errors=0;
@@ -136,6 +169,7 @@ function loadModule(ast, name, basepath, symtbl){
 
 	for(var j=0;j<includes.length;j++){
 		var inc_ast = loadInclude(includes[j].name, basepath, symtbl);
+		var k;
 		for(k=0;k<inc_ast.fdefs.length;k++){
 			mod_ast.fdefs.push(inc_ast.fdefs[k]);
 		}
@@ -193,23 +227,23 @@ function compile(argv)
 	var mod_params = {};
 
 	mpbuild.errors = [];
-	compiler_warnings = [];
-	compiler_info = [];
+	var compiler_warnings = [];
+	var compiler_info = [];
 
 	if(argv.length === 0) {
 		return mpbuild.error("Please provide the pipeline definition file name to be compiled.");
 	}
 
-	srcpath = argv[0];
+	var srcpath = argv[0];
 	argv.shift();
 
 	try{
 		if(argv[0] !== "-bare"){
-			var paramspath = __dirname + "/mpparams.js";
-			var params = require(paramspath);
+			var params = mpparams; 
 			argv = params.concat(argv);
 		}
 	}catch(e){
+		console.log(e)
 		mpbuild.warning("Default parameter file ", paramspath , "not accessible or properly formed.");
 	}
 
@@ -229,10 +263,10 @@ function compile(argv)
 			break;
 			case "-xast":
 				if(argv[i+1]){
-					ast_transforms.push(argv[i+1]);
+					ast_transforms.push(xast_modules[argv[i+1]] );
 					i++;
 				}else{
-					return mpbuild.error("Please provide the compiler xast module file path.");
+					return mpbuild.error("Please provide a valid xast module name. Invalid module: " + argv[i+1]);
 				}
 			break;
 			case "-code":
@@ -299,7 +333,7 @@ function compile(argv)
 	}
 
 	for(var i=0;i<ast_transforms.length;i++){
-		var xmod = require(ast_transforms[i]);
+		var xmod = ast_transforms[i];
 		if(!xmod.transform){
 			return mpbuild.error("The transform module ", ast_transforms[i], " do not have transform(ast, ctx) function defined.");
 		}else{
@@ -340,7 +374,7 @@ function compile(argv)
 	return {ast: ast, ctx: transform_ctx};
 }
 
-if(require.main === module){
+if ( process.argv[1] === fileURLToPath(import.meta.url) ){
 	process.argv.splice(0, 2);
 	try{
 		compile(process.argv);
